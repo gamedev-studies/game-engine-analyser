@@ -1,0 +1,17 @@
+name,abbreviation,short_description
+Audio,AUD,manages audio playback and effects
+Core Systems,COR,manages module start-up and shutdown; contains libraries for math; memory allocation; etc.
+Profiling and Debugging,DEB,manages performance stats; debugging via in-game menus or console
+World Editor,EDI,enables game world-building using a visual tool
+Front End,FES,manages GUI; menus; heads-up display (HUD); full-motion video playback
+Gameplay Foundations,GMP,manages the game object model; scripting system; event/messaging system
+Human Interface Devices,HID,manages game-specific input interfaces; physical device I/O
+Low-Level Renderer,LLR,manages cameras; textures; materials; shaders; fonts and drawing tasks in general
+Online Multiplayer,OMP,manages match-making and game state replication
+Collision and Physics,PHY,manages forces and constraints; rigid bodies; ray/shape casting
+Platform Independence Layer,PLA,manages platform detection; graphics wrappers; file system; threading
+Resources,RES,manages loading and caching of game assets such as 3D models; textures; fonts; etc.
+Third-party SDKs,SDK,enables interfacing with DirectX; OpenGL; Vulkan; Havok; PhysX; STL
+Scene graph/culling optimizations,SGC,manages the computing of spatial hash; occlusion; level of detail (LOD)
+Skeletal Animation,SKA,manages animation state tree; inverse kinematics (IK); mesh rendering
+Visual Effects,VFX,enables light mapping; dynamic shadows; particles; decals
