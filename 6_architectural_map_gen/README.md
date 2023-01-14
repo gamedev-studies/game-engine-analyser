@@ -1,5 +1,5 @@
 # Generating a Moose model for game engines
-By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022. This script 
+By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022.
 
 ## How to do it
 - Download Pharo Laucher: https://pharo.org/download.
