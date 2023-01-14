@@ -1,5 +1,5 @@
 # Game Engine Analyser
-By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022. This script 
+By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022.
 
 ## How to use it?
 - Copy to the "inputs" the include graph (.dot) and tags file for your game engine project. If you performed steps 3 and 4 of the approach, you will have this date. If you did not perform these steps, please go back and complete them first for your game engine of choice.
