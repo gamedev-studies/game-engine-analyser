@@ -15,11 +15,13 @@ def main():
 
     sum2 = map_dependencies['cocos2d-x'] + map_dependencies['godot'] + map_dependencies['urho3d']
     sns.set(rc={'figure.figsize':(12,8)})
+
+    # pallette chosen because it is good for colorblind
     colormap = sns.color_palette("bwr")
     hm = sns.heatmap(sum2.tolist(), vmin=0, vmax=3, annot=True, 
                     xticklabels=subsystems, yticklabels=subsystems, cmap=colormap, cbar=True)
     fig = hm.get_figure()
-    fig.savefig("out.pdf") 
+    fig.savefig("heatmap.pdf") 
 
 # get the sum for each column in the heatmap
 # useful to understand how much included a subsystem is
