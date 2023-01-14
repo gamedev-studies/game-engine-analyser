@@ -1,4 +1,4 @@
-subsystem,artifact_description,path_from_root,related_information
+subsystem,entity_description,path_from_root,related_information
 AUD,,/drivers/alsa,
 AUD,,/drivers/alsamidi,
 AUD,,/drivers/coreaudio,

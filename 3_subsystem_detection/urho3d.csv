@@ -1,4 +1,4 @@
-subsystem,artifact_description,path_from_root,related_information
+subsystem,entity_description,path_from_root,related_information
 AUD,,/include/Urho3D/Audio,
 AUD,,/Source/Urho3D/Audio,https://rurho3d.github.io/doxygen/_audio.html
 COR,,/include/Urho3D/Base,
