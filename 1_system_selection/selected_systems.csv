@@ -1,6 +1,6 @@
 repository,repository_link,branch,commit,forks_plus_stars,header_count,folder_count
-cocos2d-x*,https://github.com/cocos2d/cocos2d-x,HEAD - v4,90f6542cf7,23300,1089,642,
-godot*,https://github.com/godotengine/godot,HEAD - 3.4;tag: 3.4.5-stable,f9ac000d5d,59200,2748,1022,  
-Urho3d*,https://github.com/urho3d/Urho3D,HEAD - master,feb0d90190,4956,3446,1546,  
-o3de,https://github.com/o3de/o3de,HEAD - development,21ab0506da,6400,8196,8223,  
+cocos2d-x*,https://github.com/cocos2d/cocos2d-x,HEAD - v4,90f6542cf7,23300,1089,642
+godot*,https://github.com/godotengine/godot,HEAD - 3.4;tag: 3.4.5-stable,f9ac000d5d,59200,2748,1022 
+Urho3d*,https://github.com/urho3d/Urho3D,HEAD - master,feb0d90190,4956,3446,1546
+o3de,https://github.com/o3de/o3de,HEAD - development,21ab0506da,6400,8196,8223
 UnrealEngine,https://github.com/EpicGames/UnrealEngine,HEAD - release;tag: 5.0.2-release,d11782b904,64100,82270,43279
