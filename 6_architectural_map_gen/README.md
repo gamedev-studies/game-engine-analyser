@@ -57,3 +57,8 @@ self roassalCanvas pdfExporter noFixedShapes; export.
 - Execute by selecting all and pressing CTRL + D.
 - The architectural map PDF will be saved to your Pharo image's root folder. In Linux, the path to the image should be something like: /home/your_username/Pharo/images/your_image.
 - P.S: other formats are available for exporting, such as PNG and SVG. You can see more info at https://github.com/ObjectProfile/Roassal3Exporters.
+
+# Extra
+You will also find in this folder:
+- The Python code to generate a include heatmap (gen_heatmap.py).
+- JavaScript code you can use to count edges from an SVG architectural map (count_edges.js).

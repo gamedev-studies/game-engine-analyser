@@ -1,0 +1,17 @@
+asubsystem,godot-OMP,godot-FES,godot-COR,godot-EDI,godot-PLA,godot-GMP,godot-SKA,godot-RES,godot-HID,godot-SGC,godot-PHY,godot-VFX,godot-SDK,godot-AUD,godot-DEB,godot-LLR
+godot-OMP,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+godot-FES,0,1,1,1,0,0,0,1,0,1,0,1,0,1,0,0
+godot-COR,1,1,1,1,1,1,0,1,0,1,0,1,0,0,1,1
+godot-EDI,0,1,1,1,0,1,1,1,0,1,0,1,0,1,1,1
+godot-PLA,0,0,1,1,1,0,0,1,0,0,0,0,0,1,0,1
+godot-GMP,0,1,1,1,0,1,0,1,0,0,0,0,0,0,0,0
+godot-SKA,0,0,0,1,0,0,1,1,0,1,0,1,0,1,0,0
+godot-RES,0,1,1,1,0,0,1,1,1,1,0,1,0,1,0,1
+godot-HID,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0
+godot-SGC,0,1,1,1,0,0,1,1,0,1,0,1,0,1,1,1
+godot-PHY,0,0,0,0,0,0,0,1,0,1,1,0,0,0,0,0
+godot-VFX,0,1,0,1,0,0,1,1,0,1,1,1,0,1,0,1
+godot-SDK,1,1,1,0,0,0,1,1,0,0,1,0,1,0,0,0
+godot-AUD,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0
+godot-DEB,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0
+godot-LLR,0,0,0,1,0,0,0,1,1,1,0,0,0,0,0,1

@@ -1,0 +1,17 @@
+asubsystem,cocos2d-x-PLA,cocos2d-x-SDK,cocos2d-x-HID,cocos2d-x-RES,cocos2d-x-SKA,cocos2d-x-EDI,cocos2d-x-OMP,cocos2d-x-DEB,cocos2d-x-GMP,cocos2d-x-VFX,cocos2d-x-SGC,cocos2d-x-PHY,cocos2d-x-LLR,cocos2d-x-AUD,cocos2d-x-COR,cocos2d-x-FES
+cocos2d-x-PLA,1,0,0,0,0,0,1,0,0,1,0,0,1,0,1,0
+cocos2d-x-SDK,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+cocos2d-x-HID,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+cocos2d-x-RES,1,0,0,1,0,0,1,0,0,1,0,0,0,0,1,0
+cocos2d-x-SKA,0,0,0,0,1,0,0,0,0,0,0,0,1,0,1,0
+cocos2d-x-EDI,1,0,0,0,0,1,0,0,0,1,1,0,1,0,1,1
+cocos2d-x-OMP,1,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0
+cocos2d-x-DEB,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+cocos2d-x-GMP,1,0,0,0,1,1,1,0,1,1,1,1,1,0,1,1
+cocos2d-x-VFX,1,0,0,0,0,0,0,0,0,1,1,1,1,0,1,0
+cocos2d-x-SGC,1,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0
+cocos2d-x-PHY,1,0,0,0,0,0,0,0,0,1,1,1,1,0,1,0
+cocos2d-x-LLR,1,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0
+cocos2d-x-AUD,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0
+cocos2d-x-COR,1,0,0,0,0,0,0,0,0,1,1,0,1,0,1,0
+cocos2d-x-FES,1,0,0,0,0,1,0,0,0,1,0,0,1,0,1,1
