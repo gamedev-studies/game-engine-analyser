@@ -11,19 +11,19 @@ By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politow
 - Currently the dependencies for the game engine analyser are not all togheter in 1 package. Therefore, we need to install some dependencies separately. Open Playground by pressing CTRL + O + W or go to Browse > Playground. Copy the following code, paste it in Playground and execute it by clicking "do it" or selecting all and pressing CTRL + D:
 ```
 Metacello new
-    baseline: 'Roassal3Exporters';
-    repository: 'github://ObjectProfile/Roassal3Exporters';
-    load.
-
-Metacello new
     baseline: 'GroupTagger';
     repository: 'github://gamedev-studies/group-tagger:main';
     onConflict: [ :ex | ex useIncoming ];
     onUpgrade: [ :ex | ex useIncoming ];
 	onDowngrade: [ :ex | ex useLoaded ];
     load.
+
+Metacello new
+    baseline: 'Roassal3Exporters';
+    repository: 'github://ObjectProfile/Roassal3Exporters';
+    load.
 ```
-- Wait for the dependencies to be installed. This may take several minutes. This package is necessary for us to be able to export the architectural map to PDF or other format after we generate it.
+- Wait for the dependencies to be installed. This may take several minutes. These packages are necessary for us to be able to tag and later export the architectural map to PDF or other format after we generate it.
 - Clean the Playground window or open a new one. Now you will execute the code generated in step 5. Copy and paste it into the Playground window.
 - Execute the code by clicking "do it" or selecting all and pressing CTRL +D.
 - On the top menu, go to Moose > Tag Browser. You should see all subsystems from step 3 and their respective files as tags on the list.
