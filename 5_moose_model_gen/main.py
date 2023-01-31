@@ -1,5 +1,7 @@
 import json
 import sys
+import os
+from datetime import datetime
 import pandas as pd
   
 # utils
@@ -33,9 +35,9 @@ def convert_dot_to_xml(config=None):
             count += 1
             strp_line = line.strip()
             if len(strp_line) > 1 and strp_line[1] == "/":
-                abc = line.replace('\"', '').replace('\t', '').replace('\n', '').split(" -> ")
-                included_by.append(abc[0])
-                include.append(abc[1])
+                replaced_line = line.replace('\"', '').replace('\t', '').replace('\\n', '').split(" -> ")
+                included_by.append(replaced_line[0])
+                include.append(replaced_line[1])
 
         ds = pd.DataFrame()
         ds['includedBy'] = included_by
@@ -60,20 +62,28 @@ def convert_dot_to_xml(config=None):
 
         output_file = open('outputs/' + config['project_name'] + '-includes.xml', 'w')
         lines = output_file.writelines(xml_result)
+        abs_path = os.path.realpath(output_file.name)
         output_file.close()
+        return abs_path
     else:
         print("Missing or malformed config file, please check if there is a config.json in the inputs folder")
 
-def generate_tags_from_csv(config=None):
-    pharo_code = "|model foldersTags tagsColors files modelFolders projName|\nprojName := '" + config['project_name'] + "'.\nmodel := MooseModel root at: x.\nfoldersTags := Dictionary newFrom: {\n"
+def generate_tags_from_csv(abs_path, config=None):
     if not config == None:
-        ds = pd.read_csv(config['tags_csv_file_path'], sep=',')
-        for item in ds.values:
-            path_parts = extract_name_parent(item[1])
-            if not "'" + path_parts + "'" in pharo_code:
-                pharo_code += "'" + path_parts + "' -> '" + item[0] + "' ."
-        pharo_code += "}.\ntagsColors := Dictionary newFrom: { 'AUD' -> '#f0e442'. 'OMP' -> '#ff0000'. 'HID' -> '#ea9999'. 'DEB' -> '#cccccc'. 'SGC' -> '#009e73'. 'LLR' -> '#00b816'. 'VFX' -> '#b8f100'. 'FES' -> '#6de900'. 'PLA' -> '#8288f1'. 'GMP' -> '#af93f8'. 'SDK' -> '#f8beff'. 'SKA' -> '#fce5cd'. 'PHY' -> '#fbbc04'. 'RES' -> '#efefef'. 'COR' -> '#4fc8e5'. 'EDI' -> '#56b4e9' }.\nmodelFolders := model allWithType: FamixCPreprocFolder.\ntagsColors keys do: [ :key | (model tagNamed: projName , '-' , key) color: (Color fromHexString: (tagsColors at: key))].\nfoldersTags keys do: [ :key | (modelFolders select: [:file | file name = key]) do: [ :file | file tagWith: (model tagNamed: projName , '-' ,(foldersTags at: key))] ]."
-        output_file = open('outputs/' + config['project_name'] + '-tags.st', 'w')
+        pharo_code = ""
+        abs_path = abs_path.split("outputs")[0]
+        today = datetime.today().strftime('%Y%m%d')
+        templ_lines = open('script_template.txt')
+        for line in templ_lines:
+            pharo_code += line
+
+        pharo_code = pharo_code.replace('$tagsCSVFilePath$', abs_path + config['tags_csv_file_path'])
+        pharo_code = pharo_code.replace('$setProjectName$', config['project_name'])
+        pharo_code = pharo_code.replace('$modelNameWithDate$', config['project_name'] + '-' + today)
+        pharo_code = pharo_code.replace('$includeXMLPath$', abs_path + 'outputs/' + config['project_name'] + '-includes.xml')
+        pharo_code = pharo_code.replace('$projectFullPath$', config['project_full_path'])
+
+        output_file = open('outputs/' + config['project_name'] + '-model-gen.st', 'w')
         output_file.writelines(pharo_code)
         output_file.close()
     else:
@@ -82,6 +92,6 @@ def generate_tags_from_csv(config=None):
 project_name = sys.argv[1]
 config_path = 'inputs/config_' + project_name + '.json'
 config = load_config(config_path)
-convert_dot_to_xml(config)
-generate_tags_from_csv(config)
+abc = convert_dot_to_xml(config)
+generate_tags_from_csv(abc, config)
 print("Done!")

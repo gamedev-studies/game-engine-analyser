@@ -17,5 +17,5 @@ By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politow
 # Results
 Result files are placed in the "outputs" folder. After script execution, you should see there:
 - A .xml file: it contains all includes, which can be used in the next step, the Moose importer.
-- A .st file: it contains Pharo code to tag entities in the model you will create in the next step.
+- A .st file: it contains Pharo code to generate a model and tag entities in this model.
 - For more information, please read README.md on step 6.
