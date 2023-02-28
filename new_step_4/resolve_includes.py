@@ -9,6 +9,9 @@ file_save_path = 'bobo.txt'
 engine_path = sys.argv[1]
 engine_name = sys.argv[2]
 
+# ignore 8 lines which are graphviz boilerplate
+count_1st = int(sys.argv[3].split(" ")[0]) - 8
+
 def to_array(path_str):
     path_str = path_str.replace('<', '').replace('>', '').replace('"', '')
     return path_str.split('/')[::-1]
@@ -84,8 +87,16 @@ for filename in unique_filenames:
 
 # 5 - print stats
 print("==========")
-print(len(arr_res_2nd), "resolved on 2nd pass")
-print(len(arr_unresolved), "unresolved", )
+count_2nd = len(arr_res_2nd)
+count_unresolved = len(arr_unresolved)
+count_total = count_1st + count_2nd + count_unresolved
+print(count_1st, "resolved on 1st pass")
+print(count_2nd, "resolved on 2nd pass")
+print(count_unresolved, "unresolved", )
+print("----------")
+print(count_total, "total includes")
+perc_unr = (count_unresolved/count_total)*100
+print("{:3.2f}".format(perc_unr), "% unresolved includes")
 print("==========")
 
 # 6 - write report resolved
@@ -103,8 +114,12 @@ file.close()
 # 7 - write report unresolved
 output = ""
 for path in arr_unresolved:
+    path = path.replace("++", "\+\+")
     ds_filtered = ds[(ds['includes'].str.contains(path))]
-    output += ds_filtered.values[0][0] + ',' + path + '\n'
+    if len(ds_filtered) > 0:
+        output += ds_filtered.values[0][0] + ',' + path + '\n'
+    else:
+        output += 'NA,' + path + '\n'
 
 file = open("outputs/" + engine_name + "_unresolved.csv", "w")
 file.write(output)
