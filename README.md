@@ -11,4 +11,5 @@ This entire approach was written and run on Ubuntu 20.04.5 LTS. In order to run 
 - Python 3.8
 - All Python packages from requirements.txt (in this folder)
 - Perl 5
+- Graphviz
 - Pharo Launcher (from pharo.org)
