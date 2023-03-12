@@ -283,7 +283,7 @@ foreach $item (keys %links)
 }
 
 # Print names of not found files
-my $fln = '/home/ullmann/Documents/research/game-engine-analyser/new_step_4/outputs/errors.txt';
+my $fln = './outputs/errors.txt';
 open(FH, '>', $fln) or die $!;
 foreach $item (sort keys %notfound)
 {
