@@ -13,6 +13,8 @@ engine_name = sys.argv[2]
 # ignore 8 lines which are graphviz boilerplate
 count_1st = int(sys.argv[3].split(" ")[0]) - 8
 
+starting_time = sys.argv[6] + ' ' + sys.argv[7] + ' ' + sys.argv[8] + ' ' + sys.argv[9]
+
 def to_array(path_str):
     path_str = path_str.replace('<', '').replace('>', '').replace('"', '')
     return path_str.split('/')[::-1]
@@ -60,7 +62,8 @@ def append_to_old_file(old_filename, new_text):
     count = len(lines)
     print("count", count)
     print("new_text", new_text[0:15])
-    with open(engine_name + "_includes2.dot" , "w") as file:
+
+    with open(old_filename, "w") as file:
         for i, line in enumerate(lines):
             clear_line = line.replace('/\\n', '/')
             if i < (count - 1):  
@@ -73,7 +76,8 @@ def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
     file = open('./outputs/' + engine_name + '_report.csv', 'w')
     file.write("attribute,value\n")
     file.write("engine name," + engine_name + '\n')
-    file.write("analysis date," + datetime.today().strftime('%Y-%m-%d') + '\n')
+    file.write("analysis started at," + starting_time + '\n')
+    file.write("report generated at," + datetime.today().strftime('%d %b %Y %I:%M:%S') + '\n')
     file.write("resolved on 1st pass," + str(stpass) + '\n')
     file.write("resolved on 2nd pass," + str(ndpass) + '\n')
     file.write("unresolved," + str(unresolved) + '\n')
