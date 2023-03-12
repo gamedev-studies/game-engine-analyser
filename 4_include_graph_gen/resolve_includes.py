@@ -3,9 +3,10 @@ import sys
 import numpy as np
 import pandas as pd
 from pathlib import Path
+from datetime import datetime
 
 script_path = Path().absolute()
-file_save_path = 'bobo.txt'
+file_save_path = 'unresolved.txt'
 engine_path = sys.argv[1]
 engine_name = sys.argv[2]
 
@@ -53,6 +54,33 @@ def build_find_commands(unique_filenames):
         ("\|".join(unique_filenames)) + "'"
     return str_command + " > " + file_save_path
 
+def append_to_old_file(old_filename, new_text):
+    with open(old_filename, "r") as file:
+        lines = file.readlines()
+    count = len(lines)
+    print("count", count)
+    print("new_text", new_text[0:15])
+    with open(engine_name + "_includes2.dot" , "w") as file:
+        for i, line in enumerate(lines):
+            clear_line = line.replace('/\\n', '/')
+            if i < (count - 1):  
+                file.write(clear_line)
+            else:  
+                file.write(new_text)  
+    
+def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
+    perc_unr = (count_unresolved/count_total)*100
+    file = open('./outputs/' + engine_name + '_report.csv', 'w')
+    file.write("attribute,value\n")
+    file.write("engine name," + engine_name + '\n')
+    file.write("analysis date," + datetime.today().strftime('%Y-%m-%d') + '\n')
+    file.write("resolved on 1st pass," + str(stpass) + '\n')
+    file.write("resolved on 2nd pass," + str(ndpass) + '\n')
+    file.write("unresolved," + str(unresolved) + '\n')
+    file.write("total includes," + str(count_total) + '\n')
+    file.write("percentage of unresolved," + str(round(perc_unr, 2)) + '\n')
+    file.close()
+
 arr_res_2nd = []
 arr_unresolved = []
 
@@ -85,31 +113,23 @@ for filename in unique_filenames:
     else:
         arr_unresolved.append(filename)
 
-# 5 - print stats
-print("==========")
+# 5 - print include count report
+os.chdir(script_path)
 count_2nd = len(arr_res_2nd)
 count_unresolved = len(arr_unresolved)
 count_total = count_1st + count_2nd + count_unresolved
-print(count_1st, "resolved on 1st pass")
-print(count_2nd, "resolved on 2nd pass")
-print(count_unresolved, "unresolved", )
-print("----------")
-print(count_total, "total includes")
-perc_unr = (count_unresolved/count_total)*100
-print("{:3.2f}".format(perc_unr), "% unresolved includes")
-print("==========")
+save_report(count_1st, count_2nd, count_unresolved, count_unresolved, count_total)
 
 # 6 - write report resolved
-os.chdir(script_path)
-output = 'digraph "source tree" { overlap=scale; size="8,10"; ratio="fill"; fontsize="16"; fontname="Helvetica"; clusterrank="local";'
+output = ''
 for path in arr_res_2nd:
     ds_filtered = ds[(ds['includes'].str.contains(path[0]))]
     abs_path = path[1].replace('./', engine_path + '/')
-    output += ds_filtered.values[0][0] + ' -> ' + abs_path + '\n'
+    output += '	"' + ds_filtered.values[0][0] + '" -> "' + abs_path + '"\n'
+
 output += "}"
-file = open("outputs/" + engine_name + "_res_2nd.dot", "w")
-file.write(output)
-file.close()
+
+append_to_old_file("./outputs/" + engine_name + "_includes.dot", output)
 
 # 7 - write report unresolved
 output = ""
