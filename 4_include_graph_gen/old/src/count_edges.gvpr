@@ -1,9 +1,0 @@
-
-BEG_G {
-    int n = nNodes($G);
-    int e = nEdges($G);
-    printf("edge,includes,includedby,sum\n")
-}
-N {
-    printf("%s,%d,%d,%d\n", $.name, $.outdegree, $.indegree, $.indegree + $.outdegree);
-}
