@@ -1,0 +1,7 @@
+{
+    "project_name": "testproject",
+    "project_full_path": "/home/ullmann/Documents/research/game-engine-analyser/tests/testproject",
+    "project_shortened_path": "./testproject",
+    "includes_dot_file_path": "inputs/testproject-includes.dot",
+    "tags_csv_file_path": "inputs/testproject-tags.csv"
+}

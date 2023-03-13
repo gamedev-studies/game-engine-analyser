@@ -1,1 +1,0 @@
-sh cpp-walker.sh /home/ullmann/Documents/research/urho3d /home/ullmann/Documents/research/urho3d urho3d

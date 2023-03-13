@@ -13,3 +13,18 @@ This entire approach was written and run on Ubuntu 20.04.5 LTS. In order to run 
 - Perl 5
 - Graphviz
 - Pharo Launcher (from pharo.org)
+
+## Naming standard
+For inputs and outputs, project name should come first, then an hyphen, then one or more words to describe the file. Folders and scripts follow the snake case standard.
+
+Example inputs:
+- project-config.json
+- project-includes.dot
+- project-tags.csv
+
+Example outputs:
+- project-includes.dot
+- project-report.csv
+- project-includes-unr.csv
+- project-includes.xml
+- project-tags.st

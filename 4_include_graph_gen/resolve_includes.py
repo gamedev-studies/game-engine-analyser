@@ -73,7 +73,7 @@ def append_to_old_file(old_filename, new_text):
     
 def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
     perc_unr = (count_unresolved/count_total)*100
-    file = open('./outputs/' + engine_name + '_report.csv', 'w')
+    file = open('./outputs/' + engine_name + '-report.csv', 'w')
     file.write("attribute,value\n")
     file.write("engine name," + engine_name + '\n')
     file.write("analysis started at," + starting_time + '\n')
@@ -133,7 +133,7 @@ for path in arr_res_2nd:
 
 output += "}"
 
-append_to_old_file("./outputs/" + engine_name + "_includes.dot", output)
+append_to_old_file("./outputs/" + engine_name + "-includes.dot", output)
 
 # 7 - write report unresolved
 output = ""
@@ -145,6 +145,6 @@ for path in arr_unresolved:
     else:
         output += 'NA,' + path + '\n'
 
-file = open("outputs/" + engine_name + "_unresolved.csv", "w")
+file = open("outputs/" + engine_name + "-includes-unr.csv", "w")
 file.write(output)
 file.close()

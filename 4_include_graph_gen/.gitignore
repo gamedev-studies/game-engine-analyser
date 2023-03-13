@@ -1,0 +1,4 @@
+outputs/*.xml
+outputs/*.csv
+outputs/*.dot
+outputs/*.st

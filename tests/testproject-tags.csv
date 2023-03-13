@@ -1,0 +1,16 @@
+subsystem,entity_description,path_from_root,related_information
+STU,,/Student-Record-Management-System
+BDS,,/Bank-Management/DSAproject/BST_Node.cpp
+BDS,,/Bank-Management/DSAproject/BST_Node.h
+BDS,,/Bank-Management/DSAproject/BST_Tree.cpp
+BDS,,/Bank-Management/DSAproject/BST_Tree.h
+BDS,,/Bank-Management/DSAproject/Hashtable.cpp
+BDS,,/Bank-Management/DSAproject/Hashtable.h
+BDS,,/Bank-Management/DSAproject/Node.cpp
+BDS,,/Bank-Management/DSAproject/Node.h
+BDS,,/Bank-Management/DSAproject/Node_1.cpp
+BDS,,/Bank-Management/DSAproject/Node_1.h
+BET,,/Bank-Management/DSAproject/admin.h
+BET,,/Bank-Management/DSAproject/customer.h
+BET,,/Bank-Management/DSAproject/main.h
+BET,,/Bank-Management/DSAproject/staff.h

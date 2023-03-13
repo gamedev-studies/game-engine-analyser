@@ -5,12 +5,12 @@ from datetime import datetime
 import pandas as pd
   
 # utils
-def load_config(path):
+def load_config(path, project_name="projectname"):
     try:
         f = open(path)
         return json.load(f)
     except:
-        print("Missing or malformed config file, please check if there is a config.json in the inputs folder")
+        print("Missing or malformed config file, please check if there is a " + project_name + "-config.json in the inputs folder")
 
 def extract_name_parent(path):
     # deprecated
@@ -19,7 +19,7 @@ def extract_name_parent(path):
     return path
 
 # main functions
-def convert_dot_to_xml(config=None):
+def convert_dot_to_xml(config=None, project_name="projectname"):
     if not config == None:
         # Aux vars
         included_by = []
@@ -66,9 +66,9 @@ def convert_dot_to_xml(config=None):
         output_file.close()
         return abs_path
     else:
-        print("Missing or malformed config file, please check if there is a config.json in the inputs folder")
+        print("Missing or malformed config file, please check if there is a " + project_name + "-config.json in the inputs folder")
 
-def generate_tags_from_csv(abs_path, config=None):
+def generate_tags_from_csv(abs_path, config=None, project_name="projectname"):
     if not config == None:
         pharo_code = ""
         abs_path = abs_path.split("outputs")[0]
@@ -87,11 +87,11 @@ def generate_tags_from_csv(abs_path, config=None):
         output_file.writelines(pharo_code)
         output_file.close()
     else:
-        print("Missing or malformed config file, please check if there is a config.json in the inputs folder")
+        print("Missing or malformed config file, please check if there is a " + project_name + "-config.json in the inputs folder")
 
 project_name = sys.argv[1]
-config_path = 'inputs/config_' + project_name + '.json'
-config = load_config(config_path)
-abc = convert_dot_to_xml(config)
-generate_tags_from_csv(abc, config)
+config_path = 'inputs/' + project_name + '-config.json'
+config = load_config(config_path, project_name)
+abc = convert_dot_to_xml(config, project_name)
+generate_tags_from_csv(abc, config, project_name)
 print("Done!")
