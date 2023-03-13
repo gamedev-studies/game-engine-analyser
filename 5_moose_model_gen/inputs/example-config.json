@@ -3,5 +3,6 @@
     "project_full_path": "/home/myuser/engines/some_engine",
     "project_shortened_path": "./someEngine",
     "includes_dot_file_path": "inputs/includes_some_engine.dot",
-    "tags_csv_file_path": "inputs/tags_some_engine.csv"
+    "tags_csv_file_path": "inputs/tags_some_engine.csv",
+    "color_map": "{ 'EX1' -> '#34b4eb'. 'EX2' -> '#eb3a34' }"
 }

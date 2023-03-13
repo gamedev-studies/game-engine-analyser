@@ -3,5 +3,6 @@
     "project_full_path": "/home/ullmann/Documents/research/game-engine-analyser/tests/testproject",
     "project_shortened_path": "./testproject",
     "includes_dot_file_path": "inputs/testproject-includes.dot",
-    "tags_csv_file_path": "inputs/testproject-tags.csv"
+    "tags_csv_file_path": "inputs/testproject-tags.csv",
+    "color_map": "{ 'STU' -> '#34b4eb' . 'BDS' -> '#eb3a34' . 'BET' -> '#34eb61'  }"
 }

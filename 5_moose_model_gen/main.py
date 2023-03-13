@@ -82,6 +82,7 @@ def generate_tags_from_csv(abs_path, config=None, project_name="projectname"):
         pharo_code = pharo_code.replace('$modelNameWithDate$', config['project_name'] + '-' + today)
         pharo_code = pharo_code.replace('$includeXMLPath$', abs_path + 'outputs/' + config['project_name'] + '-includes.xml')
         pharo_code = pharo_code.replace('$projectFullPath$', config['project_full_path'])
+        pharo_code = pharo_code.replace('$colorMap$', config['color_map'])
 
         output_file = open('outputs/' + config['project_name'] + '-model-gen.st', 'w')
         output_file.writelines(pharo_code)
