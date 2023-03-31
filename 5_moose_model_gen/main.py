@@ -36,8 +36,8 @@ def convert_dot_to_xml(config=None, project_name="projectname"):
             strp_line = line.strip()
             if len(strp_line) > 1 and strp_line[1] == "/":
                 replaced_line = line.replace('\"', '').replace('\t', '').replace('\\n', '').split(" -> ")
-                included_by.append(replaced_line[0])
-                include.append(replaced_line[1])
+                included_by.append(replaced_line[0].strip())
+                include.append(replaced_line[1].strip())
 
         ds = pd.DataFrame()
         ds['includedBy'] = included_by
