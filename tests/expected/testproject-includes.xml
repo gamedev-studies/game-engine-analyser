@@ -1,0 +1,105 @@
+<project>
+<file name="./testproject/Bank-Management/DSAproject/main.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/staff.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/customer.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/admin.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/staff.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/main.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/staff.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/customer.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/admin.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/BST_Tree.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/admin.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/BST_Node.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Node.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/staff.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/main.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/staff.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/customer.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/admin.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/Hashtable.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/customer.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/BST_Tree.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Node.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+</file>
+<file name="./testproject/Student-Record-Management-System/main.cpp">
+<include type="local" name="./testproject/Student-Record-Management-System/loading.h" />
+<include type="local" name="./testproject/Student-Record-Management-System/adminFunction.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/Hashtable.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Node_1.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Node.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/Node_1.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Node_1.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/main.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/staff.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/customer.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/admin.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/Hashtable.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Node_1.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Node.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/Node.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Node_1.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/BST_Tree.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Node.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/admin.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/customer.h">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+</file>
+<file name="./testproject/Student-Record-Management-System/main.cpp">
+<include type="local" name="./testproject/Student-Record-Management-System/loading.h" />
+<include type="local" name="./testproject/Student-Record-Management-System/adminFunction.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/BST_Tree.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+</file>
+<file name="./testproject/Bank-Management/DSAproject/main.cpp">
+<include type="local" name="./testproject/Bank-Management/DSAproject/BST_Tree.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/staff.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/customer.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/Hashtable.h" />
+<include type="local" name="./testproject/Bank-Management/DSAproject/admin.h" />
+</file>
+</project>
