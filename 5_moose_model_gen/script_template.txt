@@ -13,5 +13,8 @@ tagger setModel: importer model.
 tagger setColorMap: (Dictionary newFrom: $colorMap$).
 tagger setProjectName: '$setProjectName$'.
 
+"set autotagging to false"
+tagger setAutotagFolderContents: false.
+
 "search the model for each path_from_root, tag file/folder with respective subsystem"
 tagger initialize: '$tagsCSVFilePath$' recursive: true.
