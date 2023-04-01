@@ -60,8 +60,8 @@ def append_to_old_file(old_filename, new_text):
     with open(old_filename, "r") as file:
         lines = file.readlines()
     count = len(lines)
-    print("count", count)
-    print("new_text", new_text[0:15])
+    #print("count", count)
+    #print("new_text", new_text[0:15])
 
     with open(old_filename, "w") as file:
         for i, line in enumerate(lines):
