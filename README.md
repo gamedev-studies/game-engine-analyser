@@ -14,6 +14,9 @@ This entire approach was written and run on Ubuntu 20.04.5 LTS. In order to run 
 - Graphviz
 - Pharo Launcher (from pharo.org)
 
+## Tests
+Automated tests are in tests/run.sh.
+
 ## Naming standard
 For inputs and outputs, project name should come first, then an hyphen, then one or more words to describe the file. Folders and scripts follow the snake case standard.
 
