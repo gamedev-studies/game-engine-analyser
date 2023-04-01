@@ -1,3 +1,8 @@
+echo "Run game engine analyser tests"
+echo "===================="
+echo "1/2 - Run tool and get outputs"
+echo "===================="
+
 base=/home/ullmann/Documents/research/game-engine-analyser
 cd $base/4_include_graph_gen
 sh cpp-walker.sh $base/tests/testproject $base/tests/testproject testproject
@@ -11,10 +16,10 @@ cp $base/tests/testproject-tags.csv $base/5_moose_model_gen/inputs
 cd $base/5_moose_model_gen
 python3 main.py testproject
 
-# cannot test .dot file, row order changes
-# cannot test .xml file, row order changes
-# cannot test report, obviously the date/time changes
-
+echo "===================="
+echo "2/2 - Compare generated and expected outputs"
+echo "===================="
+# TODO: cannot test report, obviously the date/time changes
 # file descriptions
 description=("List of unresolved includes" "Model generation code")
 
