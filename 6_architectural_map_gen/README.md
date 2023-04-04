@@ -6,7 +6,7 @@ By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politow
 - Open Pharo Laucher, click "new" and create a new Moose 10 image.
 - Launch your Moose 10 image.
 - On the top menu, go to Browse > Iceberg, click Add > Clone from Github.com and input the necessary information for the Famix-Cpp repo: https://github.com/moosetechnology/Famix-Cpp.
-- After adding it, right click it on the Iceberg list, select Metacello > Install Baseline for Famix-Cpp. This will install the necessary dependencies.
+- After adding it, right click it on the Iceberg list, select Metacello > Install Baseline (Default) for Famix-Cpp. This will install the necessary dependencies.
 - Wait for the dependencies to be installed. This may take several minutes. 
 - Currently the dependencies for the game engine analyser are not all togheter in 1 package. Therefore, we need to install some dependencies separately. Open Playground by pressing CTRL + O + W or go to Browse > Playground. Copy the following code, paste it in Playground and execute it by clicking "do it" or selecting all and pressing CTRL + D:
 ```
