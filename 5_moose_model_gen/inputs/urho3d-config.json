@@ -1,7 +1,8 @@
 {
     "project_name": "urho3d",
-    "project_full_path": "/media/anonymous/hdd/research/engines/Urho3D",
+    "project_full_path": "/home/ullmann/Documents/research/game-engines/urho3d",
     "project_shortened_path": "./Urho3D",
-    "includes_dot_file_path": "inputs/includes-urho3d.dot",
-    "tags_csv_file_path": "inputs/tags-urho3d.csv"
+    "includes_dot_file_path": "inputs/urho3d-includes.dot",
+    "tags_csv_file_path": "inputs/urho3d-tags.csv",
+    "color_map": "{ 'AUD' -> '#f0e442'. 'OMP' -> '#ff0000'. 'HID' -> '#ea9999'. 'DEB' -> '#cccccc'. 'SGC' -> '#009e73'. 'LLR' -> '#00b816'. 'VFX' -> '#b8f100'. 'FES' -> '#6de900'. 'PLA' -> '#8288f1'. 'GMP' -> '#af93f8'. 'SDK' -> '#f8beff'. 'SKA' -> '#fce5cd'. 'PHY' -> '#fbbc04'. 'RES' -> '#efefef'. 'COR' -> '#4fc8e5'. 'EDI' -> '#56b4e9' }"
 }
