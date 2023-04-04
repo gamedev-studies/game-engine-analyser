@@ -1,8 +1,9 @@
 echo "Run - urho3d"
 echo "===================="
 
+# /media/ullmann/HDDGabriel/research/engines
 base_tool=/home/ullmann/Documents/research/game-engine-analyser
-base_project=/media/ullmann/HDDGabriel/research/engines
+base_project=/home/ullmann/Documents/research/game-engines
 
 cd $base_tool/4_include_graph_gen
 sh cpp-walker.sh $base_project/urho3d $base_project/urho3d urho3d
