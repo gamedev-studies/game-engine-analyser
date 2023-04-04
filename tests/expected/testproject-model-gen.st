@@ -1,7 +1,7 @@
 | importer tagger |
 
 "Create model using XML and metamodels".
-importer := FamixCPreprocImporter new rootFolder: '/home/ullmann/Documents/research/game-engine-analyser/tests/testproject' ; runOn: '/home/ullmann/Documents/research/game-engine-analyser/5_moose_model_gen/outputs/testproject-includes.xml' modelName: 'testproject-20230401'.
+importer := FamixCPreprocImporter new rootFolder: './home/ullmann/Documents/research/game-engine-analyser/tests/testproject' ; runOn: '/home/ullmann/Documents/research/game-engine-analyser/5_moose_model_gen/outputs/testproject-includes.xml' modelName: 'testproject-20230404'.
 
 "instantiate a new tagger and settings"
 tagger := GroupTagger new.
