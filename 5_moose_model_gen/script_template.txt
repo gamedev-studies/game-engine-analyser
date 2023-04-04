@@ -1,7 +1,7 @@
 | importer tagger |
 
 "Create model using XML and metamodels".
-importer := FamixCPreprocImporter new rootFolder: '$projectFullPath$' ; runOn: '$includeXMLPath$' modelName: '$modelNameWithDate$'.
+importer := FamixCPreprocImporter new rootFolder: '.$projectFullPath$' ; runOn: '$includeXMLPath$' modelName: '$modelNameWithDate$'.
 
 "instantiate a new tagger and settings"
 tagger := GroupTagger new.
