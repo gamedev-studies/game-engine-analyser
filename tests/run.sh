@@ -47,6 +47,13 @@ for i in "${!generated[@]}"; do
   fi
 done
 
+# check include resolution report
+if diff $base/4_include_graph_gen/outputs/testproject-report.csv $base/tests/expected/testproject-report.csv -I '^analysis\|^report' >/dev/null ; then
+    echo "PASSED: include resolution report"
+else
+    echo "FAILED: include resolution report"
+fi
+
 # file descriptions
 description=("Include count (.dot)" "Include count (.xml)")
 
