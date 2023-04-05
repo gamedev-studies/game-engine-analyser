@@ -5,6 +5,9 @@ from datetime import datetime
 import pandas as pd
   
 # utils
+def get_current_datestamp():
+    return datetime.today().strftime('%Y%m%d')
+
 def load_config(path, project_name="projectname"):
     try:
         f = open(path)
@@ -19,7 +22,7 @@ def extract_name_parent(path):
     return path
 
 # main functions
-def convert_dot_to_xml(config=None, project_name="projectname"):
+def convert_dot_to_xml(date, config=None, project_name="projectname"):
     if not config == None:
         # Aux vars
         included_by = []
@@ -60,7 +63,7 @@ def convert_dot_to_xml(config=None, project_name="projectname"):
 
         xml_result = xml_result.replace(config['project_full_path'], config['project_shortened_path'])
 
-        output_file = open('outputs/' + config['project_name'] + '-includes.xml', 'w')
+        output_file = open('outputs/' + config['project_name'] + '-' + date + '.xml', 'w')
         lines = output_file.writelines(xml_result)
         abs_path = os.path.realpath(output_file.name)
         output_file.close()
@@ -68,19 +71,17 @@ def convert_dot_to_xml(config=None, project_name="projectname"):
     else:
         print("Missing or malformed config file, please check if there is a " + project_name + "-config.json in the inputs folder")
 
-def generate_tags_from_csv(abs_path, config=None, project_name="projectname"):
+def generate_tags_from_csv(abs_path, date, config=None, project_name="projectname"):
     if not config == None:
         pharo_code = ""
         abs_path = abs_path.split("outputs")[0]
-        today = datetime.today().strftime('%Y%m%d')
         templ_lines = open('script_template.txt')
         for line in templ_lines:
             pharo_code += line
 
         pharo_code = pharo_code.replace('$tagsCSVFilePath$', abs_path + config['tags_csv_file_path'])
         pharo_code = pharo_code.replace('$setProjectName$', config['project_name'])
-        pharo_code = pharo_code.replace('$modelNameWithDate$', config['project_name'] + '-' + today)
-        pharo_code = pharo_code.replace('$includeXMLPath$', abs_path + 'outputs/' + config['project_name'] + '-includes.xml')
+        pharo_code = pharo_code.replace('$includeXMLPath$', abs_path + 'outputs/' + config['project_name'] + '-' + date + '.xml')
         pharo_code = pharo_code.replace('$projectFullPath$', config['project_full_path'])
         pharo_code = pharo_code.replace('$colorMap$', config['color_map'])
 
@@ -90,9 +91,10 @@ def generate_tags_from_csv(abs_path, config=None, project_name="projectname"):
     else:
         print("Missing or malformed config file, please check if there is a " + project_name + "-config.json in the inputs folder")
 
+date_obj = get_current_datestamp()
 project_name = sys.argv[1]
 config_path = 'inputs/' + project_name + '-config.json'
 config = load_config(config_path, project_name)
-abc = convert_dot_to_xml(config, project_name)
-generate_tags_from_csv(abc, config, project_name)
+generated_xml = convert_dot_to_xml(date_obj, config, project_name)
+generate_tags_from_csv(generated_xml, date_obj, config, project_name)
 print("Done!")
