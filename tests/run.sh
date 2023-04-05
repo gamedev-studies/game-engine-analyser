@@ -3,6 +3,7 @@ echo "===================="
 echo "1/2 - Run tool and get outputs"
 echo "===================="
 
+current_date=$(date '+%Y%m%d')
 base=/home/ullmann/Documents/research/game-engine-analyser
 cd $base/4_include_graph_gen
 sh cpp-walker.sh $base/tests/testproject $base/tests/testproject testproject
@@ -19,7 +20,10 @@ python3 main.py testproject
 echo "===================="
 echo "2/2 - Compare generated and expected outputs"
 echo "===================="
-# TODO: cannot test report, obviously the date/time changes
+
+# account for date change on generated .st
+sed "s/#current_date#/$current_date/g" $base/tests/expected/testproject-model-gen.st > $base/tests/expected/testproject-model-gen-today.st
+
 # file descriptions
 description=("List of unresolved includes" "Model generation code")
 
@@ -27,7 +31,7 @@ description=("List of unresolved includes" "Model generation code")
 generated=("$base/4_include_graph_gen/outputs/testproject-includes-unr.csv" "$base/5_moose_model_gen/outputs/testproject-model-gen.st")
 
 # expected files
-expected=("$base/tests/expected/testproject-includes-unr.csv"  "$base/tests/expected/testproject-model-gen.st")
+expected=("$base/tests/expected/testproject-includes-unr.csv"  "$base/tests/expected/testproject-model-gen-today.st")
 
 # Iterate through the arrays
 for i in "${!generated[@]}"; do
@@ -47,7 +51,7 @@ done
 description=("Include count (.dot)" "Include count (.xml)")
 
 # generated files
-generated=("$base/4_include_graph_gen/outputs/testproject-includes.dot" "$base/5_moose_model_gen/outputs/testproject-includes.xml")
+generated=("$base/4_include_graph_gen/outputs/testproject-includes.dot" "$base/5_moose_model_gen/outputs/testproject-$current_date.xml")
 
 # expected files
 expected=("$base/tests/expected/testproject-includes.dot" "$base/tests/expected/testproject-includes.xml")
