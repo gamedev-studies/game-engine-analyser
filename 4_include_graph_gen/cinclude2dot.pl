@@ -231,6 +231,7 @@ foreach $file (@files)
 
 	  if (! defined $includefile)
 	  {
+		  $included=~tr/,//d;
 		  $notfound{$file . "," . $included} = 1;
 		  next;
 	  }
