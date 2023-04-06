@@ -1,0 +1,8 @@
+{
+    "project_name": "o3de",
+    "project_full_path": "/media/ullmann/HDDGabriel/research/engines/o3de",
+    "project_shortened_path": "./o3de",
+    "includes_dot_file_path": "inputs/o3de-includes.dot",
+    "tags_csv_file_path": "inputs/o3de-tags.csv",
+    "color_map": "{ 'AUD' -> '#f0e442'. 'OMP' -> '#ff0000'. 'HID' -> '#ea9999'. 'DEB' -> '#cccccc'. 'SGC' -> '#009e73'. 'LLR' -> '#00b816'. 'VFX' -> '#b8f100'. 'FES' -> '#6de900'. 'PLA' -> '#8288f1'. 'GMP' -> '#af93f8'. 'SDK' -> '#f8beff'. 'SKA' -> '#fce5cd'. 'PHY' -> '#fbbc04'. 'RES' -> '#efefef'. 'COR' -> '#4fc8e5'. 'EDI' -> '#56b4e9' }"
+}
