@@ -86,6 +86,7 @@ def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
 
 def resolve_includes(ds, start_line, line_range): 
     # 1 - get paths
+    initial_len=len(arr_res_2nd)
     ds = ds[start_line:line_range]
     list_unresolved_paths = ds['includes'].values
     unique_filenames = get_unique_file_names(list_unresolved_paths)
@@ -131,10 +132,11 @@ def resolve_includes(ds, start_line, line_range):
 
     # 6 - write report resolved
     output = ''
-    for path in arr_res_2nd:
+    for path in arr_res_2nd[initial_len:]:
         ds_filtered = ds[(ds['includes'].str.contains(path[0]))]
         abs_path = path[1].replace('./', engine_path + '/')
-        output += '	"' + ds_filtered.values[0][0] + '" -> "' + abs_path + '"\n'
+        if len(ds_filtered) > 0:
+            output += '	"' + ds_filtered.values[0][0] + '" -> "' + abs_path + '"\n'
 
     output += "}"
 
@@ -156,6 +158,7 @@ def resolve_includes(ds, start_line, line_range):
 
 start_line = 0
 line_range = 10000
+end_line = line_range
 arr_res_2nd = []
 arr_unresolved = []
 
@@ -165,9 +168,9 @@ line_count = len(ds)
 iter_count = math.ceil(line_count/line_range)
 
 if line_count <= line_range:
-    resolve_includes(ds, start_line, line_range)
+    resolve_includes(ds, start_line, end_line)
 else:
     for i in range(0, iter_count):
-        resolve_includes(ds, start_line, line_range)
+        resolve_includes(ds, start_line, end_line)
         start_line += line_range
-        line_range += line_range
+        end_line += line_range
