@@ -1,0 +1,63 @@
+subsystem,entity_description,path_from_root,related_information
+NIL,./FlaxEngine/Assets,/Content,
+NIL,./FlaxEngine/Cryptography,/Source/Engine/Utilities/Encryption.cpp,
+NIL,./FlaxEngine/Cryptography,/Source/Engine/Utilities/Encryption.h,
+NIL,./FlaxEngine/Docs,/Development,
+NIL,./FlaxEngine/Navigation,/Source/Engine/Navigation,
+NIL,./FlaxEngine/Shader scripts,/Source/Shaders,
+NIL,./FlaxEngine/Terrain,/Source/Engine/Terrain,
+NIL,./FlaxEngine/Tests,/Source/Engine/Tests,
+NIL,./FlaxEngine/Tests,/Source/Tools,
+EDI,,./FlaxEngine/Source/Editor,
+SKA,,./FlaxEngine/Source/Engine/Animations,
+AUD,,./FlaxEngine/Source/Engine/Audio,
+COR,,./FlaxEngine/Source/Engine/Content,
+RES,,./FlaxEngine/Source/Engine/ContentExporters,
+RES,,./FlaxEngine/Source/Engine/ContentImporters,
+COR,,./FlaxEngine/Source/Engine/Core,
+EDI,,./FlaxEngine/Source/Engine/CSG,https://flaxengine.com/features/editor/#features/csg
+DEB,,./FlaxEngine/Source/Engine/Debug,
+PLA,,./FlaxEngine/Source/Engine/Engine,Has code related to COR, DEB but also Platform specific templates
+PHY,,./FlaxEngine/Source/Engine/Foliage,https://docs.flaxengine.com/api-cpp/Foliage.html
+LLR,,./FlaxEngine/Source/Engine/Graphics,
+PLA,,./FlaxEngine/Source/Engine/GraphicsDevice,
+HID,,./FlaxEngine/Source/Engine/Input,
+GMP,,./FlaxEngine/Source/Engine/Level,
+COR,,./FlaxEngine/Source/Engine/Localization,
+PLA,,./FlaxEngine/Source/Engine/Main,
+OMP,,./FlaxEngine/Source/Engine/Networking,
+OMP,,./FlaxEngine/Source/Engine/Online,
+VFX,,./FlaxEngine/Source/Engine/Particles,
+PHY,,./FlaxEngine/Source/Engine/Physics,
+PLA,,./FlaxEngine/Source/Engine/Platform,
+DEB,,./FlaxEngine/Source/Engine/Profiler,
+LLR,,./FlaxEngine/Source/Engine/Render2D,
+LLR,,./FlaxEngine/Source/Engine/Renderer,
+GMP,,./FlaxEngine/Source/Engine/Scripting,
+COR,,./FlaxEngine/Source/Engine/Serialization,
+LLR,,./FlaxEngine/Source/Engine/ShadersCompilation,
+VFX,,./FlaxEngine/Source/Engine/ShadowsOfMordor,https://docs.flaxengine.com/api-cpp/ShadowsOfMordor.html
+COR,,./FlaxEngine/Source/Engine/Streaming,https://docs.flaxengine.com/api-cpp/Module.Streaming.html
+PLA,,./FlaxEngine/Source/Engine/Threading,
+RES,,./FlaxEngine/Source/Engine/Tools,https://docs.flaxengine.com/api-cpp/AudioTool.html
+FES,,./FlaxEngine/Source/Engine/UI,
+COR,,./FlaxEngine/Source/Engine/Utilities/Crc.cpp,Error-checking algorithm
+COR,,./FlaxEngine/Source/Engine/Utilities/Crc.h,Error-checking algorithm
+COR,,./FlaxEngine/Source/Engine/Utilities/Delaunay2D.h,Triangulation
+COR,,./FlaxEngine/Source/Engine/Utilities/Nameof.h,Helper utility to get type name at compile time
+COR,,./FlaxEngine/Source/Engine/Utilities/Noise.cpp,
+COR,,./FlaxEngine/Source/Engine/Utilities/Noise.h,
+COR,,./FlaxEngine/Source/Engine/Utilities/PerlinNoise.cs,
+RES,,./FlaxEngine/Source/Engine/Utilities/RectPack.h,Implementation of the rectangles packing into 2D atlas with padding
+LLR,,./FlaxEngine/Source/Engine/Utilities/Screenshot.cpp,
+LLR,,./FlaxEngine/Source/Engine/Utilities/Screenshot.h,
+GMP,,./FlaxEngine/Source/Engine/Utilities/StateMachine.cpp,
+GMP,,./FlaxEngine/Source/Engine/Utilities/StateMachine.h,
+COR,,./FlaxEngine/Source/Engine/Utilities/StringConverter.h,
+COR,,./FlaxEngine/Source/Engine/Utilities/StringUtils.cs,
+LLR,,./FlaxEngine/Source/Engine/Utilities/TextProcessing.cpp,
+LLR,,./FlaxEngine/Source/Engine/Utilities/TextProcessing.h,
+LLR,,./FlaxEngine/Source/Engine/Utilities/TextWriter.h,
+EDI,,./FlaxEngine/Source/Engine/Visject,
+PLA,,./FlaxEngine/Source/Platforms,
+SDK,,./FlaxEngine/Source/ThirdParty,
