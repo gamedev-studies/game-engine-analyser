@@ -1,5 +1,6 @@
 import os
 import sys
+import math
 import numpy as np
 import pandas as pd
 from pathlib import Path
@@ -54,14 +55,12 @@ def build_find_commands(unique_filenames):
     unique_filenames = list(map(lambda item: (".*/" + item), unique_filenames))
     str_command = "find . -type f -regex '" + \
         ("\|".join(unique_filenames)) + "'"
-    return str_command + " > " + file_save_path
+    return str_command + " >> " + file_save_path
 
 def append_to_old_file(old_filename, new_text):
     with open(old_filename, "r") as file:
         lines = file.readlines()
     count = len(lines)
-    #print("count", count)
-    #print("new_text", new_text[0:15])
 
     with open(old_filename, "w") as file:
         for i, line in enumerate(lines):
@@ -85,66 +84,90 @@ def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
     file.write("percentage of unresolved," + str(round(perc_unr, 2)) + '\n')
     file.close()
 
+def resolve_includes(ds, start_line, line_range): 
+    # 1 - get paths
+    ds = ds[start_line:line_range]
+    list_unresolved_paths = ds['includes'].values
+    unique_filenames = get_unique_file_names(list_unresolved_paths)
+    print('Reading lines:', start_line, 'to', line_range)
+
+    # 2 - build command string
+    str_command = build_find_commands(unique_filenames)
+
+    # 3 - execute and save
+    os.chdir(engine_path)
+
+    try:
+        exit_status = os.system(str_command)
+        if exit_status != 0:
+            raise Exception("Command failed with exit status " + str(exit_status))
+    except Exception as e:
+        print("An error occurred: " + str(e))
+
+    list_unresolved_paths = list(open(file_save_path, 'r'))
+
+    # 4 - resolve each unique filename on errors.txt
+    for filename in unique_filenames:
+        filename = filename.replace(".*/", "")
+        possible_files = list(filter(lambda path: filename in path, list_unresolved_paths))
+        
+        # 4.1 - if the file is in the list, try to resolve
+        if len(possible_files) > 0:
+            ref_path = to_array(possible_files[0])
+            resolved_filename = resolve_include(possible_files, ref_path)
+            if resolved_filename == "(unresolved)":
+                arr_unresolved.append(filename)
+            else:
+                arr_res_2nd.append([ref_path[0].replace('\n', ''), resolved_filename.replace('\n', '')])
+        else:
+            arr_unresolved.append(filename)
+
+    # 5 - print include count report
+    os.chdir(script_path)
+    count_2nd = len(arr_res_2nd)
+    count_unresolved = len(arr_unresolved)
+    count_total = count_1st + count_2nd + count_unresolved
+    save_report(count_1st, count_2nd, count_unresolved, count_unresolved, count_total)
+
+    # 6 - write report resolved
+    output = ''
+    for path in arr_res_2nd:
+        ds_filtered = ds[(ds['includes'].str.contains(path[0]))]
+        abs_path = path[1].replace('./', engine_path + '/')
+        output += '	"' + ds_filtered.values[0][0] + '" -> "' + abs_path + '"\n'
+
+    output += "}"
+
+    append_to_old_file("./outputs/" + engine_name + "-includes.dot", output)
+
+    # 7 - write report unresolved
+    output = ""
+    for path in arr_unresolved:
+        path = path.replace("++", "\+\+")
+        ds_filtered = ds[(ds['includes'].str.contains(path))]
+        if len(ds_filtered) > 0:
+            output += ds_filtered.values[0][0] + ',' + path + '\n'
+        else:
+            output += 'NA,' + path + '\n'
+
+    file = open("outputs/" + engine_name + "-includes-unr.csv", "w")
+    file.write(output)
+    file.close()
+
+start_line = 0
+line_range = 10000
 arr_res_2nd = []
 arr_unresolved = []
 
-# 1 - load
-ds = pd.read_csv('./outputs/errors.txt', names=['file', 'includes'], header=None)[0:10000]
-list_unresolved_paths = ds['includes'].values
-unique_filenames = get_unique_file_names(list_unresolved_paths)
+print('Resolving includes, pass 2')
+ds = pd.read_csv('./outputs/errors.txt', names=['file', 'includes'], header=None)
+line_count = len(ds)
+iter_count = math.ceil(line_count/line_range)
 
-# 2 - build command string
-str_command = build_find_commands(unique_filenames)
-
-# 3 - execute and save
-os.chdir(engine_path)
-os.system(str_command)
-list_unresolved_paths = list(open(file_save_path, 'r'))
-
-# 4 - resolve each unique filename on errors.txt
-for filename in unique_filenames:
-    filename = filename.replace(".*/", "")
-    possible_files = list(filter(lambda path: filename in path, list_unresolved_paths))
-    
-    # 4.1 - if the file is in the list, try to resolve
-    if len(possible_files) > 0:
-        ref_path = to_array(possible_files[0])
-        resolved_filename = resolve_include(possible_files, ref_path)
-        if resolved_filename == "(unresolved)":
-            arr_unresolved.append(filename)
-        else:
-            arr_res_2nd.append([ref_path[0].replace('\n', ''), resolved_filename.replace('\n', '')])
-    else:
-        arr_unresolved.append(filename)
-
-# 5 - print include count report
-os.chdir(script_path)
-count_2nd = len(arr_res_2nd)
-count_unresolved = len(arr_unresolved)
-count_total = count_1st + count_2nd + count_unresolved
-save_report(count_1st, count_2nd, count_unresolved, count_unresolved, count_total)
-
-# 6 - write report resolved
-output = ''
-for path in arr_res_2nd:
-    ds_filtered = ds[(ds['includes'].str.contains(path[0]))]
-    abs_path = path[1].replace('./', engine_path + '/')
-    output += '	"' + ds_filtered.values[0][0] + '" -> "' + abs_path + '"\n'
-
-output += "}"
-
-append_to_old_file("./outputs/" + engine_name + "-includes.dot", output)
-
-# 7 - write report unresolved
-output = ""
-for path in arr_unresolved:
-    path = path.replace("++", "\+\+")
-    ds_filtered = ds[(ds['includes'].str.contains(path))]
-    if len(ds_filtered) > 0:
-        output += ds_filtered.values[0][0] + ',' + path + '\n'
-    else:
-        output += 'NA,' + path + '\n'
-
-file = open("outputs/" + engine_name + "-includes-unr.csv", "w")
-file.write(output)
-file.close()
+if line_count <= line_range:
+    resolve_includes(ds, start_line, line_range)
+else:
+    for i in range(0, iter_count):
+        resolve_includes(ds, start_line, line_range)
+        start_line += line_range
+        line_range += line_range
