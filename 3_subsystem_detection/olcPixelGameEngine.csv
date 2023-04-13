@@ -1,13 +1,13 @@
 subsystem,entity_description,path_from_root,related_information
-AUD,,/extensions/olcPGEX_Sound.h,Provides sound generation and wave playing routines
-FES,,/extensions/olcPGEX_PopUpMenu.h,Provides a quick and easy to use, flexible, skinnable context pop-up menu system
-LLR,,/extensions/olcPGEX_Graphics2D.h,Provides advanced olc::Sprite manipulation and drawing routines
-LLR,,/extensions/olcPGEX_Graphics3D.h,Provides support for software rendering 3D graphics
-LLR,,/extensions/olcPGEX_TransformedView.h,This extension provides drawing routines that are compatible with changeable world and screen spaces
-LLR,,olcPixelGameEngine.h,olc::PixelGameEngine is a single file, cross platform graphics and userinput
-OMP,,/extensions/olcPGEX_Network.h,ASIO Based Networking olcPixelGameEngine Extension v1.0
-PHY,,/extensions/olcPGEX_RayCastWorld.h,Provides a quick and easy to use, flexible, skinnable, ray-cast 3D world engine
-NIL,Markdown file,/contributions,
-NIL,Work in progress,/tools,Coming Soon, information on using olc::PixelGameEngine in web browsers
-NIL,Work in progress,/utilities,coming_soon.txt
-NIL,Example,olcExampleProgram.cpp,https://github.com/OneLoneCoder/olcPixelGameEngine/wiki
+AUD,,./olcPixelGameEngine/extensions/olcPGEX_Sound.h,Provides sound generation and wave playing routines
+FES,,./olcPixelGameEngine/extensions/olcPGEX_PopUpMenu.h,Provides a quick and easy to use, flexible, skinnable context pop-up menu system
+LLR,,./olcPixelGameEngine/extensions/olcPGEX_Graphics2D.h,Provides advanced olc::Sprite manipulation and drawing routines
+LLR,,./olcPixelGameEngine/extensions/olcPGEX_Graphics3D.h,Provides support for software rendering 3D graphics
+LLR,,./olcPixelGameEngine/extensions/olcPGEX_TransformedView.h,This extension provides drawing routines that are compatible with changeable world and screen spaces
+LLR,,./olcPixelGameEngine/olcPixelGameEngine.h,olc::PixelGameEngine is a single file, cross platform graphics and userinput
+OMP,,./olcPixelGameEngine/extensions/olcPGEX_Network.h,ASIO Based Networking olcPixelGameEngine Extension v1.0
+PHY,,./olcPixelGameEngine/extensions/olcPGEX_RayCastWorld.h,Provides a quick and easy to use, flexible, skinnable, ray-cast 3D world engine
+NIL,Markdown file,./olcPixelGameEngine/contributions,
+NIL,Work in progress,./olcPixelGameEngine/tools,Coming Soon, information on using olc::PixelGameEngine in web browsers
+NIL,Work in progress,./olcPixelGameEngine/utilities,coming_soon.txt
+NIL,Example,./olcPixelGameEngine/olcExampleProgram.cpp,https://github.com/OneLoneCoder/olcPixelGameEngine/wiki

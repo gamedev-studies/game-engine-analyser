@@ -1,13 +1,13 @@
 subsystem,entity_description,path_from_root,related_information
-NIL,./FlaxEngine/Assets,/Content,
-NIL,./FlaxEngine/Cryptography,/Source/Engine/Utilities/Encryption.cpp,
-NIL,./FlaxEngine/Cryptography,/Source/Engine/Utilities/Encryption.h,
-NIL,./FlaxEngine/Docs,/Development,
-NIL,./FlaxEngine/Navigation,/Source/Engine/Navigation,
-NIL,./FlaxEngine/Shader scripts,/Source/Shaders,
-NIL,./FlaxEngine/Terrain,/Source/Engine/Terrain,
-NIL,./FlaxEngine/Tests,/Source/Engine/Tests,
-NIL,./FlaxEngine/Tests,/Source/Tools,
+NIL,Assets,./FlaxEngine/Content,
+NIL,Cryptography,./FlaxEngine/Source/Engine/Utilities/Encryption.cpp,
+NIL,Cryptography,./FlaxEngine/Source/Engine/Utilities/Encryption.h,
+NIL,Docs,./FlaxEngine/Development,
+NIL,Navigation,./FlaxEngine/Source/Engine/Navigation,
+NIL,Shader scripts,./FlaxEngine/Source/Shaders,
+NIL,Terrain,./FlaxEngine/Source/Engine/Terrain,
+NIL,Tests,./FlaxEngine/Source/Engine/Tests,
+NIL,Tests,./FlaxEngine/Source/Tools,
 EDI,,./FlaxEngine/Source/Editor,
 SKA,,./FlaxEngine/Source/Engine/Animations,
 AUD,,./FlaxEngine/Source/Engine/Audio,
@@ -17,7 +17,7 @@ RES,,./FlaxEngine/Source/Engine/ContentImporters,
 COR,,./FlaxEngine/Source/Engine/Core,
 EDI,,./FlaxEngine/Source/Engine/CSG,https://flaxengine.com/features/editor/#features/csg
 DEB,,./FlaxEngine/Source/Engine/Debug,
-PLA,,./FlaxEngine/Source/Engine/Engine,Has code related to COR, DEB but also Platform specific templates
+PLA,,./FlaxEngine/Source/Engine/Engine,Has code related to COR DEB but also Platform specific templates
 PHY,,./FlaxEngine/Source/Engine/Foliage,https://docs.flaxengine.com/api-cpp/Foliage.html
 LLR,,./FlaxEngine/Source/Engine/Graphics,
 PLA,,./FlaxEngine/Source/Engine/GraphicsDevice,
