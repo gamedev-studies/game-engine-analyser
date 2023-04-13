@@ -62,6 +62,7 @@ def convert_dot_to_xml(date, config=None, project_name="projectname"):
         xml_result += "</project>\n"
 
         xml_result = xml_result.replace(config['project_full_path'], config['project_shortened_path'])
+        xml_result = xml_result.replace("name=\"/", "name=\"./").replace("&", "and")
 
         output_file = open('outputs/' + config['project_name'] + '-' + date + '.xml', 'w')
         lines = output_file.writelines(xml_result)
