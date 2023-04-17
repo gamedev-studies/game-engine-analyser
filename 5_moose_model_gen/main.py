@@ -45,10 +45,13 @@ def convert_dot_to_xml(date, config=None, project_name="projectname"):
         ds = pd.DataFrame()
         ds['includedBy'] = included_by
         ds['include'] = include
+        ds = ds[ds['includedBy'].str.contains("\.(h|cpp)") & ds['include'].str.contains("\.(h|cpp)")]
 
         xml_result = ""
         xml_result += "<project>\n"
-        for item in included_by:
+        ib_filtered = ds['includedBy'].unique()
+        
+        for item in ib_filtered:
             filtered = ds[(ds['includedBy'] == item)]
             first = True
             for filtered_item in filtered.values:
@@ -62,7 +65,7 @@ def convert_dot_to_xml(date, config=None, project_name="projectname"):
         xml_result += "</project>\n"
 
         xml_result = xml_result.replace(config['project_full_path'], config['project_shortened_path'])
-        xml_result = xml_result.replace("name=\"/", "name=\"./").replace("&", "and")
+        xml_result = xml_result.replace("name=\"/", "name=\"./").replace("&", "and").replace("\\", "")
 
         output_file = open('outputs/' + config['project_name'] + '-' + date + '.xml', 'w')
         lines = output_file.writelines(xml_result)

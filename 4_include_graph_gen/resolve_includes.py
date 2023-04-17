@@ -69,6 +69,8 @@ def append_to_old_file(old_filename, new_text):
                 file.write(clear_line)
             else:  
                 file.write(new_text)  
+
+    print("appended to old file")
     
 def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
     perc_unr = (count_unresolved/count_total)*100
@@ -88,6 +90,9 @@ def resolve_includes(ds, start_line, line_range):
     # 1 - get paths
     initial_len=len(arr_res_2nd)
     ds = ds[start_line:line_range]
+    ds = ds[(~ds['file'].str.contains('ThirdParty'))]
+    # print(ds)
+    # exit()
     list_unresolved_paths = ds['includes'].values
     unique_filenames = get_unique_file_names(list_unresolved_paths)
     print('Reading lines:', start_line, 'to', line_range)
@@ -105,7 +110,9 @@ def resolve_includes(ds, start_line, line_range):
     except Exception as e:
         print("An error occurred: " + str(e))
 
-    list_unresolved_paths = list(open(file_save_path, 'r'))
+    fo = open(file_save_path, 'r')
+    list_unresolved_paths = list(fo)
+    fo.close()
 
     # 4 - resolve each unique filename on errors.txt
     for filename in unique_filenames:
@@ -144,27 +151,33 @@ def resolve_includes(ds, start_line, line_range):
 
     # 7 - write report unresolved
     output = ""
-    for path in arr_unresolved:
-        path = path.replace("++", "\+\+")
-        ds_filtered = ds[(ds['includes'].str.contains(path))]
-        if len(ds_filtered) > 0:
-            output += ds_filtered.values[0][0] + ',' + path + '\n'
-        else:
-            output += 'NA,' + path + '\n'
+    import re
+    try:
+        for path in arr_unresolved:
+            path = path.replace("++", "\+\+")
+            ds_filtered = ds[(ds['includes'].str.contains(path))]
+            if len(ds_filtered) > 0:
+                output += ds_filtered.values[0][0] + ',' + path + '\n'
+            else:
+                output += 'NA,' + path + '\n'
+    except re.error as e:
+        print("Regex error:", path)
 
     file = open("outputs/" + engine_name + "-includes-unr.csv", "w")
     file.write(output)
     file.close()
 
 start_line = 0
-line_range = 10000
+line_range = 2000
 end_line = line_range
 arr_res_2nd = []
 arr_unresolved = []
 
 print('Resolving includes, pass 2')
 ds = pd.read_csv('./outputs/errors.txt', names=['file', 'includes'], header=None)
-line_count = len(ds)
+# line_count = len(ds)
+line_count = 200000
+print('Lines to check:', line_count)
 iter_count = math.ceil(line_count/line_range)
 
 if line_count <= line_range:
