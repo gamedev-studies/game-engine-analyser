@@ -1,0 +1,18 @@
+[
+    {"name": "AUD", "group": 1},
+    {"name": "OMP", "group": 2},
+    {"name": "HID", "group": 3},
+    {"name": "DEB", "group": 4},
+    {"name": "SGC", "group": 5},
+    {"name": "LLR", "group": 6},
+    {"name": "VFX", "group": 7},
+    {"name": "FES", "group": 8},
+    {"name": "PLA", "group": 9},
+    {"name": "GMP", "group": 10},
+    {"name": "SDK", "group": 11},
+    {"name": "SKA", "group": 12},
+    {"name": "PHY", "group": 13},
+    {"name": "RES", "group": 14},
+    {"name": "COR", "group": 15},
+    {"name": "EDI", "group": 16}
+]
