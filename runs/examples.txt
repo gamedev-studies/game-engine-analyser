@@ -1,0 +1,19 @@
+bash runs/run.sh godot /home/ullmann/Documents/research/game-engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh cocos2d-x /home/ullmann/Documents/research/game-engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh urho3d /home/ullmann/Documents/research/game-engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh olcPixelGameEngine /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh o3de /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh panda3d /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh Piccolo /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser
+
+bash runs/run.sh FlaxEngine /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh panda3d /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+
+bash runs/run.sh UnrealEngine /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
