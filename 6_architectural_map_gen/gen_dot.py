@@ -19,7 +19,7 @@ for engine in engines:
     for i in range(0, len(matrix)):
         for j in range(0, len(matrix[i])):
             if matrix[i][j] == 1:
-                dot_file += "\t\"" + subsystems[j] + "\" -> \"" + subsystems[i] + "\"\n"
+                dot_file += "\t\"" + subsystems[i] + "\" -> \"" + subsystems[j] + "\"\n"
 
     # add header, save
     with open("outputs/" + engine + ".dot", "w") as file:
