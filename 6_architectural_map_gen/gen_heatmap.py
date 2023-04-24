@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import seaborn as sns
 
+debug_mode = False
 
 def main():
     map_dependencies = {}
@@ -16,7 +17,14 @@ def main():
 
     sum = map_dependencies[engines[0]]
     for i in range(1, len(engines)):
-        sum = np.add(sum, map_dependencies[engines[i]])
+        cur_matrix = map_dependencies[engines[i]]
+        if debug_mode:
+            print("=====")
+            print(engines[i])
+            print(cur_matrix)
+            print(cur_matrix.shape)
+
+        sum = np.add(sum, cur_matrix)
 
     # do not annotate values 0 and 1
     annot_values = np.array(sum, dtype=str)
