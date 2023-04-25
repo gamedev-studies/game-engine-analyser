@@ -18,7 +18,7 @@ for engine in engines:
     # when 1, create line for include
     for i in range(0, len(matrix)):
         for j in range(0, len(matrix[i])):
-            if matrix[i][j] == 1:
+            if matrix[i][j] == 1 and subsystems[i] != 'NIL' and subsystems[j] != 'NIL':
                 dot_file += "\t\"" + subsystems[i] + "\" -> \"" + subsystems[j] + "\"\n"
 
     # add header, save
