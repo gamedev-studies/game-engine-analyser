@@ -70,7 +70,7 @@ def append_to_old_file(old_filename, new_text):
             else:  
                 file.write(new_text)  
 
-    print("appended to old file")
+    print("Appended to existing DOT file")
     
 def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
     perc_unr = (count_unresolved/count_total)*100
@@ -90,9 +90,12 @@ def resolve_includes(ds, start_line, line_range):
     # 1 - get paths
     initial_len=len(arr_res_2nd)
     ds = ds[start_line:line_range]
-    ds = ds[(~ds['file'].str.contains('ThirdParty'))]
-    # print(ds)
-    # exit()
+
+    # for unreal: ignore ThirdParty subfolders, there are too many, it takes too long to analyse
+    # other SDK folders are already identified, no need for all
+    if 'unreal' in engine_name.lower():
+        ds = ds[(~ds['file'].str.contains('ThirdParty'))]
+
     list_unresolved_paths = ds['includes'].values
     unique_filenames = get_unique_file_names(list_unresolved_paths)
     print('Reading lines:', start_line, 'to', line_range)
@@ -110,9 +113,9 @@ def resolve_includes(ds, start_line, line_range):
     except Exception as e:
         print("An error occurred: " + str(e))
 
-    fo = open(file_save_path, 'r')
-    list_unresolved_paths = list(fo)
-    fo.close()
+    unr_paths_file = open(file_save_path, 'r')
+    list_unresolved_paths = list(unr_paths_file)
+    unr_paths_file.close()
 
     # 4 - resolve each unique filename on errors.txt
     for filename in unique_filenames:
@@ -167,6 +170,7 @@ def resolve_includes(ds, start_line, line_range):
     file.write(output)
     file.close()
 
+# read every 2000 paths, it works better with long file names
 start_line = 0
 line_range = 2000
 end_line = line_range
