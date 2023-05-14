@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
 
-engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olc", "panda3d", "piccolo" ]
+engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olc", "panda3d", "piccolo", "UnrealEngine"]
 subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "NIL", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
 
 # for each engine
 for engine in engines:
+    print(engine)
     dot_file = ""
 
     # load include matrix
@@ -17,8 +18,8 @@ for engine in engines:
     # when 1, create line for include
     for i in range(0, len(matrix)):
         for j in range(0, len(matrix[i])):
-            if matrix[i][j] == 1:
-                dot_file += "\t\"" + subsystems[j] + "\" -> \"" + subsystems[i] + "\"\n"
+            if matrix[i][j] == 1 and subsystems[i] != 'NIL' and subsystems[j] != 'NIL':
+                dot_file += "\t\"" + subsystems[i] + "\" -> \"" + subsystems[j] + "\"\n"
 
     # add header, save
     with open("outputs/" + engine + ".dot", "w") as file:

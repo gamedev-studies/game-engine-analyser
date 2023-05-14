@@ -1,32 +1,48 @@
 import pandas as pd
 import numpy as np
 import seaborn as sns
+import matplotlib.colors as colors
 
+debug_mode = False
 
 def main():
     map_dependencies = {}
-    engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olc", "panda3d", "piccolo" ]
-    subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "NIL", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
+    engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olcPixelGameEngine", "panda3d", "piccolo", "UnrealEngine" ]
+    subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
 
     for engine in engines:
         ds = pd.read_csv("inputs/matrix_" + engine + ".csv", sep=",")
         ds = ds.reindex(sorted(ds.columns), axis=1)
         ds = ds.sort_values(by=["asubsystem"])
-        map_dependencies[engine] = np.array(ds.values[0:99, 1:18])
+        ds = ds[~ds["asubsystem"].str.contains("NIL")]
+        ds = ds.drop(["asubsystem", engine + "-NIL"], axis=1)
+        map_dependencies[engine] = np.array(ds.values)
 
     sum = map_dependencies[engines[0]]
     for i in range(1, len(engines)):
-        sum = np.add(sum, map_dependencies[engines[i]])
+        print(engines[i])
+        cur_matrix = map_dependencies[engines[i]]
+        if debug_mode:
+            print("=====")
+            print(engines[i])
+            print(cur_matrix)
+            print(cur_matrix.shape)
+
+        sum = np.add(sum, cur_matrix)
 
     # do not annotate values 0 and 1
     annot_values = np.array(sum, dtype=str)
-    annot_values = np.where(sum < 2, np.array([""], dtype="U1"), annot_values)
+    annot_values = np.where(sum < 3, np.array([""], dtype="U1"), annot_values)
 
     # set figure size
     sns.set(rc={"figure.figsize": (12, 8)})
 
     # pallette chosen because it is good for colorblind
     colormap = sns.color_palette("bwr")
+    
+    cmap_colors = ['#556DFF', '#DADAFF', '#F7D9DA', '#F5180C' ]
+    colormap = colors.ListedColormap(cmap_colors)
+
     hm = sns.heatmap(
         sum.tolist(),
         vmin=0,
