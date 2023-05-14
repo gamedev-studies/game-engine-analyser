@@ -175,8 +175,7 @@ arr_unresolved = []
 
 print('Resolving includes, pass 2')
 ds = pd.read_csv('./outputs/errors.txt', names=['file', 'includes'], header=None)
-# line_count = len(ds)
-line_count = 200000
+line_count = len(ds)
 print('Lines to check:', line_count)
 iter_count = math.ceil(line_count/line_range)
 
