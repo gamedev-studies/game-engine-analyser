@@ -1,0 +1,32 @@
+name: Python and Perl Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Set up Perl 5
+        uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: '5'
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Execute run.sh
+        run: |
+          chmod +x tests/run.sh
+          .tests/run.sh
