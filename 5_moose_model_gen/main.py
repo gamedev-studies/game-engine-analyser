@@ -45,7 +45,10 @@ def convert_dot_to_xml(date, config=None, project_name="projectname"):
         ds = pd.DataFrame()
         ds['includedBy'] = included_by
         ds['include'] = include
-        ds = ds[ds['includedBy'].str.contains("\.(h|cpp)") & ds['include'].str.contains("\.(h|cpp)")]
+
+        # using match instead of contains to avoid a warning message, but it does the same thing 
+        # https://pandas.pydata.org/docs/reference/api/pandas.Series.str.match.html
+        ds = ds[ds['includedBy'].str.match("(.h|.cpp)") & ds['include'].str.match("(.h|.cpp)")]
 
         xml_result = ""
         xml_result += "<project>\n"
