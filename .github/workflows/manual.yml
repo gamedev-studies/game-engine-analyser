@@ -27,6 +27,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Execute run.sh
-        run: |
+        run: | pwd
           chmod +x tests/run.sh
           .tests/run.sh
