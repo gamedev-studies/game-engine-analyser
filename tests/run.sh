@@ -4,7 +4,7 @@ echo "1/2 - Run tool and get outputs"
 echo "===================="
 
 current_date=$(date '+%Y%m%d')
-base=/home/ullmann/Documents/research/game-engine-analyser
+base=$(pwd)
 cd $base/4_include_graph_gen
 sh cpp-walker.sh $base/tests/testproject $base/tests/testproject testproject
 
