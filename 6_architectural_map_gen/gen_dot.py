@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olc", "panda3d", "piccolo", "UnrealEngine"]
+engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olcPixelGameEngine", "panda3d", "piccolo", "UnrealEngine" ]
 subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "NIL", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
 
 # for each engine
