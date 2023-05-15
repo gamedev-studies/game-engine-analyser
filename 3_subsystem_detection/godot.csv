@@ -7,7 +7,7 @@ AUD,,./godot/drivers/pulseaudio,
 AUD,,./godot/modules/stb_vorbis,
 AUD,,./godot/scene/audio,
 AUD,,./godot/servers/audio,
-COR,,./godot/core ,
+COR,,./godot/core,
 COR,,./godot/main,
 COR,,./godot/modules/gdnative,
 COR,,./godot/modules/jsonrpc,https://www.jsonrpc.org/specification
