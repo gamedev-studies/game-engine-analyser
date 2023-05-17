@@ -40,7 +40,7 @@ def main():
     # pallette chosen because it is good for colorblind
     colormap = sns.color_palette("bwr")
     
-    cmap_colors = ['#556DFF', '#DADAFF', '#F7D9DA', '#F5180C' ]
+    cmap_colors = ['#ffeceb', '#fcdad7', '#fa6557', '#9c0f02' ]
     colormap = colors.ListedColormap(cmap_colors)
 
     hm = sns.heatmap(
