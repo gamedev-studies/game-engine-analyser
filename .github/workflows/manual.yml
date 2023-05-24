@@ -17,11 +17,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.x
-          
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Set up Perl 5
         uses: shogo82148/actions-setup-perl@v1
@@ -30,6 +25,11 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v2
+        
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ./requirements.txt ]; then pip install -r ./requirements.txt; fi
 
       - name: Execute run.sh
         run: |
