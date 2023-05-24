@@ -138,6 +138,11 @@ def resolve_includes(ds, start_line, line_range):
     count_2nd = len(arr_res_2nd)
     count_unresolved = len(arr_unresolved)
     count_total = count_1st + count_2nd + count_unresolved
+
+    if count_total == 0:
+        print("Error: no includes to process in " + file_save_path)
+        exit()
+
     save_report(count_1st, count_2nd, count_unresolved, count_unresolved, count_total)
 
     # 6 - write report resolved
