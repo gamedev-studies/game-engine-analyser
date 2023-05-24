@@ -7,6 +7,7 @@ from pathlib import Path
 from datetime import datetime
 
 script_path = Path().absolute()
+print("Current script path:" + script_path)
 file_save_path = 'unresolved.txt'
 engine_path = sys.argv[1]
 engine_name = sys.argv[2]
@@ -74,7 +75,7 @@ def append_to_old_file(old_filename, new_text):
     
 def save_report(stpass, ndpass, unresolved, count_unresolved, count_total):
     perc_unr = (count_unresolved/count_total)*100
-    file = open('./outputs/' + engine_name + '-report.csv', 'w')
+    file = open(str(script_path) + '/outputs/' + engine_name + '-report.csv', 'w')
     file.write("attribute,value\n")
     file.write("engine name," + engine_name + '\n')
     file.write("analysis started at," + starting_time + '\n')
@@ -155,7 +156,7 @@ def resolve_includes(ds, start_line, line_range):
 
     output += "}"
 
-    append_to_old_file("./outputs/" + engine_name + "-includes.dot", output)
+    append_to_old_file(str(script_path) + "/outputs/" + engine_name + "-includes.dot", output)
 
     # 7 - write report unresolved
     output = ""
@@ -171,7 +172,7 @@ def resolve_includes(ds, start_line, line_range):
     except re.error as e:
         print("Regex error:", path)
 
-    file = open("outputs/" + engine_name + "-includes-unr.csv", "w")
+    file = open(str(script_path) + "/outputs/" + engine_name + "-includes-unr.csv", "w")
     file.write(output)
     file.close()
 
@@ -183,7 +184,7 @@ arr_res_2nd = []
 arr_unresolved = []
 
 print('Resolving includes, pass 2')
-ds = pd.read_csv('./outputs/errors.txt', names=['file', 'includes'], header=None)
+ds = pd.read_csv(str(script_path) + '/outputs/errors.txt', names=['file', 'includes'], header=None)
 line_count = len(ds)
 print('Lines to check:', line_count)
 iter_count = math.ceil(line_count/line_range)
