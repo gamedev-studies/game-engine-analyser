@@ -28,5 +28,6 @@ jobs:
 
       - name: Execute run.sh
         run: |
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           chmod +x ./tests/run.sh
           bash ./tests/run.sh
