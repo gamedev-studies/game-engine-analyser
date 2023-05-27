@@ -1,5 +1,5 @@
 # Game Engine Analyser: An Exploratory Approach for Game Engine Architecture Recovery
-By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022. A series of scripts to perform game engine architecture recovery.
+By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022-2023. A series of scripts to perform game engine architecture recovery.
 
 ## How to use it
 - Each folder in the repository holds data or scripts to perform one of the steps described in the approach section of our paper "An Exploratory Approach for Game Engine Architecture Recovery".

@@ -1,7 +1,7 @@
 "Adhoc code, FamixTag"
 
 getOutgoing
-	"Nicolas and Gabriel, 2022"
+	"Nicolas and Gabriel, 2022-2023"
 	"Returns a list of all tags this tag depends on according to the arch map. This version works when only files are tagged, not folders"
 
 	| taggedFolders tagsOutgoing tagFound opposites|
@@ -34,7 +34,7 @@ getOutgoing
 	^ tagsOutgoing asSet
 
 getOutgoingSearch: file fallback: fallbackTag
-	"Nicolas and Gabriel, 2022"
+	"Nicolas and Gabriel, 2022-2023"
 	"Receives a file as input. If it has a tag return the tag, otherwise go up in the file hierarchy until finding a tag. If no tag is found, return callback"
 
 	| hasParent |
