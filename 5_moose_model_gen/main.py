@@ -58,10 +58,12 @@ def convert_dot_to_xml(date, config=None, project_name="projectname"):
         for item in ib_filtered:
             filtered = ds[(ds['includedBy'] == item)]
             first = True
+
+            # ignore includes without extension
+            if len(filtered.values) > 0 and (not '.' in filtered.values[0][1]):
+                continue
+
             for filtered_item in filtered.values:
-                # ignore includes without extension
-                if not '.' in filtered_item[1]:
-                    continue
                 if first:
                     xml_result += "<file name=\"" + item + "\">\n"
                     xml_result += "<include type=\"local\" name=\"" + filtered_item[1] + "\" />\n"
