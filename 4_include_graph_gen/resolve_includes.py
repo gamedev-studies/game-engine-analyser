@@ -7,7 +7,7 @@ from pathlib import Path
 from datetime import datetime
 
 script_path = Path().absolute()
-print("Current script path:" + script_path)
+print("Current script path:" + str(script_path))
 file_save_path = 'unresolved.txt'
 engine_path = sys.argv[1]
 engine_name = sys.argv[2]
