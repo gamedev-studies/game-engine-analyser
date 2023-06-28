@@ -1,0 +1,40 @@
+subsystem,entity_description,path_from_root,related_information
+AUD,,./urho3d/Source/Urho3Dxyz/Audio,https://rurho3d.github.io/doxygen/_audio.html
+COR,,./urho3d/Source/Urho3Dxyz/Base,
+COR,,./urho3d/Source/Urho3Dxyz/Container,https://rurho3d.github.io/doxygen/_containers.html
+COR,,./urho3d/Source/Urho3Dxyz/Core,
+COR,,./urho3d/Source/Urho3Dxyz/Engine,
+COR,,./urho3d/Source/Urho3Dxyz/IO,
+COR,,./urho3d/Source/Urho3Dxyz/Math,
+FES,,./urho3d/Source/Urho3Dxyz/UI,https://rurho3d.github.io/doxygen/_u_i.html
+GMP,,./urho3d/Source/Urho3Dxyz/AngelScript,https://rurho3d.github.io/doxygen/_scripting.html
+GMP,,./urho3d/Source/Urho3Dxyz/LuaScript,https://rurho3d.github.io/doxygen/_lua_scripting.html
+HID,,./urho3d/Source/Urho3Dxyz/Input,https://rurho3d.github.io/doxygen/_input.html
+LLR,,./urho3d/Source/Urho3Dxyz/Graphics,https://rurho3d.github.io/doxygen/_rendering.html
+LLR,,./urho3d/Source/Urho3Dxyz/GraphicsAPI,
+LLR,,./urho3d/Source/Urho3Dxyz/Urho2D,
+OMP,,./urho3d/Source/Urho3Dxyz/Network,https://rurho3d.github.io/doxygen/_network.html
+PHY,,./urho3d/Source/Urho3Dxyz/Physics,https://rurho3d.github.io/doxygen/_physics.html
+PHY,,./urho3d/Source/Urho3Dxyz/Physics2D,
+RES,,./urho3d/Source/Urho3Dxyz/Resource,https://rurho3d.github.io/doxygen/_resources.html
+SDK,,./urho3d/Source/ThirdParty,
+SGC,,./urho3d/Source/Urho3Dxyz/Scene,
+SKA,,./urho3d/Source/Urho3Dxyz/IK,https://rurho3d.github.io/doxygen/_i_k.html
+DEB,,./urho3d/Source/Urho3Dxyz/DebugNew.h,
+COR,,./urho3d/Source/Urho3Dxyz/LibraryInfo.cpp,
+COR,,./urho3d/Source/Urho3Dxyz/LibraryInfo.h,
+COR,,./urho3d/Source/Urho3Dxyz/Precompiled.h,
+COR,,./urho3d/Source/Urho3Dxyz/Urho3DConfig.h,
+NIL,Docs,./urho3d/Docs,
+NIL,Assets,./urho3d/SourceAssets,
+NIL,Java code,./urho3d/android,
+NIL,Binaries and assets,./urho3d/bin,
+NIL,Build,./urho3d/cmake,
+NIL,Java files,./urho3d/gradle,
+NIL,Licenses,./urho3d/licenses,
+NIL,Build,./urho3d/script,
+NIL,Database,./urho3d/Source/Urho3Dxyz/Database,https://rurho3d.github.io/doxygen/_database.html
+NIL,Navigation,./urho3d/Source/Urho3Dxyz/Navigation,https://rurho3d.github.io/doxygen/_navigation.html
+NIL,,./urho3d/Source/Extras,
+NIL,,./urho3d/Source/Samples,
+NIL,,./urho3d/Source/Tools,
