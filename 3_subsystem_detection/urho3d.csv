@@ -16,7 +16,7 @@ LLR,,./urho3d/Source/Urho3D/Urho2D,
 OMP,,./urho3d/Source/Urho3D/Network,https://rurho3d.github.io/doxygen/_network.html
 PHY,,./urho3d/Source/Urho3D/Physics,https://rurho3d.github.io/doxygen/_physics.html
 PHY,,./urho3d/Source/Urho3D/Physics2D,
-RES,,./urho3d/Source/Urho3D/Resources,https://rurho3d.github.io/doxygen/_resources.html
+RES,,./urho3d/Source/Urho3D/Resource,https://rurho3d.github.io/doxygen/_resources.html
 SDK,,./urho3d/Source/ThirdParty,
 SGC,,./urho3d/Source/Urho3D/Scene,
 SKA,,./urho3d/Source/Urho3D/IK,https://rurho3d.github.io/doxygen/_i_k.html
