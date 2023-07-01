@@ -48,19 +48,23 @@ def convert_dot_to_xml(date, config=None, project_name="projectname"):
 
         # using match instead of contains to avoid a warning message, but it does the same thing 
         # https://pandas.pydata.org/docs/reference/api/pandas.Series.str.match.html
-        ext_to_match = "(.c|.cc|.cxx|.cpp|.C|.h|.hpp|.hxx)"
-        ds = ds[ds['includedBy'].str.match(ext_to_match) & ds['include'].str.match(ext_to_match)]
+        pattern = r'\.(c|cc|cxx|cpp|C|h|hpp|hxx)$'
+        ds = ds[ds['includedBy'].str.extract(pattern, expand=False).notnull() & ds['include'].str.extract(pattern, expand=False).notnull()]
 
         xml_result = ""
         xml_result += "<project>\n"
         ib_filtered = ds['includedBy'].unique()
         
+        if len(ib_filtered) == 0:
+            print("WARNING: no includes to analyse")
+
         for item in ib_filtered:
             filtered = ds[(ds['includedBy'] == item)]
             first = True
 
             # ignore includes without extension
             if len(filtered.values) > 0 and (not '.' in filtered.values[0][1]):
+                print("WARNING: ignoring include without extension")
                 continue
 
             for filtered_item in filtered.values:
