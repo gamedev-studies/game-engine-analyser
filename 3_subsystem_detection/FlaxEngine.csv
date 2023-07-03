@@ -8,6 +8,9 @@ NIL,Shader scripts,./FlaxEngine/Source/Shaders,
 NIL,Terrain,./FlaxEngine/Source/Engine/Terrain,
 NIL,Tests,./FlaxEngine/Source/Engine/Tests,
 NIL,Tests,./FlaxEngine/Source/Tools,
+COR,,./FlaxEngine/Source/FlaxEngine.Gen.h
+COR,,./FlaxEngine/Source/FlaxEngine.Gen.cpp
+EDI,,./FlaxEngine/Source/resource.h,Used by FlaxEditor.rc
 EDI,,./FlaxEngine/Source/Editor,
 SKA,,./FlaxEngine/Source/Engine/Animations,
 AUD,,./FlaxEngine/Source/Engine/Audio,
