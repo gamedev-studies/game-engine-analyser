@@ -1,6 +1,6 @@
 {
     "project_name": "UnrealEngine",
-    "project_full_path": "/media/ullmann/HDDGabriel/research/engines/UnrealEngine",
+    "project_full_path": "/home/gabrielullmann/Documents/UnrealEngine",
     "project_shortened_path": "./UnrealEngine",
     "includes_dot_file_path": "inputs/UnrealEngine-includes.dot",
     "tags_csv_file_path": "inputs/UnrealEngine-tags.csv",
