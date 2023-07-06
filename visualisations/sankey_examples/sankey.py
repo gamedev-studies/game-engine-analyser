@@ -2,11 +2,9 @@ import plotly.graph_objects as go
 import urllib, json
 import urllib.request
 
-# url = 'https://raw.githubusercontent.com/plotly/plotly.js/master/test/image/mocks/sankey_energy.json'
-# response = urllib.request.urlopen(url)
 with open('data.json') as file:
-  abuble = file.read()
-  data = json.loads(abuble)
+  json_str = file.read()
+  data = json.loads(json_str)
 
   # override gray link colors with 'source' colors
   opacity = 0.4
@@ -36,5 +34,5 @@ with open('data.json') as file:
   ))])
 
   fig.update_layout(title_text="Game Engine Architecture",
-                    font_size=18)
+                    font=dict(size = 18, color = 'black'))
   fig.show()

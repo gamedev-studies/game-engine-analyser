@@ -13,7 +13,7 @@
 		},
 		"orientation": "h",
 		"valueformat": ".0f",
-		"valuesuffix": "TWh",
+		"valuesuffix": "",
 		"node": {
 			"pad": 15,
 			"thickness": 15,
@@ -134,93 +134,5 @@
 				""
 			]
 		}
-	}],
-	"layout": {
-		"title": {
-			"text": ""
-		},
-		"width": 1118,
-		"height": 772,
-		"updatemenus": [{
-				"y": 1,
-				"buttons": [{
-						"label": "Light",
-						"method": "relayout",
-						"args": ["paper_bgcolor", "white"]
-					},
-					{
-						"label": "Dark",
-						"method": "relayout",
-						"args": ["paper_bgcolor", "black"]
-					}
-				]
-			},
-			{
-				"y": 0.9,
-				"buttons": [{
-						"label": "Thick",
-						"method": "restyle",
-						"args": ["node.thickness", 15]
-					},
-					{
-						"label": "Thin",
-						"method": "restyle",
-						"args": ["node.thickness", 8]
-					}
-				]
-			},
-			{
-				"y": 0.8,
-				"buttons": [{
-						"label": "Small gap",
-						"method": "restyle",
-						"args": ["node.pad", 15]
-					},
-					{
-						"label": "Large gap",
-						"method": "restyle",
-						"args": ["node.pad", 20]
-					}
-				]
-			},
-			{
-				"y": 0.7,
-				"buttons": [{
-						"label": "Snap",
-						"method": "restyle",
-						"args": ["arrangement", "snap"]
-					},
-					{
-						"label": "Perpendicular",
-						"method": "restyle",
-						"args": ["arrangement", "perpendicular"]
-					},
-					{
-						"label": "Freeform",
-						"method": "restyle",
-						"args": ["arrangement", "freeform"]
-					},
-					{
-						"label": "Fixed",
-						"method": "restyle",
-						"args": ["arrangement", "fixed"]
-					}
-				]
-			},
-			{
-				"y": 0.6,
-				"buttons": [{
-						"label": "Horizontal",
-						"method": "restyle",
-						"args": ["orientation", "h"]
-					},
-					{
-						"label": "Vertical",
-						"method": "restyle",
-						"args": ["orientation", "v"]
-					}
-				]
-			}
-		]
-	}
+	}]
 }
