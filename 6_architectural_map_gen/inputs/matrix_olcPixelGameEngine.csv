@@ -1,4 +1,4 @@
-asubsystem,olcPixelGameEngine-HID,olcPixelGameEngine-SGC,olcPixelGameEngine-PHY,olcPixelGameEngine-SKA,olcPixelGameEngine-PLA,olcPixelGameEngine-DEB,olcPixelGameEngine-FES,olcPixelGameEngine-SDK,olcPixelGameEngine-COR,olcPixelGameEngine-RES,olcPixelGameEngine-NIL,olcPixelGameEngine-GMP,olcPixelGameEngine-OMP,olcPixelGameEngine-AUD,olcPixelGameEngine-LLR,olcPixelGameEngine-EDI,olcPixelGameEngine-VFX
+asubsystem,olcPixelGameEngine-HID,olcPixelGameEngine-SGC,olcPixelGameEngine-PHY,olcPixelGameEngine-SKA,olcPixelGameEngine-PLA,olcPixelGameEngine-DEB,olcPixelGameEngine-FES,olcPixelGameEngine-SDK,olcPixelGameEngine-COR,olcPixelGameEngine-RES,olcPixelGameEngine-OTH,olcPixelGameEngine-GMP,olcPixelGameEngine-OMP,olcPixelGameEngine-AUD,olcPixelGameEngine-LLR,olcPixelGameEngine-EDI,olcPixelGameEngine-VFX
 olcPixelGameEngine-HID,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-SGC,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-PHY,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -9,7 +9,7 @@ olcPixelGameEngine-FES,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-SDK,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-COR,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-RES,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-olcPixelGameEngine-NIL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
+olcPixelGameEngine-OTH,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0
 olcPixelGameEngine-GMP,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-OMP,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 olcPixelGameEngine-AUD,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

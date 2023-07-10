@@ -11,8 +11,8 @@ def main():
     ds = pd.read_csv("inputs/matrix_" + engine + ".csv", sep=",")
     ds = ds.reindex(sorted(ds.columns), axis=1)
     ds = ds.sort_values(by=["asubsystem"])
-    ds = ds[~ds["asubsystem"].str.contains("NIL")]
-    ds = ds.drop(["asubsystem", engine + "-NIL"], axis=1)
+    ds = ds[~ds["asubsystem"].str.contains("OTH")]
+    ds = ds.drop(["asubsystem", engine + "-OTH"], axis=1)
     sum = ds.values
 
     # generate csv for column and row counts

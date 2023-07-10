@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olcPixelGameEngine", "panda3d", "piccolo", "UnrealEngine" ]
-subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "NIL", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
+subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "OTH", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
 
 # for each engine
 for engine in engines:
@@ -18,7 +18,7 @@ for engine in engines:
     # when 1, create line for include
     for i in range(0, len(matrix)):
         for j in range(0, len(matrix[i])):
-            if matrix[i][j] == 1 and subsystems[i] != 'NIL' and subsystems[j] != 'NIL':
+            if matrix[i][j] == 1 and subsystems[i] != 'OTH' and subsystems[j] != 'OTH':
                 dot_file += "\t\"" + subsystems[i] + "\" -> \"" + subsystems[j] + "\"\n"
 
     # add header, save

@@ -1,6 +1,6 @@
-asubsystem,panda3d-SKA,panda3d-NIL,panda3d-PLA,panda3d-FES,panda3d-COR,panda3d-OMP,panda3d-HID,panda3d-DEB,panda3d-RES,panda3d-LLR,panda3d-GMP,panda3d-SDK,panda3d-AUD,panda3d-PHY,panda3d-SGC,panda3d-VFX,panda3d-EDI
+asubsystem,panda3d-SKA,panda3d-OTH,panda3d-PLA,panda3d-FES,panda3d-COR,panda3d-OMP,panda3d-HID,panda3d-DEB,panda3d-RES,panda3d-LLR,panda3d-GMP,panda3d-SDK,panda3d-AUD,panda3d-PHY,panda3d-SGC,panda3d-VFX,panda3d-EDI
 panda3d-SKA,1,0,0,0,1,0,0,0,0,1,1,0,0,0,1,0,1
-panda3d-NIL,1,1,0,0,1,1,1,0,0,1,1,0,0,0,1,0,1
+panda3d-OTH,1,1,0,0,1,1,1,0,0,1,1,0,0,0,1,0,1
 panda3d-PLA,1,0,1,1,1,0,1,0,1,1,0,0,0,0,0,0,1
 panda3d-FES,1,0,0,1,1,0,1,1,0,1,0,0,0,0,1,0,0
 panda3d-COR,0,0,1,0,1,1,0,0,1,0,0,0,0,0,0,0,1

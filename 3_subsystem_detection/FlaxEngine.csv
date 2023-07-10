@@ -1,13 +1,13 @@
 subsystem,entity_description,path_from_root,related_information
-NIL,Assets,./FlaxEngine/Content,
-NIL,Cryptography,./FlaxEngine/Source/Engine/Utilities/Encryption.cpp,
-NIL,Cryptography,./FlaxEngine/Source/Engine/Utilities/Encryption.h,
-NIL,Docs,./FlaxEngine/Development,
-NIL,Navigation,./FlaxEngine/Source/Engine/Navigation,
-NIL,Shader scripts,./FlaxEngine/Source/Shaders,
-NIL,Terrain,./FlaxEngine/Source/Engine/Terrain,
-NIL,Tests,./FlaxEngine/Source/Engine/Tests,
-NIL,Tests,./FlaxEngine/Source/Tools,
+OTH,Assets,./FlaxEngine/Content,
+OTH,Cryptography,./FlaxEngine/Source/Engine/Utilities/Encryption.cpp,
+OTH,Cryptography,./FlaxEngine/Source/Engine/Utilities/Encryption.h,
+OTH,Docs,./FlaxEngine/Development,
+OTH,Navigation,./FlaxEngine/Source/Engine/Navigation,
+OTH,Shader scripts,./FlaxEngine/Source/Shaders,
+OTH,Terrain,./FlaxEngine/Source/Engine/Terrain,
+OTH,Tests,./FlaxEngine/Source/Engine/Tests,
+OTH,Tests,./FlaxEngine/Source/Tools,
 COR,,./FlaxEngine/Source/FlaxEngine.Gen.h
 COR,,./FlaxEngine/Source/FlaxEngine.Gen.cpp
 EDI,,./FlaxEngine/Source/resource.h,Used by FlaxEditor.rc

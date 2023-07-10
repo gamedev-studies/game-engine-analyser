@@ -14,8 +14,8 @@ def main():
         ds = pd.read_csv("inputs/matrix_" + engine + ".csv", sep=",")
         ds = ds.reindex(sorted(ds.columns), axis=1)
         ds = ds.sort_values(by=["asubsystem"])
-        ds = ds[~ds["asubsystem"].str.contains("NIL")]
-        ds = ds.drop(["asubsystem", engine + "-NIL"], axis=1)
+        ds = ds[~ds["asubsystem"].str.contains("OTH")]
+        ds = ds.drop(["asubsystem", engine + "-OTH"], axis=1)
         map_dependencies[engine] = np.array(ds.values)
 
     sum = map_dependencies[engines[0]]

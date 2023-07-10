@@ -1,8 +1,8 @@
-asubsystem,urho3d-SDK,urho3d-HID,urho3d-PLA,urho3d-NIL,urho3d-GMP,urho3d-COR,urho3d-SGC,urho3d-EDI,urho3d-SKA,urho3d-FES,urho3d-AUD,urho3d-DEB,urho3d-PHY,urho3d-RES,urho3d-OMP,urho3d-LLR,urho3d-VFX
+asubsystem,urho3d-SDK,urho3d-HID,urho3d-PLA,urho3d-OTH,urho3d-GMP,urho3d-COR,urho3d-SGC,urho3d-EDI,urho3d-SKA,urho3d-FES,urho3d-AUD,urho3d-DEB,urho3d-PHY,urho3d-RES,urho3d-OMP,urho3d-LLR,urho3d-VFX
 urho3d-SDK,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 urho3d-HID,0,1,0,0,0,1,0,0,0,1,0,0,0,0,0,1,0
 urho3d-PLA,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-urho3d-NIL,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0
+urho3d-OTH,0,0,0,1,0,1,1,0,0,0,0,0,1,0,0,1,0
 urho3d-GMP,0,1,0,1,1,1,1,0,1,1,1,0,1,0,1,1,0
 urho3d-COR,0,1,0,1,0,1,1,0,1,1,1,0,1,0,1,1,0
 urho3d-SGC,0,0,0,0,0,1,1,0,0,0,0,0,1,0,0,1,0
