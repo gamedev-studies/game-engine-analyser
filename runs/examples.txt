@@ -6,7 +6,7 @@ bash runs/run.sh urho3d /home/ullmann/Documents/research/game-engines /home/ullm
 
 bash runs/run.sh olcPixelGameEngine /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
 
-bash runs/run.sh o3de /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+bash runs/run.sh o3de /home/gabrielullmann/Documents /home/gabrielullmann/Documents/game-engine-analyser 
 
 bash runs/run.sh panda3d /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
 
@@ -16,4 +16,4 @@ bash runs/run.sh FlaxEngine /media/ullmann/HDDGabriel/research/engines /home/ull
 
 bash runs/run.sh panda3d /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
 
-bash runs/run.sh UnrealEngine /media/ullmann/HDDGabriel/research/engines /home/ullmann/Documents/research/game-engine-analyser 
+bash runs/run.sh UnrealEngine /home/gabrielullmann/Documents /home/gabrielullmann/Documents/game-engine-analyser 
