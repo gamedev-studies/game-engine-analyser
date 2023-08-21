@@ -31,7 +31,7 @@ COR,,./godot/main/main_timer_sync.cpp,
 COR,,./godot/main/main_timer_sync.h,
 DEB,,./godot/main/performance.cpp,
 DEB,,./godot/main/performance.h,
-OTH,Tests,./godot/main/tests
+OTH,Tests,./godot/main/tests,
 OTH,Build,./godot/misc,
 AUD,,./godot/modules/stb_vorbis,
 COR,,./godot/modules/gdnative,
