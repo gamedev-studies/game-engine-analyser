@@ -222,8 +222,8 @@ LLR,,./godot/scene/3d/reflection_probe.cpp,
 LLR,,./godot/scene/3d/reflection_probe.h,
 SGC,,./godot/scene/3d/remote_transform.cpp,RemoteTransform pushes its own Transform to another Spatial derived Node in the scene
 SGC,,./godot/scene/3d/remote_transform.h,RemoteTransform pushes its own Transform to another Spatial derived Node in the scene
-SGC,,./godot/scene/3d/room.cpp,Room node, used to group objects together locally for Portal culling
-SGC,,./godot/scene/3d/room.h,Room node, used to group objects together locally for Portal culling
+SGC,,./godot/scene/3d/room.cpp,Room node used to group objects together locally for Portal culling
+SGC,,./godot/scene/3d/room.h,Room node used to group objects together locally for Portal culling
 SGC,,./godot/scene/3d/room_group.cpp,
 SGC,,./godot/scene/3d/room_group.h,
 SGC,,./godot/scene/3d/room_manager.cpp,
@@ -232,8 +232,8 @@ SKA,,./godot/scene/3d/skeleton.cpp,
 SKA,,./godot/scene/3d/skeleton.h,
 PHY,,./godot/scene/3d/soft_body.cpp,
 PHY,,./godot/scene/3d/soft_body.h,
-SGC,,./godot/scene/3d/spatial.cpp,Use Spatial as a parent node to move, scale, rotate and show/hide children in a 3D project
-SGC,,./godot/scene/3d/spatial.h,Use Spatial as a parent node to move, scale, rotate and show/hide children in a 3D project
+SGC,,./godot/scene/3d/spatial.cpp,Use Spatial as a parent node to move scale rotate and show/hide children in a 3D project
+SGC,,./godot/scene/3d/spatial.h,Use Spatial as a parent node to move scale rotate and show/hide children in a 3D project
 PHY,,./godot/scene/3d/spatial_velocity_tracker.cpp,
 PHY,,./godot/scene/3d/spatial_velocity_tracker.h,
 SKA,,./godot/scene/3d/spring_arm.cpp,
