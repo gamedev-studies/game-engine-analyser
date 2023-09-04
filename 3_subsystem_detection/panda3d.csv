@@ -20,23 +20,23 @@ PLA,,./panda3d/panda/src/androiddisplay,
 AUD,,./panda3d/panda/src/audio,
 AUD,,./panda3d/panda/src/audiotraits,
 PHY,,./panda3d/panda/src/bullet,
-SKA,,./panda3d/panda/src/chan,This defines the various kinds of AnimChannels that may be defined, as well as the MovingPart class which binds to the channels and plays the animation (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+SKA,,./panda3d/panda/src/chan,This defines the various kinds of AnimChannels that may be defined as well as the MovingPart class which binds to the channels and plays the animation (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 SKA,,./panda3d/panda/src/char,
 PLA,,./panda3d/panda/src/cocoadisplay,https://www.panda3d.org/reference/cxx/classCocoaGraphicsPipe.html
 PHY,,./panda3d/panda/src/collide,
 SGC,,./panda3d/panda/src/cull,
 HID,,./panda3d/panda/src/device,
-COR,,./panda3d/panda/src/dgraph,Defines and manages the data graph, which is the hierarchy of devices, tforms, and any other things which might have an input or an output and need to execute every frame (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
-LLR,,./panda3d/panda/src/display,Abstract display classes, including pipes, windows, channels, and display regions (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
-VFX,,./panda3d/panda/src/distort,File names: cylindricalLens.h, fisheyeLens.h
+COR,,./panda3d/panda/src/dgraph,Defines and manages the data graph; which is the hierarchy of devices; tforms; and any other things which might have an input or an output and need to execute every frame (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+LLR,,./panda3d/panda/src/display,Abstract display classes including pipes; windows; channels; and display regions (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+VFX,,./panda3d/panda/src/distort,File names: cylindricalLens.h; fisheyeLens.h
 COR,,./panda3d/panda/src/downloader,Tool to allow automatic download of files in the background (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 COR,,./panda3d/panda/src/downloadertools,
-LLR,,./panda3d/panda/src/dxgsg9,Handles all communication with the DirectX backend, and manages state to minimize redundant state changes (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+LLR,,./panda3d/panda/src/dxgsg9,Handles all communication with the DirectX backend; and manages state to minimize redundant state changes (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 COR,,./panda3d/panda/src/dxml,
 RES,,./panda3d/panda/src/egg,https://docs.panda3d.org/1.10/cpp/tools/model-export/egg-syntax
-RES,,./panda3d/panda/src/egg2pg,A.k.a. the “egg loader”, this converts the egg structure read from the egg library, above, to a scene graph structure, suitable for rendering (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+RES,,./panda3d/panda/src/egg2pg,A.k.a. the “egg loader”; this converts the egg structure read from the egg library; above; to a scene graph structure; suitable for rendering (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 LLR,,./panda3d/panda/src/egldisplay,
-GMP,,./panda3d/panda/src/event,Tools for throwing, handling and receiving events (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+GMP,,./panda3d/panda/src/event,Tools for throwing; handling and receiving events (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 COR,,./panda3d/panda/src/express,https://docs.panda3d.org/1.10/python/reference/panda3d.core.Filename#panda3d.core.Filename
 FES,,./panda3d/panda/src/ffmpeg,
 FES,,./panda3d/panda/src/framework,Handy for quickly writing programs that can open a window and display the OmniTriangle (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
@@ -45,7 +45,7 @@ LLR,,./panda3d/panda/src/glesgsg,
 LLR,,./panda3d/panda/src/glgsg,
 LLR,,./panda3d/panda/src/glstuff,
 LLR,,./panda3d/panda/src/glxdisplay,
-LLR,,./panda3d/panda/src/gobj,Graphical non-scene-graph objects, such as textures and geometry primitives (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+LLR,,./panda3d/panda/src/gobj,Graphical non-scene-graph objects such as textures and geometry primitives (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 LLR,,./panda3d/panda/src/grutil,
 LLR,,./panda3d/panda/src/gsgbase,All code specific to rendering on a particular platform is contained within a well-defined class called a graphics state guardian (doi:10.1109/mc.2004.180)
 PLA,,./panda3d/panda/src/iphone,
@@ -64,7 +64,7 @@ SGC,,./panda3d/panda/src/pgraphnodes,
 FES,,./panda3d/panda/src/pgui,
 PHY,,./panda3d/panda/src/physics,
 COR,,./panda3d/panda/src/pipeline,
-RES,,./panda3d/panda/src/pnmimage,Reads and writes image files in various formats, by using the pnm and tiff libraries (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+RES,,./panda3d/panda/src/pnmimage,Reads and writes image files in various formats by using the pnm and tiff libraries (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 RES,,./panda3d/panda/src/pnmimagetypes,
 LLR,,./panda3d/panda/src/pnmtext,
 COR,,./panda3d/panda/src/pstatclient,
@@ -72,7 +72,7 @@ COR,,./panda3d/panda/src/putil,
 DEB,,./panda3d/panda/src/recorder,
 COR,,./panda3d/panda/src/skel,
 LLR,,./panda3d/panda/src/text,
-HID,,./panda3d/panda/src/tform,Data transforming objects that live in the data graph and convert raw data (as read from an input device, for instance) to something more useful. (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
+HID,,./panda3d/panda/src/tform,Data transforming objects that live in the data graph and convert raw data (as read from an input device for instance) to something more useful. (https://readthedocs.org/projects/panda-developer-manual/downloads/pdf/latest/)
 LLR,,./panda3d/panda/src/tinydisplay,
 LLR,,./panda3d/panda/src/vision,
 PLA,,./panda3d/panda/src/wgldisplay,
