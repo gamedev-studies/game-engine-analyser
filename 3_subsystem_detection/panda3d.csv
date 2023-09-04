@@ -126,7 +126,7 @@ RES,,./panda3d/pandatool/src/xfile,
 RES,,./panda3d/pandatool/src/xfileegg,
 RES,,./panda3d/pandatool/src/xfileprogs,
 OTH,Maya files,./panda3d/pandatool/src/scripts,
-LLR,,./panda3d/panda/metalibs/panda,config_pnmimagetypes,device,display
+LLR,,./panda3d/panda/metalibs/panda,config_pnmimagetypes;device;display
 PHY,,./panda3d/panda/metalibs/pandabullet,
 LLR,,./panda3d/panda/metalibs/pandadx9,
 RES,,./panda3d/panda/metalibs/pandaegg,
