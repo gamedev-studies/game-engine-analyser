@@ -1,6 +1,6 @@
 subsystem,entity_description,path_from_root,related_information
 OTH,Analytics,./o3de/Code/Framework/AzCore/AzCore/Statistics,
-OTH,Analytics,./o3de/Code/Framework/AzFramework/AzFramework/Metrics,Bus for things to register their UUIDs if they want their naked, raw name sent back to Amazon for metrics
+OTH,Analytics,./o3de/Code/Framework/AzFramework/AzFramework/Metrics,Bus for things to register their UUIDs if they want their naked; raw name sent back to Amazon for metrics
 OTH,Assets,./o3de/Assets,
 OTH,Assets,./o3de/Code/Framework/AzQtComponents/AzQtComponents/Images,
 OTH,Assets,./o3de/Code/LauncherUnified/Resources,
