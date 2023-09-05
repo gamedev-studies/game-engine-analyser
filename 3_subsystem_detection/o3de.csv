@@ -625,7 +625,7 @@ SKA,,./o3de/Gems/MotionMatching,Motion matching is a data-driven animation techn
 NIL,Python GUI integration,./o3de/Gems/QtForPython,The Qt for Python Gem provides the PySide2 Python libraries to manage Qt widgets
 NIL,Navigation,./o3de/Gems/RecastNavigation,
 NIL,Remote connection,./o3de/Gems/RemoteTools,The Remote Tools Connection Gem implements a public API for connecting remote debug and tools O3DE applications
-EDI,,./o3de/Gems/SliceFavorites,Class<SliceFavoritesSystemComponent>("SliceFavorites", "[Adds the ability for users to mark slices as favorites for easy instantiation via context menus in the editor]")
+EDI,,./o3de/Gems/SliceFavorites,Class<SliceFavoritesSystemComponent>(SliceFavorites [Adds the ability for users to mark slices as favorites for easy instantiation via context menus in the editor])
 NIL,Night sky simulation,./o3de/Gems/Stars,https://docs.o3de.org/docs/user-guide/components/reference/atom/stars/
 COR,,./o3de/Gems/Streamer,The parent gem for AZ::IO::Streamer related implementations
 NIL,Terrain,./o3de/Gems/SurfaceData,The Surface Data Gem provides functionality to emit signals or tags from surfaces such as meshes and terrain
