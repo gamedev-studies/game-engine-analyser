@@ -119,7 +119,7 @@ GMP,,./o3de/Code/Framework/AzCore/AzCore/EBus,https://docs.aws.amazon.com/lumber
 COR,,./o3de/Code/Framework/AzCore/AzCore/Interface,https://www.o3de.org/docs/user-guide/programming/az-interface/
 PLA,,./o3de/Code/Framework/AzCore/AzCore/IO,
 PLA,,./o3de/Code/Framework/AzCore/AzCore/IPC,https://opensource.com/article/19/4/interprocess-communication-linux-storage
-PLA,,./o3de/Code/Framework/AzCore/AzCore/Jobs,This is the new pseudo-standard interface for running jobs, can be found in VS2010 and Intel's Threading Building Blocks.
+PLA,,./o3de/Code/Framework/AzCore/AzCore/Jobs,This is the new pseudo-standard interface for running jobs can be found in VS2010 and Intel's Threading Building Blocks.
 COR,,./o3de/Code/Framework/AzCore/AzCore/JSON,
 COR,,./o3de/Code/Framework/AzCore/AzCore/Math,
 COR,,./o3de/Code/Framework/AzCore/AzCore/Memory,
@@ -366,7 +366,7 @@ FES,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/Commands,If no owni
 EDI,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/Component,Exposes the Editor Component CRUD API; it is exposed to Behavior Context for Editor Scripting.
 EDI,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/ComponentMode,
 EDI,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/ComponentModes,
-GMP,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/ContainerEntity,Clears all open state information for Container Entities for the EntityContextId provided. Used when context is switched, for example in the case of a new root prefab being loaded in place of an old one.
+GMP,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/ContainerEntity,Clears all open state information for Container Entities for the EntityContextId provided. Used when context is switched; for example in the case of a new root prefab being loaded in place of an old one.
 DEB,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/Debug,
 EDI,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/Editor,
 GMP,,./o3de/Code/Framework/AzToolsFramework/AzToolsFramework/Entity,https://www.o3de.org/docs/learning-guide/tutorials/entities-and-prefabs/entity-and-prefab-basics/
@@ -427,7 +427,7 @@ COR,,./o3de/Code/Legacy/CryCommon/CryEndian.h,
 PLA,,./o3de/Code/Legacy/CryCommon/CryFile.h,
 COR,,./o3de/Code/Legacy/CryCommon/CryHalf.inl,
 COR,,./o3de/Code/Legacy/CryCommon/CryLegacyAllocator.h,CryModule allocation API
-COR,,./o3de/Code/Legacy/CryCommon/CryListenerSet.h,Description : A simple, intelligent and efficient container for listeners.
+COR,,./o3de/Code/Legacy/CryCommon/CryListenerSet.h,Description : A simple intelligent and efficient container for listeners.
 COR,,./o3de/Code/Legacy/CryCommon/CryPath.h,Description : Defines namespace PathUtil for operations on files paths.
 COR,,./o3de/Code/Legacy/CryCommon/CryRandomInternal.h,
 COR,,./o3de/Code/Legacy/CryCommon/CrySystemBus.h,Events from CrySystem
@@ -473,7 +473,7 @@ SKA,,./o3de/Code/Legacy/CryCommon/Maestro,
 LLR,,./o3de/Code/Legacy/CryCommon/MainThreadRenderRequestBus.h,
 COR,,./o3de/Code/Legacy/CryCommon/MathConversion.h,
 HID,,./o3de/Code/Legacy/CryCommon/MicrophoneBus.h,
-COR,,./o3de/Code/Legacy/CryCommon/MiniQueue.h,Description : a small memory overhead, fixed size, efficient, iterable queue class used for CContextView  
+COR,,./o3de/Code/Legacy/CryCommon/MiniQueue.h,Description : a small memory overhead fixed size efficient iterable queue class used for CContextView  
 PLA,,./o3de/Code/Legacy/CryCommon/MultiThread_Containers.h,
 AUD,,./o3de/Code/Legacy/CryCommon/NullAudioSystem.h,
 PLA,,./o3de/Code/Legacy/CryCommon/Platform,
@@ -482,8 +482,8 @@ PLA,,./o3de/Code/Legacy/CryCommon/platform.h,Platform dependent stuff. Include t
 COR,,./o3de/Code/Legacy/CryCommon/PNoise3.h,
 EDI,,./o3de/Code/Legacy/CryCommon/ProjectDefines.h,Description: to get some defines available in every CryEngine project
 COR,,./o3de/Code/Legacy/CryCommon/Random.h,
-COR,,./o3de/Code/Legacy/CryCommon/Range.h,Class TRange, can represent anything that is range between two values, mostly used for time ranges.
-COR,,./o3de/Code/Legacy/CryCommon/ScopedVariableSetter.h,The idea of this class is to set the value of a variable in its constructor, and then in the destructor to reset it to its initial value.
+COR,,./o3de/Code/Legacy/CryCommon/Range.h,Class TRange can represent anything that is range between two values mostly used for time ranges.
+COR,,./o3de/Code/Legacy/CryCommon/ScopedVariableSetter.h,The idea of this class is to set the value of a variable in its constructor and then in the destructor to reset it to its initial value.
 COR,,./o3de/Code/Legacy/CryCommon/SerializationTypes.h,
 COR,,./o3de/Code/Legacy/CryCommon/SerializeFwd.h,
 COR,,./o3de/Code/Legacy/CryCommon/SimpleSerialize.h,
@@ -497,7 +497,7 @@ COR,,./o3de/Code/Legacy/CryCommon/VertexFormats.h,
 PLA,,./o3de/Code/Legacy/CryCommon/Win64specific.h,
 PLA,,./o3de/Code/Legacy/CryCommon/WinBase.cpp,
 COR,,./o3de/Code/Legacy/CryCommon/XMLBinaryHeaders.h,
-DEB,,./o3de/Code/Legacy/CrySystem/AZCoreLogSink.h,Hook Trace bus so we can funnel AZ asserts, warnings, etc to CryEngine.
+DEB,,./o3de/Code/Legacy/CrySystem/AZCoreLogSink.h,Hook Trace bus so we can funnel AZ asserts warnings etc to CryEngine.
 DEB,,./o3de/Code/Legacy/CrySystem/AZCrySystemInitLogSink.cpp,
 DEB,,./o3de/Code/Legacy/CrySystem/AZCrySystemInitLogSink.h,
 EDI,,./o3de/Code/Legacy/CrySystem/CmdLine.cpp,https://docs.cryengine.com/display/SDKDOC2/Command+Line+Arguments
