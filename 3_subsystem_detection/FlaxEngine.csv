@@ -8,8 +8,8 @@ OTH,Shader scripts,./FlaxEngine/Source/Shaders,
 OTH,Terrain,./FlaxEngine/Source/Engine/Terrain,
 OTH,Tests,./FlaxEngine/Source/Engine/Tests,
 OTH,Tests,./FlaxEngine/Source/Tools,
-COR,,./FlaxEngine/Source/FlaxEngine.Gen.h
-COR,,./FlaxEngine/Source/FlaxEngine.Gen.cpp
+COR,,./FlaxEngine/Source/FlaxEngine.Gen.h,
+COR,,./FlaxEngine/Source/FlaxEngine.Gen.cpp,
 EDI,,./FlaxEngine/Source/resource.h,Used by FlaxEditor.rc
 EDI,,./FlaxEngine/Source/Editor,
 SKA,,./FlaxEngine/Source/Engine/Animations,
