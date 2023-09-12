@@ -1,15 +1,15 @@
 subsystem,entity_description,path_from_root,related_information
 OTH,User contibutions,./olcPixelGameEngine/Contributions,
 AUD,,./olcPixelGameEngine/Extensions/olcPGEX_Sound.h,Provides sound generation and wave playing routines
-FES,,./olcPixelGameEngine/Extensions/olcPGEX_PopUpMenu.h,Provides a quick and easy to use, flexible, skinnable context pop-up menu system
+FES,,./olcPixelGameEngine/Extensions/olcPGEX_PopUpMenu.h,Provides a quick and easy to use; flexible; skinnable context pop-up menu system
 LLR,,./olcPixelGameEngine/Extensions/olcPGEX_Graphics2D.h,Provides advanced olc::Sprite manipulation and drawing routines
 LLR,,./olcPixelGameEngine/Extensions/olcPGEX_Graphics3D.h,Provides support for software rendering 3D graphics
 LLR,,./olcPixelGameEngine/Extensions/olcPGEX_TransformedView.h,This extension provides drawing routines that are compatible with changeable world and screen spaces
 OMP,,./olcPixelGameEngine/Extensions/olcPGEX_Network.h,ASIO Based Networking olcPixelGameEngine Extension v1.0
-PHY,,./olcPixelGameEngine/Extensions/olcPGEX_RayCastWorld.h,Provides a quick and easy to use, flexible, skinnable, ray-cast 3D world engine
+PHY,,./olcPixelGameEngine/Extensions/olcPGEX_RayCastWorld.h,Provides a quick and easy to use; flexible; skinnable; ray-cast 3D world engine
 OTH,User contributions,./olcPixelGameEngine/UserRepos,
 OTH,Examples,./olcPixelGameEngine/Videos,
 OTH,Tool,./olcPixelGameEngine/WASM,Information on using olc::PixelGameEngine in web browsers
 OTH,WikiPics,./olcPixelGameEngine/WikiPics,Pictures for GitHub Wiki
-LLR,,./olcPixelGameEngine/olcPixelGameEngine.h,olc::PixelGameEngine is a single file, cross platform graphics and userinput
+LLR,,./olcPixelGameEngine/olcPixelGameEngine.h,olc::PixelGameEngine is a single file; cross platform graphics and userinput
 OTH,Example,./olcPixelGameEngine/olcExampleProgram.cpp,https://github.com/OneLoneCoder/olcPixelGameEngine/wiki
