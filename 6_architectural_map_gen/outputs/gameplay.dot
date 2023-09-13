@@ -1,99 +1,1 @@
-digraph "source tree" {
-	"AUD" -> "AUD"
-	"AUD" -> "COR"
-	"AUD" -> "DEB"
-	"AUD" -> "LLR"
-	"AUD" -> "PLA"
-	"COR" -> "AUD"
-	"COR" -> "COR"
-	"COR" -> "DEB"
-	"COR" -> "FES"
-	"COR" -> "GMP"
-	"COR" -> "HID"
-	"COR" -> "LLR"
-	"COR" -> "PHY"
-	"COR" -> "PLA"
-	"COR" -> "RES"
-	"COR" -> "SGC"
-	"COR" -> "SKA"
-	"COR" -> "VFX"
-	"DEB" -> "COR"
-	"DEB" -> "DEB"
-	"DEB" -> "GMP"
-	"FES" -> "COR"
-	"FES" -> "DEB"
-	"FES" -> "FES"
-	"FES" -> "GMP"
-	"FES" -> "HID"
-	"FES" -> "LLR"
-	"FES" -> "PLA"
-	"FES" -> "SGC"
-	"FES" -> "SKA"
-	"GMP" -> "AUD"
-	"GMP" -> "COR"
-	"GMP" -> "DEB"
-	"GMP" -> "FES"
-	"GMP" -> "GMP"
-	"GMP" -> "HID"
-	"GMP" -> "LLR"
-	"GMP" -> "PHY"
-	"GMP" -> "PLA"
-	"GMP" -> "RES"
-	"GMP" -> "SGC"
-	"GMP" -> "SKA"
-	"GMP" -> "VFX"
-	"HID" -> "COR"
-	"HID" -> "FES"
-	"HID" -> "HID"
-	"HID" -> "PLA"
-	"LLR" -> "COR"
-	"LLR" -> "DEB"
-	"LLR" -> "FES"
-	"LLR" -> "LLR"
-	"LLR" -> "PHY"
-	"LLR" -> "PLA"
-	"LLR" -> "RES"
-	"LLR" -> "SGC"
-	"LLR" -> "SKA"
-	"PHY" -> "COR"
-	"PHY" -> "GMP"
-	"PHY" -> "LLR"
-	"PHY" -> "PHY"
-	"PHY" -> "PLA"
-	"PHY" -> "RES"
-	"PHY" -> "SGC"
-	"PHY" -> "SKA"
-	"PLA" -> "COR"
-	"PLA" -> "FES"
-	"PLA" -> "GMP"
-	"PLA" -> "HID"
-	"PLA" -> "PLA"
-	"RES" -> "COR"
-	"RES" -> "DEB"
-	"RES" -> "PLA"
-	"RES" -> "RES"
-	"SGC" -> "AUD"
-	"SGC" -> "COR"
-	"SGC" -> "FES"
-	"SGC" -> "GMP"
-	"SGC" -> "LLR"
-	"SGC" -> "PHY"
-	"SGC" -> "SGC"
-	"SGC" -> "SKA"
-	"SGC" -> "VFX"
-	"SKA" -> "COR"
-	"SKA" -> "DEB"
-	"SKA" -> "FES"
-	"SKA" -> "GMP"
-	"SKA" -> "LLR"
-	"SKA" -> "PHY"
-	"SKA" -> "PLA"
-	"SKA" -> "SGC"
-	"SKA" -> "SKA"
-	"VFX" -> "COR"
-	"VFX" -> "DEB"
-	"VFX" -> "LLR"
-	"VFX" -> "SGC"
-	"VFX" -> "SKA"
-	"VFX" -> "VFX"
-}
+digraph "source tree" {GMP->HIDGMP->SGCGMP->PLAGMP->RESGMP->OTHGMP->SKAGMP->FESGMP->PHYGMP->LLRGMP->VFXGMP->CORGMP->AUDGMP->DEBRES->DEBRES->CORRES->PLALLR->SGCLLR->RESLLR->PLALLR->FESLLR->SKALLR->DEBLLR->CORLLR->PHYSGC->VFXSGC->AUDSGC->GMPSGC->SKASGC->OTHSGC->FESSGC->CORSGC->LLRSGC->PHYFES->SGCFES->HIDFES->PLAFES->GMPFES->SKAFES->DEBFES->CORFES->LLRCOR->HIDCOR->GMPCOR->SGCCOR->PLACOR->SKACOR->OTHCOR->RESCOR->FESCOR->PHYCOR->LLRCOR->VFXCOR->AUDCOR->DEBPHY->SGCPHY->RESPHY->PLAPHY->GMPPHY->OTHPHY->SKAPHY->CORPHY->LLRHID->CORHID->FESHID->PLAAUD->LLRAUD->CORAUD->DEBAUD->PLASKA->SGCSKA->PLASKA->GMPSKA->FESSKA->DEBSKA->CORSKA->LLRSKA->PHYPLA->HIDPLA->CORPLA->FESPLA->GMPOTH->SGCOTH->RESOTH->PLAOTH->SKAOTH->DEBOTH->COROTH->LLROTH->PHYVFX->SGCVFX->SKAVFX->DEBVFX->CORVFX->LLRDEB->CORDEB->GMP}

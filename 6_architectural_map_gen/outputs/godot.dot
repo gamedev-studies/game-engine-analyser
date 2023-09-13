@@ -1,106 +1,1 @@
-digraph "source tree" {
-	"AUD" -> "AUD"
-	"AUD" -> "EDI"
-	"AUD" -> "RES"
-	"AUD" -> "SDK"
-	"AUD" -> "SGC"
-	"COR" -> "COR"
-	"COR" -> "EDI"
-	"COR" -> "FES"
-	"COR" -> "GMP"
-	"COR" -> "LLR"
-	"COR" -> "OMP"
-	"COR" -> "PLA"
-	"COR" -> "RES"
-	"COR" -> "SDK"
-	"COR" -> "SGC"
-	"COR" -> "VFX"
-	"DEB" -> "DEB"
-	"DEB" -> "RES"
-	"DEB" -> "SGC"
-	"EDI" -> "AUD"
-	"EDI" -> "COR"
-	"EDI" -> "DEB"
-	"EDI" -> "EDI"
-	"EDI" -> "FES"
-	"EDI" -> "GMP"
-	"EDI" -> "LLR"
-	"EDI" -> "RES"
-	"EDI" -> "SDK"
-	"EDI" -> "SGC"
-	"EDI" -> "SKA"
-	"EDI" -> "VFX"
-	"FES" -> "AUD"
-	"FES" -> "COR"
-	"FES" -> "EDI"
-	"FES" -> "FES"
-	"FES" -> "RES"
-	"FES" -> "SDK"
-	"FES" -> "SGC"
-	"GMP" -> "COR"
-	"GMP" -> "EDI"
-	"GMP" -> "FES"
-	"GMP" -> "GMP"
-	"GMP" -> "RES"
-	"GMP" -> "SGC"
-	"HID" -> "HID"
-	"LLR" -> "EDI"
-	"LLR" -> "LLR"
-	"LLR" -> "RES"
-	"LLR" -> "SDK"
-	"LLR" -> "SGC"
-	"OMP" -> "COR"
-	"OMP" -> "EDI"
-	"OMP" -> "OMP"
-	"OMP" -> "SDK"
-	"OMP" -> "SGC"
-	"PHY" -> "PHY"
-	"PHY" -> "RES"
-	"PHY" -> "SDK"
-	"PHY" -> "SGC"
-	"PLA" -> "AUD"
-	"PLA" -> "COR"
-	"PLA" -> "EDI"
-	"PLA" -> "LLR"
-	"PLA" -> "PLA"
-	"PLA" -> "RES"
-	"PLA" -> "SDK"
-	"PLA" -> "SGC"
-	"RES" -> "AUD"
-	"RES" -> "COR"
-	"RES" -> "EDI"
-	"RES" -> "FES"
-	"RES" -> "LLR"
-	"RES" -> "RES"
-	"RES" -> "SDK"
-	"RES" -> "SGC"
-	"RES" -> "SKA"
-	"RES" -> "VFX"
-	"SDK" -> "SDK"
-	"SDK" -> "SKA"
-	"SGC" -> "AUD"
-	"SGC" -> "DEB"
-	"SGC" -> "EDI"
-	"SGC" -> "FES"
-	"SGC" -> "LLR"
-	"SGC" -> "RES"
-	"SGC" -> "SGC"
-	"SGC" -> "SKA"
-	"SGC" -> "VFX"
-	"SKA" -> "AUD"
-	"SKA" -> "EDI"
-	"SKA" -> "RES"
-	"SKA" -> "SGC"
-	"SKA" -> "SKA"
-	"SKA" -> "VFX"
-	"VFX" -> "AUD"
-	"VFX" -> "EDI"
-	"VFX" -> "FES"
-	"VFX" -> "LLR"
-	"VFX" -> "PHY"
-	"VFX" -> "RES"
-	"VFX" -> "SDK"
-	"VFX" -> "SGC"
-	"VFX" -> "SKA"
-	"VFX" -> "VFX"
-}
+digraph "source tree" {GMP->FESGMP->EDIGMP->CORGMP->RESRES->VFXRES->AUDRES->EDIRES->CORRES->SGCRES->SKARES->OTHRES->FESRES->PHYRES->SDKRES->LLRLLR->RESLLR->SGCLLR->CORLLR->OTHLLR->SDKLLR->EDISGC->AUDSGC->DEBSGC->VFXSGC->EDISGC->CORSGC->SKASGC->RESSGC->OTHSGC->FESSGC->PHYSGC->LLRFES->RESFES->EDIFES->AUDFES->CORFES->LLRFES->VFXFES->SGCOMP->SDKOMP->CORCOR->AUDCOR->DEBCOR->VFXCOR->EDICOR->GMPCOR->SGCCOR->RESCOR->OTHCOR->FESCOR->PLACOR->OMPCOR->PHYCOR->SDKCOR->LLRSDK->FESSDK->SKASDK->CORPHY->SDKPHY->SGCPHY->CORPHY->RESEDI->AUDEDI->DEBEDI->VFXEDI->COREDI->GMPEDI->SGCEDI->SKAEDI->RESEDI->FESEDI->PLAEDI->PHYEDI->SDKEDI->LLRAUD->SGCAUD->RESAUD->CORAUD->SDKAUD->EDISKA->AUDSKA->RESSKA->SGCSKA->CORSKA->VFXSKA->EDIPLA->AUDPLA->RESPLA->CORPLA->LLRPLA->SDKPLA->EDIOTH->RESOTH->SGCOTH->FESOTH->COROTH->LLROTH->SDKOTH->EDIVFX->AUDVFX->EDIVFX->CORVFX->SGCVFX->SKAVFX->RESVFX->FESVFX->PHYVFX->SDKVFX->LLRDEB->LLRDEB->CORDEB->SGCDEB->RES}
