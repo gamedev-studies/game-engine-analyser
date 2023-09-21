@@ -8,7 +8,16 @@ EDI,,./panda3d/contrib/src/sceneeditor,
 SGC,,./panda3d/contrib/src/speedtree,
 OTH,Python code,./panda3d/direct,
 OTH,Docs,./panda3d/doc,
-EDI,,./panda3d/dtool,https://docs.panda3d.org/1.10/python/tools/index
+OTH,CPP parser,./panda3d/dtool/src/cppparser,
+OTH,Macros,./panda3d/dtool/src/dconfig,These macros are used in each directory to call an initialization function at static-init time
+PLA,,./panda3d/dtool/src/dtoolbase,Contains atomic data structures, threading utilities
+COR,,./panda3d/dtool/src/dtoolutil,Contains  string utils, data structures
+OTH,CPP parser,./panda3d/dtool/src/interrogate,Interrogate is a program to parse a body of C++ code and build up a table of symbols found
+OTH,CPP parser,./panda3d/dtool/src/interrogatedb,Part of Interrogate
+OTH,CPP parser,./panda3d/dtool/src/parser-inc,
+COR,,./panda3d/dtool/src/prc,
+OTH,Cryptography,./panda3d/dtool/src/prc_keys,Generate keys to sign a PRC file
+OTH,Tests,./panda3d/dtool/src/test_interrogate,Tests for Interrogate 
 OTH,Python code,./panda3d/makepanda,
 OTH,Assets,./panda3d/models,
 OTH,Config files,./panda3d/panda/src/configfiles,
