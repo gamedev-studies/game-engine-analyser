@@ -7,28 +7,11 @@ debug_mode = False
 
 def main():
     map_dependencies = {}
-    engines = [ "cocos2dx", "godot", "urho3d", "flaxengine", "gameplay", "o3de", "olcPixelGameEngine", "panda3d", "piccolo", "UnrealEngine" ]
     subsystems = [ "AUD", "COR", "DEB", "EDI", "FES", "GMP", "HID", "LLR", "OMP", "PHY", "PLA", "RES", "SDK", "SGC", "SKA", "VFX" ]
-
-    for engine in engines:
-        ds = pd.read_csv("inputs/matrix_" + engine + ".csv", sep=",")
-        ds = ds.reindex(sorted(ds.columns), axis=1)
-        ds = ds.sort_values(by=["asubsystem"])
-        ds = ds[~ds["asubsystem"].str.contains("OTH")]
-        ds = ds.drop(["asubsystem", engine + "-OTH"], axis=1)
-        map_dependencies[engine] = np.array(ds.values)
-
-    sum = map_dependencies[engines[0]]
-    for i in range(1, len(engines)):
-        print(engines[i])
-        cur_matrix = map_dependencies[engines[i]]
-        if debug_mode:
-            print("=====")
-            print(engines[i])
-            print(cur_matrix)
-            print(cur_matrix.shape)
-
-        sum = np.add(sum, cur_matrix)
+    ds = pd.read_csv("inputs/matrix_all.csv", sep=",")
+    ds = ds.drop(columns=['asubsystem'])
+    print(ds)
+    sum = np.array(ds.values)
 
     # do not annotate values 0 and 1
     annot_values = np.array(sum, dtype=str)
