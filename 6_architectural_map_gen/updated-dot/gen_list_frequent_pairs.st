@@ -4,7 +4,6 @@ engines := #('cocos2d' 'flaxengine' 'gameplay' 'godot' 'o3de' 'olc' 'panda3d' 'p
 subsystems := #('AUD' 'COR' 'DEB' 'EDI' 'FES' 'GMP' 'HID' 'LLR' 'OMP' 'PHY' 'PLA' 'RES' 'SDK' 'SGC' 'SKA' 'VFX').
 line := ''.
 subsystems do: [:source | 
-	 Transcript show: source.
     subsystems do: [:target | 
         count := 0.
         engines do: [:eng | 
@@ -13,7 +12,12 @@ subsystems do: [:source |
             fileLine := content includesSubstring: (source,'"->"', target).
  				fileLine ifTrue: [count := count + 1].
         ].
+		Transcript show: (source,'->', target).
         Transcript show: ',',(count asString).
+        Transcript cr.
     ].
-    Transcript cr.
 ].
+
+
+
+				
