@@ -1,3 +1,5 @@
+// simple code snippet for counting edges in an SVG
+// this is useful in case you want to compare what Moose shows you and the arch map SVG it generates
 var count = 0
 var allPaths = document.querySelectorAll("path")
 
