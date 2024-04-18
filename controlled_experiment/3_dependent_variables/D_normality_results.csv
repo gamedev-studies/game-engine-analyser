@@ -1,0 +1,7 @@
+Variable,Kolmogorov-Smirnov,Shapiro-Wilks' W
+UndTime,p < 2.2 × 10−16,p = 0.00582
+UndCorr,p = 2.8 × 10−14,p = 0.00048
+ModTime,p < 2.2 × 10−16,p = 0.00916
+ModComp,p = 5.2 × 10−8,p = 0.01114
+ModCorr,p = 1.1 × 10−5,p = 0.03985
+ModRate,p = 6.7 × 10−4,p = 0.03805

@@ -1,0 +1,14 @@
+#	Question	Answer Type	Required?
+1	Which of these titles best describes your current job position?	List, single choice	Yes
+2	How old are you?	List, single choice	No
+3	What is your gender?	List, single choice	No
+4	What is your country of residence?	List, single choice	No
+5	How many years of software development experience do you have?	List, single choice	Yes
+6	Which of the following best describes your experience with game engines?	List, single choice	Yes
+7	What game engines have you used?	List, multiple choice	No
+8	How mentally demanding were the tasks?	Likert (1-5)	Yes
+9	How physically demanding were the tasks?	Likert (1-5)	Yes
+10	How hurried or rushed was the pace of the tasks?	Likert (1-5)	Yes
+11	How successful were you in accomplishing what you were asked to do?	Likert (1-5)	Yes
+12	How hard did you have to work to accomplish your level of performance?	Likert (1-5)	Yes
+13	How insecure, discouraged, irritated, stressed, and annoyed were you?	Likert (1-5)	Yes

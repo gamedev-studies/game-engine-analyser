@@ -1,0 +1,7 @@
+Variable	Mean Control	Mean Treatment	Effect Size	Z
+UndTime	4,377.78	3,545.19	0.368	20
+UndCorr	5.87	6.25	0.303	10.5
+ModTime	1,282.73	2,482.08	1.71	5
+ModComp	1.02	2.04	1.48	5
+ModCorr	1.09	1.46	0.55	7
+ModRate	0	0	0.23	12

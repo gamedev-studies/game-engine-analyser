@@ -1,0 +1,491 @@
+"Response ID","Date submitted","Last page","Start language","Date started","Date last action","[Architecture understanding] Provide a description of the Audio subsystem functionality. Please write three sentences maximum.","[Architecture understanding] Search for the file servers/audio/audio_effect.h and open it. Provide a description of its functionality.  Please write three sentences maximum.","[Architecture understanding] List a minimum of three functionalities provided by the Audio subsystem and provide a short description of each of them.","[Architecture understanding] For each functionality you named in Audio, please name the file(s) that implement them.","[Architecture understanding] Open the file scene/2d/particles_2d.h and list its dependencies to other files in the Visual Effects subsystem.","[Architecture understanding] Name the subsystems(s) of Godot which handle WebRTC functionality.","[Architecture understanding] Open the file scene/2d/particles_2d.h. Provide a description of its functionality. Please write three sentences maximum.","[Impact analysis] Suppose the rich text functionality in the Front end subsystem of Godot was removed. Please mention all files which may have to be changed as a result of the removal of these functionalities.","[Impact analysis] The file scene/gui/video_player.cpp in the Front End subsystem provides video player functionality. Suppose a developer wants to implement the following feature: change the video playback speed (e.g. speed x2) for any video stream. Please mention all files which may have to be changed to implement this feature.","Total time","Group time: Questions","Question time: Q1","Question time: Q2","Question time: Q3","Question time: Q4","Question time: Q5","Question time: Q6","Question time: Q7","Question time: Q8","Question time: Q9"
+"7","2023-08-29 20:18:01.000","9","en","2023-08-29 18:43:36.000","2023-08-29 20:18:01.000","Provide support for spatial 2d/3d audio.
+Allow decoding and processing of various audio files in chunks.
+Implements a centralized audio server who owns and synchronize audio requests with the underlying system, while also managing sound effect application.
+ ","The file defines a audio effect instance, which is a way of automatically keeping track of resources/requests of effect application/execution.","Spatial audio: feature that allow for a proper sense of spatial distance in the sound produced. Achieved by computing distortions and adjustment on the emitted sound.
+Sound effects: allow the application of transformations on the sound.
+OS abstraction: the subsystem was designed to delimitate and isolate driver/OS specifics API's from the core of the engine.","Spatial audio:
+./godot/scene/2d/audio_stream_player_2d.cpp
+./godot/scene/2d/audio_stream_player_2d.h
+./godot/scene/3d/audio_stream_player_3d.cpp
+./godot/scene/3d/audio_stream_player_3d.h
+./godot/scene/audio
+Audio effects:
+./godot/servers/audio
+./godot/servers/audio_server.cpp
+./godot/servers/audio_server.h
+OS abstraction:
+./godot/drivers/coreaudio
+./godot/servers/audio_server.cpp
+./godot/servers/audio_server.h","No direct dependencies found.","Multiplayer
+./godot/modules/webrtc
+Core 
+./godot/modules/gdnative","Apparently the class manages particle effect related things, like appearance, speed, how many. The class located in ./godot/scene/2d/cpu_particles_2d.h is a alternative implementation.","In the GUI folder there many files:
+./godot/scene/gui
+In the resourcese subsystem there are textual references for the components rich text:
+./godot/scene/resources
+On the editor:
+./godot/editor
+And adjustments on the test suit:
+./godot/main/tests","./godot/scene/gui
+./godot/scene/audio
+./godot/servers/audio
+./godot/servers/audio_server.cpp
+./godot/servers/audio_server.h","5663.4800000000005","","1061.73","187.74000000000001","523.10000000000002","278.56","1666.27","130.77000000000001","395.31","821.40999999999997","598.59000000000003"
+"10","2023-09-07 17:42:53.000","9","en","2023-09-07 14:06:00.000","2023-09-07 17:42:53.000","o sistema de audio do godot foi feito para jogos, por isso contem features que são interessantes para jogos e não para outras aplicações gerais, lidando as vezes com o audio a mais baixo nível como em buffers e carregando porções do audio nesse buffer ","Adiciona efeitos de audio, não ficou claro se em cima de outros audios que estão rodando ou cria um do zero também","Uma rapida olhada no arquivo godot\scene\audio\audio_stream_player.cpp o método _bind_methods trás a lista de funcionalidades providas do sistema de audio não posicional , ou seja, não vem objetos em cena, normalmente usados em menus eu imagino.
+set_stream = coloca um arquivo de audio
+play = roda o audio
+is_playing = se o audio está rodando 
+
+se era pra descrever outro módulo como sistema de audio de objetos (2d) temos o arquivo scene\2d\audio_stream_player_2d.cpp que implementa os mesmos métodos acima.
+","godot\servers\audio\audio_stream.cpp","dentro do scene
+scene/2d/node_2d.h
+scene/resources/texture.h
+scene\resources\material.h
+
+fora do scene
+core\math\rect2.h
+core\object.h
+core/rid.h","Multiplayer","Responsavel por lidar com a fisica fazendo emissão de particulas 2D que são configuraveis via parametros possuindo configurações de random, tempo de vida, texturas e entre outros diversos parametros","editor\plugins\asset_library_editor_plugin.cpp
+editor\plugins\script_text_editor.cpp
+editor\plugins\version_control_editor_plugin.cpp
+editor\plugins\visual_shader_editor_plugin.cpp
+editor\editor_about.cpp
+editor\editor_help.cpp
+editor\editor_inspector.cpp
+editor\editor_log.cpp
+editor\editor_node.cpp
+editor\editor_themes.cpp
+editor\project_export.cpp
+editor\rename_dialog.cpp
+main\tests\test_gui.cpp
+scene\gui\rich_text_label.cpp
+scene\resources\default_theme\default_theme.cpp
+scene\register_scene_types.cpp","video_player.cpp
+video_player.h
+
+diria que os .cpp e .h de audios também, porem não ficou claro pra mim se está rodando um arquivo .mp4 por exemplo que já possui o audio embutido ou o audio precisa ser ""renderizado"" em separado e armazenado em buffer, para incluir os arquivos de audio teria que ser respondida essa questão.
+
+Olhando um pouco melhor, existe o método set_audio_track que seta audio, então os arquivos de audio seriam necessários também como 
+audio_servers, video_stream, audio_stream_players","13002.900000000001","","138.53","7552.3400000000001","516.34000000000003","254.02000000000001","1219.01","724.86000000000001","616.59000000000003","528.67999999999995","1452.53"
+"11","2023-09-08 19:24:27.000","9","en","2023-09-08 18:30:00.000","2023-09-08 19:24:27.000","class AudioEffectInstance seems to be the class that instantiet the the audio effect  that inhert AudioEffectInstance, Reference that seems to be some type of  control for manipulate audio effects, the process method its a virtual method that´s  wait  a  const called audi_frame_src to process the especif frame, the silence is a method to to define if the audio is silent.","it´s call sound effects or ""audio"", instances that´s going to be used at some point of the game.","process: process the especific audio frame
+process_silence: virify if the audio is silence
+AudioEffect: is the constructor for the audioEffect class","audio_effect_aplify.cpp
+audio_effect_record.cpp
+audio_effect.cpp","#include ""core/rid.h""
+#include ""scene/2d/node_2d.h""
+#include ""scene/resources/texture.h""","audio, scene, in","its used to create particle  visual effects, like fire, smoke and rain.","layouts, scripts and  all font resourses that use  rich text functionality
+___________________________________________________________________________________________________________________________________________________________________________________
+C:\ExperimentFiles\godot\editor\plugins\asset_library_editor_plugin.cpp
+  274,23: 	description = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\plugins\script_text_editor.cpp
+  1886,26: 	warnings_panel = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\plugins\version_control_editor_plugin.cpp
+  404,29: 	set_up_vcs_status = memnew(RichTextLabel);
+  548,16: 	diff = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\plugins\visual_shader_editor_plugin.cpp
+  2476,21: 	node_desc = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\editor_about.cpp
+  194,25: 	_license_text = memnew(RichTextLabel);
+  270,21: 	_tpl_text = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\editor_help.cpp
+  47,43: 	text_color = get_color(""default_color"", ""RichTextLabel"");
+  174,109: 	Ref<StyleBox> class_desc_stylebox = EditorNode::get_singleton()->get_theme_base()->get_stylebox(""normal"", ""RichTextLabel"")->duplicate();
+  194,55: 	const Color text_color = get_color(""default_color"", ""RichTextLabel"");
+  234,26: 		class_desc->push_align(RichTextLabel::ALIGN_RIGHT);
+  520,27: 			class_desc->push_align(RichTextLabel::ALIGN_RIGHT);
+  1256,53: static void _add_text_to_rt(const String &p_bbcode, RichTextLabel *p_rt) {
+  1375,21: 			p_rt->push_align(RichTextLabel::ALIGN_CENTER);
+  1575,22: 	class_desc = memnew(RichTextLabel);
+  1653,21: 	rich_text = memnew(RichTextLabel);
+  1742,35: void FindBar::set_rich_text_label(RichTextLabel *p_rich_text_label) {
+
+C:\ExperimentFiles\godot\editor\editor_inspector.cpp
+  2016,69: 	// like ""text_changed"" signal. eg: Text property of Label, Button, RichTextLabel, etc.
+
+C:\ExperimentFiles\godot\editor\editor_log.cpp
+  172,15: 	log = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\editor_node.cpp
+  6987,23: 	load_errors = memnew(RichTextLabel);
+  6993,27: 	execute_outputs = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\editor_themes.cpp
+  1080,4: 	//RichTextLabel
+  1081,37: 	theme->set_color(""default_color"", ""RichTextLabel"", font_color);
+  1082,41: 	theme->set_color(""font_color_shadow"", ""RichTextLabel"", Color(0, 0, 0, 0));
+  1083,42: 	theme->set_constant(""shadow_offset_x"", ""RichTextLabel"", 1 * EDSCALE);
+  1084,42: 	theme->set_constant(""shadow_offset_y"", ""RichTextLabel"", 1 * EDSCALE);
+  1085,44: 	theme->set_constant(""shadow_as_outline"", ""RichTextLabel"", 0 * EDSCALE);
+  1086,32: 	theme->set_stylebox(""focus"", ""RichTextLabel"", make_empty_stylebox());
+  1087,33: 	theme->set_stylebox(""normal"", ""RichTextLabel"", style_tree_bg);
+
+C:\ExperimentFiles\godot\editor\project_export.cpp
+  1078,34: 	custom_feature_display = memnew(RichTextLabel);
+
+C:\ExperimentFiles\godot\editor\rename_dialog.cpp
+  400,102: 			const Color text_color = EditorNode::get_singleton()->get_gui_base()->get_color(""default_color"", ""RichTextLabel"");
+
+C:\ExperimentFiles\godot\main\tests\test_gui.cpp
+  198,3: 		RichTextLabel *richtext = memnew(RichTextLabel);
+  198,18: 		RichTextLabel *richtext = memnew(RichTextLabel);
+  198,36: 		RichTextLabel *richtext = memnew(RichTextLabel);
+  200,3: 		richtext->set_position(Point2(600, 210));
+  201,3: 		richtext->set_size(Point2(180, 250));
+  202,3: 		richtext->set_anchor_and_margin(MARGIN_RIGHT, Control::ANCHOR_END, -20);
+  204,20: 		frame->add_child(richtext);
+  206,3: 		richtext->add_text(""Hello, My Friends!\n\nWelcome to the amazing world of "");
+  208,3: 		richtext->add_newline();
+  209,3: 		richtext->add_newline();
+  211,3: 		richtext->push_color(Color(1, 0.5, 0.5));
+  212,3: 		richtext->add_text(""leprechauns"");
+  213,3: 		richtext->pop();
+  215,3: 		richtext->add_text("" and "");
+  216,3: 		richtext->push_color(Color(0, 1.0, 0.5));
+  217,3: 		richtext->add_text(""faeries.\n"");
+  218,3: 		richtext->pop();
+  219,3: 		richtext->add_text(""In this new episode, we will attempt to "");
+  220,3: 		richtext->push_font(richtext->get_font(""mono_font"", ""Fonts""));
+  220,23: 		richtext->push_font(richtext->get_font(""mono_font"", ""Fonts""));
+  221,3: 		richtext->push_color(Color(0.7, 0.5, 1.0));
+  222,3: 		richtext->add_text(""deliver something nice"");
+  223,3: 		richtext->pop();
+  224,3: 		richtext->pop();
+  225,3: 		richtext->add_text("" to all the viewers! Unfortunately, I need to "");
+  226,3: 		richtext->push_underline();
+  227,3: 		richtext->add_text(""keep writing a lot of text"");
+  228,3: 		richtext->pop();
+  229,3: 		richtext->add_text("" so the label control overflows and the scrollbar appears.\n"");
+  230,3: 		richtext->push_meta(""http://www.scrollingcapabilities.xz"");
+  231,3: 		richtext->add_text(""This allows to test for the scrolling capabilities "");
+  232,3: 		richtext->pop();
+  233,3: 		richtext->add_text(""of the rich text label for huge text (not like this text will really be huge but, you know).\nAs long as it is so long that it will work nicely for a test/demo, then it's welcomed in my book...\nChanging subject, the day is cloudy today and I'm wondering if I'll get che chance to travel somewhere nice. Sometimes, watching the clouds from satellite images may give a nice insight about how pressure zones in our planet work, although it also makes it pretty obvious to see why most weather forecasts get it wrong so often.\nClouds are so difficult to predict!\nBut it's pretty cool how our civilization has adapted to having water falling from the sky each time it rains..."");
+
+C:\ExperimentFiles\godot\scene\gui\rich_text_effect.cpp
+  35,6: void RichTextEffect::_bind_methods() {
+  39,9: Variant RichTextEffect::get_bbcode() const {
+  50,6: bool RichTextEffect::_process_effect_impl(Ref<CharFXTransform> p_cfx) {
+  63,1: RichTextEffect::RichTextEffect() {
+  63,17: RichTextEffect::RichTextEffect() {
+
+C:\ExperimentFiles\godot\scene\gui\rich_text_label.cpp
+  47,1: RichTextLabel::Item *RichTextLabel::_get_next_item(Item *p_item, bool p_free) {
+  47,22: RichTextLabel::Item *RichTextLabel::_get_next_item(Item *p_item, bool p_free) {
+  92,1: RichTextLabel::Item *RichTextLabel::_get_prev_item(Item *p_item, bool p_free) {
+  92,22: RichTextLabel::Item *RichTextLabel::_get_prev_item(Item *p_item, bool p_free) {
+  137,7: Rect2 RichTextLabel::_get_text_rect() {
+  142,5: int RichTextLabel::_process_line(ItemFrame *p_frame, const Vector2 &p_ofs, int &y, int p_width, int p_line, ProcessMode p_mode, const Ref<Font> &p_base_font, const Color &p_base_color, const Color &p_font_color_shadow, bool p_shadow_as_outline, const Point2 &shadow_ofs, const Point2i &p_click_pos, Item **r_click_item, int *r_click_char, bool *r_outside, int p_char_count) {
+  523,15: 										Ref<RichTextEffect> custom_effect = item_custom->custom_effect;
+  912,6: void RichTextLabel::_scroll_changed(double) {
+  928,6: void RichTextLabel::_update_scroll() {
+  950,6: void RichTextLabel::_update_fx(RichTextLabel::ItemFrame *p_frame, float p_delta_time) {
+  950,32: void RichTextLabel::_update_fx(RichTextLabel::ItemFrame *p_frame, float p_delta_time) {
+  984,6: void RichTextLabel::_notification(int p_what) {
+  1068,6: void RichTextLabel::_find_click(ItemFrame *p_frame, const Point2i &p_click, Item **r_click_item, int *r_click_char, bool *r_outside) {
+  1106,22: Control::CursorShape RichTextLabel::get_cursor_shape(const Point2 &p_pos) const {
+  1123,4: 	((RichTextLabel *)(this))->_find_click(main, p_pos, &item, &line, &outside);
+  1125,28: 	if (item && !outside && ((RichTextLabel *)(this))->_find_meta(item, nullptr)) {
+  1132,6: void RichTextLabel::_gui_input(Ref<InputEvent> p_event) {
+  1355,11: Ref<Font> RichTextLabel::_find_font(Item *p_item) {
+  1370,5: int RichTextLabel::_find_margin(Item *p_item, const Ref<Font> &p_base_font) {
+  1399,1: RichTextLabel::Align RichTextLabel::_find_align(Item *p_item) {
+  1399,22: RichTextLabel::Align RichTextLabel::_find_align(Item *p_item) {
+  1414,7: Color RichTextLabel::_find_color(Item *p_item, const Color &p_default_color) {
+  1429,6: bool RichTextLabel::_find_underline(Item *p_item) {
+  1443,6: bool RichTextLabel::_find_strikethrough(Item *p_item) {
+  1457,6: bool RichTextLabel::_find_by_type(Item *p_item, ItemType p_type) {
+  1471,6: void RichTextLabel::_fetch_item_fx_stack(Item *p_item, Vector<ItemFX *> &r_stack) {
+  1482,6: bool RichTextLabel::_find_meta(Item *p_item, Variant *r_meta, ItemMeta **r_item) {
+  1503,6: bool RichTextLabel::_find_layout_subitem(Item *from, Item *to) {
+  1521,6: void RichTextLabel::_validate_line_caches(ItemFrame *p_frame) {
+  1570,6: void RichTextLabel::_invalidate_current_line(ItemFrame *p_frame) {
+  1577,6: void RichTextLabel::add_text(const String &p_text) {
+  1630,6: void RichTextLabel::_add_item(Item *p_item, bool p_enter, bool p_ensure_newline) {
+  1656,6: void RichTextLabel::_remove_item(Item *p_item, const int p_line, const int p_subitem_line) {
+  1681,6: void RichTextLabel::add_image(const Ref<Texture> &p_image, const int p_width, const int p_height) {
+  1719,6: void RichTextLabel::add_newline() {
+  1730,6: bool RichTextLabel::remove_line(const int p_line) {
+  1768,6: void RichTextLabel::push_font(const Ref<Font> &p_font) {
+  1777,6: void RichTextLabel::push_normal() {
+  1784,6: void RichTextLabel::push_bold() {
+  1791,6: void RichTextLabel::push_bold_italics() {
+  1798,6: void RichTextLabel::push_italics() {
+  1805,6: void RichTextLabel::push_mono() {
+  1812,6: void RichTextLabel::push_color(const Color &p_color) {
+  1820,6: void RichTextLabel::push_underline() {
+  1827,6: void RichTextLabel::push_strikethrough() {
+  1834,6: void RichTextLabel::push_align(Align p_align) {
+  1842,6: void RichTextLabel::push_indent(int p_level) {
+  1851,6: void RichTextLabel::push_list(ListType p_list) {
+  1861,6: void RichTextLabel::push_meta(const Variant &p_meta) {
+  1869,6: void RichTextLabel::push_table(int p_columns) {
+  1882,6: void RichTextLabel::push_fade(int p_start_index, int p_length) {
+  1889,6: void RichTextLabel::push_shake(int p_strength = 10, float p_rate = 24.0f) {
+  1896,6: void RichTextLabel::push_wave(float p_frequency = 1.0f, float p_amplitude = 10.0f) {
+  1903,6: void RichTextLabel::push_tornado(float p_frequency = 1.0f, float p_radius = 10.0f) {
+  1910,6: void RichTextLabel::push_rainbow(float p_saturation, float p_value, float p_frequency) {
+  1918,6: void RichTextLabel::push_customfx(Ref<RichTextEffect> p_custom_effect, Dictionary p_environment) {
+  1918,39: void RichTextLabel::push_customfx(Ref<RichTextEffect> p_custom_effect, Dictionary p_environment) {
+  1925,6: void RichTextLabel::set_table_column_expand(int p_column, bool p_expand, int p_ratio) {
+  1933,6: void RichTextLabel::push_cell() {
+  1947,5: int RichTextLabel::get_current_table_column() const {
+  1955,6: void RichTextLabel::pop() {
+  1963,6: void RichTextLabel::clear() {
+  1979,6: void RichTextLabel::set_tab_size(int p_spaces) {
+  1985,5: int RichTextLabel::get_tab_size() const {
+  1989,6: void RichTextLabel::set_fit_content_height(bool p_enabled) {
+  1996,6: bool RichTextLabel::is_fit_content_height_enabled() const {
+  2000,6: void RichTextLabel::set_meta_underline(bool p_underline) {
+  2005,6: bool RichTextLabel::is_meta_underlined() const {
+  2009,6: void RichTextLabel::set_override_selected_font_color(bool p_override_selected_font_color) {
+  2013,6: bool RichTextLabel::is_overriding_selected_font_color() const {
+  2017,6: void RichTextLabel::set_offset(int p_pixel) {
+  2021,6: void RichTextLabel::set_scroll_active(bool p_active) {
+  2031,6: bool RichTextLabel::is_scroll_active() const {
+  2035,6: void RichTextLabel::set_scroll_follow(bool p_follow) {
+  2042,6: bool RichTextLabel::is_scroll_following() const {
+  2046,7: Error RichTextLabel::parse_bbcode(const String &p_bbcode) {
+  2051,7: Error RichTextLabel::append_bbcode(const String &p_bbcode) {
+  2444,9: 				Ref<RichTextEffect> effect = _get_custom_effect_by_code(identifier);
+  2473,6: void RichTextLabel::scroll_to_line(int p_line) {
+  2479,5: int RichTextLabel::get_line_count() const {
+  2483,5: int RichTextLabel::get_visible_line_count() const {
+  2490,6: void RichTextLabel::set_selection_enabled(bool p_enabled) {
+  2503,6: bool RichTextLabel::search(const String &p_string, bool p_from_selection, bool p_search_previous) {
+  2567,8: String RichTextLabel::get_selected_text() {
+  2574,2: 	RichTextLabel::Item *item = selection.from;
+  2602,6: void RichTextLabel::selection_copy() {
+  2610,6: bool RichTextLabel::is_selection_enabled() const {
+  2614,6: void RichTextLabel::set_bbcode(const String &p_bbcode) {
+  2624,8: String RichTextLabel::get_bbcode() const {
+  2628,6: void RichTextLabel::set_use_bbcode(bool p_enable) {
+  2636,6: bool RichTextLabel::is_using_bbcode() const {
+  2640,8: String RichTextLabel::get_text() {
+  2657,6: void RichTextLabel::set_text(const String &p_string) {
+  2662,6: void RichTextLabel::set_percent_visible(float p_percent) {
+  2675,7: float RichTextLabel::get_percent_visible() const {
+  2679,6: void RichTextLabel::set_effects(const Vector<Variant> &effects) {
+  2682,7: 		Ref<RichTextEffect> effect = Ref<RichTextEffect>(effects[i]);
+  2682,36: 		Ref<RichTextEffect> effect = Ref<RichTextEffect>(effects[i]);
+  2691,17: Vector<Variant> RichTextLabel::get_effects() {
+  2699,6: void RichTextLabel::install_effect(const Variant effect) {
+  2700,6: 	Ref<RichTextEffect> rteffect;
+  2711,5: int RichTextLabel::get_content_height() const {
+  2719,6: void RichTextLabel::_bind_methods() {
+  2720,48: 	ClassDB::bind_method(D_METHOD(""_gui_input""), &RichTextLabel::_gui_input);
+  2721,53: 	ClassDB::bind_method(D_METHOD(""_scroll_changed""), &RichTextLabel::_scroll_changed);
+  2722,46: 	ClassDB::bind_method(D_METHOD(""get_text""), &RichTextLabel::get_text);
+  2723,54: 	ClassDB::bind_method(D_METHOD(""add_text"", ""text""), &RichTextLabel::add_text);
+  2724,54: 	ClassDB::bind_method(D_METHOD(""set_text"", ""text""), &RichTextLabel::set_text);
+  2725,75: 	ClassDB::bind_method(D_METHOD(""add_image"", ""image"", ""width"", ""height""), &RichTextLabel::add_image, DEFVAL(0), DEFVAL(0));
+  2726,45: 	ClassDB::bind_method(D_METHOD(""newline""), &RichTextLabel::add_newline);
+  2727,57: 	ClassDB::bind_method(D_METHOD(""remove_line"", ""line""), &RichTextLabel::remove_line);
+  2728,55: 	ClassDB::bind_method(D_METHOD(""push_font"", ""font""), &RichTextLabel::push_font);
+  2729,49: 	ClassDB::bind_method(D_METHOD(""push_normal""), &RichTextLabel::push_normal);
+  2730,47: 	ClassDB::bind_method(D_METHOD(""push_bold""), &RichTextLabel::push_bold);
+  2731,55: 	ClassDB::bind_method(D_METHOD(""push_bold_italics""), &RichTextLabel::push_bold_italics);
+  2732,50: 	ClassDB::bind_method(D_METHOD(""push_italics""), &RichTextLabel::push_italics);
+  2733,47: 	ClassDB::bind_method(D_METHOD(""push_mono""), &RichTextLabel::push_mono);
+  2734,57: 	ClassDB::bind_method(D_METHOD(""push_color"", ""color""), &RichTextLabel::push_color);
+  2735,57: 	ClassDB::bind_method(D_METHOD(""push_align"", ""align""), &RichTextLabel::push_align);
+  2736,58: 	ClassDB::bind_method(D_METHOD(""push_indent"", ""level""), &RichTextLabel::push_indent);
+  2737,55: 	ClassDB::bind_method(D_METHOD(""push_list"", ""type""), &RichTextLabel::push_list);
+  2738,55: 	ClassDB::bind_method(D_METHOD(""push_meta"", ""data""), &RichTextLabel::push_meta);
+  2739,52: 	ClassDB::bind_method(D_METHOD(""push_underline""), &RichTextLabel::push_underline);
+  2740,56: 	ClassDB::bind_method(D_METHOD(""push_strikethrough""), &RichTextLabel::push_strikethrough);
+  2741,59: 	ClassDB::bind_method(D_METHOD(""push_table"", ""columns""), &RichTextLabel::push_table);
+  2742,90: 	ClassDB::bind_method(D_METHOD(""set_table_column_expand"", ""column"", ""expand"", ""ratio""), &RichTextLabel::set_table_column_expand);
+  2743,47: 	ClassDB::bind_method(D_METHOD(""push_cell""), &RichTextLabel::push_cell);
+  2744,41: 	ClassDB::bind_method(D_METHOD(""pop""), &RichTextLabel::pop);
+  2746,43: 	ClassDB::bind_method(D_METHOD(""clear""), &RichTextLabel::clear);
+  2748,66: 	ClassDB::bind_method(D_METHOD(""set_meta_underline"", ""enable""), &RichTextLabel::set_meta_underline);
+  2749,56: 	ClassDB::bind_method(D_METHOD(""is_meta_underlined""), &RichTextLabel::is_meta_underlined);
+  2751,82: 	ClassDB::bind_method(D_METHOD(""set_override_selected_font_color"", ""override""), &RichTextLabel::set_override_selected_font_color);
+  2752,71: 	ClassDB::bind_method(D_METHOD(""is_overriding_selected_font_color""), &RichTextLabel::is_overriding_selected_font_color);
+  2754,65: 	ClassDB::bind_method(D_METHOD(""set_scroll_active"", ""active""), &RichTextLabel::set_scroll_active);
+  2755,54: 	ClassDB::bind_method(D_METHOD(""is_scroll_active""), &RichTextLabel::is_scroll_active);
+  2757,65: 	ClassDB::bind_method(D_METHOD(""set_scroll_follow"", ""follow""), &RichTextLabel::set_scroll_follow);
+  2758,57: 	ClassDB::bind_method(D_METHOD(""is_scroll_following""), &RichTextLabel::is_scroll_following);
+  2760,50: 	ClassDB::bind_method(D_METHOD(""get_v_scroll""), &RichTextLabel::get_v_scroll);
+  2762,60: 	ClassDB::bind_method(D_METHOD(""scroll_to_line"", ""line""), &RichTextLabel::scroll_to_line);
+  2764,60: 	ClassDB::bind_method(D_METHOD(""set_tab_size"", ""spaces""), &RichTextLabel::set_tab_size);
+  2765,50: 	ClassDB::bind_method(D_METHOD(""get_tab_size""), &RichTextLabel::get_tab_size);
+  2767,71: 	ClassDB::bind_method(D_METHOD(""set_fit_content_height"", ""enabled""), &RichTextLabel::set_fit_content_height);
+  2768,67: 	ClassDB::bind_method(D_METHOD(""is_fit_content_height_enabled""), &RichTextLabel::is_fit_content_height_enabled);
+  2770,70: 	ClassDB::bind_method(D_METHOD(""set_selection_enabled"", ""enabled""), &RichTextLabel::set_selection_enabled);
+  2771,58: 	ClassDB::bind_method(D_METHOD(""is_selection_enabled""), &RichTextLabel::is_selection_enabled);
+  2773,60: 	ClassDB::bind_method(D_METHOD(""parse_bbcode"", ""bbcode""), &RichTextLabel::parse_bbcode);
+  2774,61: 	ClassDB::bind_method(D_METHOD(""append_bbcode"", ""bbcode""), &RichTextLabel::append_bbcode);
+  2776,56: 	ClassDB::bind_method(D_METHOD(""set_bbcode"", ""text""), &RichTextLabel::set_bbcode);
+  2777,48: 	ClassDB::bind_method(D_METHOD(""get_bbcode""), &RichTextLabel::get_bbcode);
+  2779,70: 	ClassDB::bind_method(D_METHOD(""set_visible_characters"", ""amount""), &RichTextLabel::set_visible_characters);
+  2780,60: 	ClassDB::bind_method(D_METHOD(""get_visible_characters""), &RichTextLabel::get_visible_characters);
+  2782,76: 	ClassDB::bind_method(D_METHOD(""set_percent_visible"", ""percent_visible""), &RichTextLabel::set_percent_visible);
+  2783,57: 	ClassDB::bind_method(D_METHOD(""get_percent_visible""), &RichTextLabel::get_percent_visible);
+  2785,63: 	ClassDB::bind_method(D_METHOD(""get_total_character_count""), &RichTextLabel::get_total_character_count);
+  2787,62: 	ClassDB::bind_method(D_METHOD(""set_use_bbcode"", ""enable""), &RichTextLabel::set_use_bbcode);
+  2788,53: 	ClassDB::bind_method(D_METHOD(""is_using_bbcode""), &RichTextLabel::is_using_bbcode);
+  2790,52: 	ClassDB::bind_method(D_METHOD(""get_line_count""), &RichTextLabel::get_line_count);
+  2791,60: 	ClassDB::bind_method(D_METHOD(""get_visible_line_count""), &RichTextLabel::get_visible_line_count);
+  2793,56: 	ClassDB::bind_method(D_METHOD(""get_content_height""), &RichTextLabel::get_content_height);
+  2795,81: 	ClassDB::bind_method(D_METHOD(""parse_expressions_for_values"", ""expressions""), &RichTextLabel::parse_expressions_for_values);
+  2797,60: 	ClassDB::bind_method(D_METHOD(""set_effects"", ""effects""), &RichTextLabel::set_effects);
+  2798,49: 	ClassDB::bind_method(D_METHOD(""get_effects""), &RichTextLabel::get_effects);
+  2799,62: 	ClassDB::bind_method(D_METHOD(""install_effect"", ""effect""), &RichTextLabel::install_effect);
+  2820,98: 	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, ""custom_effects"", PROPERTY_HINT_RESOURCE_TYPE, ""17/17:RichTextEffect"", (PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE), ""RichTextEffect""), ""set_effects"", ""get_effects"");
+  2820,175: 	ADD_PROPERTY(PropertyInfo(Variant::ARRAY, ""custom_effects"", PROPERTY_HINT_RESOURCE_TYPE, ""17/17:RichTextEffect"", (PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_SCRIPT_VARIABLE), ""RichTextEffect""), ""set_effects"", ""get_effects"");
+  2856,6: void RichTextLabel::set_visible_characters(int p_visible) {
+  2870,5: int RichTextLabel::get_visible_characters() const {
+  2873,5: int RichTextLabel::get_total_character_count() const {
+  2882,6: void RichTextLabel::set_fixed_size_to_width(int p_width) {
+  2887,7: Size2 RichTextLabel::get_minimum_size() const {
+  2894,14: 		const_cast<RichTextLabel *>(this)->_validate_line_caches(main);
+  2901,5: Ref<RichTextEffect> RichTextLabel::_get_custom_effect_by_code(String p_bbcode_identifier) {
+  2901,21: Ref<RichTextEffect> RichTextLabel::_get_custom_effect_by_code(String p_bbcode_identifier) {
+  2912,13: 	return Ref<RichTextEffect>();
+  2915,12: Dictionary RichTextLabel::parse_expressions_for_values(Vector<String> p_expressions) {
+  2974,1: RichTextLabel::RichTextLabel() {
+  2974,16: RichTextLabel::RichTextLabel() {
+  3023,1: RichTextLabel::~RichTextLabel() {
+  3023,17: RichTextLabel::~RichTextLabel() {
+
+C:\ExperimentFiles\godot\scene\resources\default_theme\default_theme.cpp
+  840,5: 	// RichTextLabel
+  842,32: 	theme->set_stylebox(""focus"", ""RichTextLabel"", focus);
+  843,33: 	theme->set_stylebox(""normal"", ""RichTextLabel"", make_empty_stylebox(0, 0, 0, 0));
+  845,34: 	theme->set_font(""normal_font"", ""RichTextLabel"", default_font);
+  846,32: 	theme->set_font(""bold_font"", ""RichTextLabel"", default_font);
+  847,35: 	theme->set_font(""italics_font"", ""RichTextLabel"", default_font);
+  848,40: 	theme->set_font(""bold_italics_font"", ""RichTextLabel"", default_font);
+  849,32: 	theme->set_font(""mono_font"", ""RichTextLabel"", default_font);
+  851,37: 	theme->set_color(""default_color"", ""RichTextLabel"", Color(1, 1, 1));
+  852,43: 	theme->set_color(""font_color_selected"", ""RichTextLabel"", font_color_selection);
+  853,39: 	theme->set_color(""selection_color"", ""RichTextLabel"", Color(0.1, 0.1, 1, 0.8));
+  855,41: 	theme->set_color(""font_color_shadow"", ""RichTextLabel"", Color(0, 0, 0, 0));
+  857,42: 	theme->set_constant(""shadow_offset_x"", ""RichTextLabel"", 1 * scale);
+  858,42: 	theme->set_constant(""shadow_offset_y"", ""RichTextLabel"", 1 * scale);
+  859,44: 	theme->set_constant(""shadow_as_outline"", ""RichTextLabel"", 0 * scale);
+  861,42: 	theme->set_constant(""line_separation"", ""RichTextLabel"", 1 * scale);
+  862,44: 	theme->set_constant(""table_hseparation"", ""RichTextLabel"", 3 * scale);
+  863,44: 	theme->set_constant(""table_vseparation"", ""RichTextLabel"", 3 * scale);
+
+C:\ExperimentFiles\godot\scene\register_scene_types.cpp
+  357,26: 	ClassDB::register_class<RichTextLabel>();
+  358,26: 	ClassDB::register_class<RichTextEffect>();","C:\ExperimentFiles\godot\modules\gdnative\videodecoder\register_types.cpp
+  34,11: #include ""video_stream_gdnative.h""
+
+C:\ExperimentFiles\godot\modules\gdnative\videodecoder\video_stream_gdnative.cpp
+  2,5: /*  video_stream_gdnative.cpp                                            */
+  31,11: #include ""video_stream_gdnative.h""
+
+C:\ExperimentFiles\godot\modules\theora\register_types.cpp
+  33,11: #include ""video_stream_theora.h""
+
+C:\ExperimentFiles\godot\modules\theora\video_stream_theora.cpp
+  2,5: /*  video_stream_theora.cpp                                              */
+  31,11: #include ""video_stream_theora.h""
+
+C:\ExperimentFiles\godot\modules\webm\register_types.cpp
+  33,11: #include ""video_stream_webm.h""
+
+C:\ExperimentFiles\godot\modules\webm\video_stream_webm.cpp
+  2,5: /*  video_stream_webm.cpp                                                */
+  31,11: #include ""video_stream_webm.h""
+
+C:\ExperimentFiles\godot\scene\register_scene_types.cpp
+  166,27: #include ""scene/resources/video_stream.h""","3266.5399999999995","","506.58999999999997","276.88","281.38","497.62","218.72999999999999","523.15999999999997","153.19999999999999","559.88","249.09999999999999"
+"12","2023-09-23 09:07:51.000","9","en","2023-09-23 08:21:23.000","2023-09-23 09:07:51.000","Provides architecture necessary to interact with runtime and editor functionalities. It has ties with editor/resources, and the actual processing of the sound to the level of identifying devices with different options (suround, stereo, ...).","-AudioEffect serves as a proxy to AudioEffectInstance
+-it provides base class(AudioEffectInstance) for the audio effects.","effects: reverb, chorus, distortion, [...], allow do apply sound ""decorators"" to a vanilla sound.
+stream: load partially the data to be processed by the resampler.
+filters: although AudioEffectFilter is a wrapper of AudioFilterSW one could argue that an Effect is not a Filter but rather a filter is utilized by an effect; with that said helps controls the signal being produced e.g creating envelops, low/high passes...","effects: audio_effect
+stream: audio_stream, audio_rb_resampler
+filters: audio_filter_sw
+","node_2d
+texture","net","-although the functionality is implemented in VS(VisualServer) this particular class represents a particle entity with basic functionalities.
+-holding necessary properties to be instance/handler of particle.
+-some extension possibility.","editor_about; editor_help; editor_log; editor_node; asset_library_editor_plugin; script_text_editor; version_control_editor_plugin; visual_shader_editor_plugin; project_export; script_editor_debugger; test_gui; rich_text_label; register_scene_types","video_stream .h/cpp
+VideoPlayer .h/cpp","2787.1300000000001","","178.22999999999999","159.56","935.97000000000003","83.239999999999995","164.72","96.920000000000002","573.76999999999998","332.87","261.85000000000002"
+"13","2023-09-27 15:40:53.000","9","en","2023-09-27 14:07:40.000","2023-09-27 15:40:53.000","audio provides many functionalities like audio effects (2D & 3D), audio streaming to define the position where the audio is played from, audio playback, etc.  
+","It applies an audio effect to the resource. ","AudioStreamPlayer3D- plays audio with sound effects.
+AudioStreamPlayer2D - plays sound based on the position of the audio.
+in the Audio_stream_player.cpp, there is an autoplay function, if it is set to true, it'll auto play the audio. ","audio_stream_player_3d.cpp
+audio_stream_player_2d.cpp
+audio_stream_player.cpp ","cpu_particles_2d.cpp
+particles_2d.cpp
+","Multiplayer","this file is to implement physical effects. For example, the set_lifetime method is to set for how long an object will be visible. 
+set_speed_scale() method to set the speed of the object. ","rich_text_label.cpp   
+","video_player.h
+servers/audio_server.h","5588.5700000000015","","569.42999999999995","237.59999999999999","1144.95","66.209999999999994","1080.0899999999999","602.07000000000005","642.54999999999995","436.26999999999998","809.39999999999998"
+"14","","1","en","2023-09-28 16:06:55.000","2023-09-28 16:19:18.000","","","","","","Core, Multiplayer","","","","742.08000000000004","","","","","","","742.08000000000004","","",""
+"15","","","en","2023-09-28 16:30:56.000","2023-09-28 16:30:56.000","","","","","","","","","","0.0","","","","","","","","","",""
+"16","2023-09-28 18:38:15.000","9","en","2023-09-28 17:01:43.000","2023-09-28 18:38:15.000","I do not know","I do not know","audio_driver_coreaudio
+midi_driver_alsamidi
+audio_driver_alsa
+
+","audio_driver_alsa
+midi_driver_alsamidi
+audio_driver_coreaudio","core/rid.h
+scene/2d/node_2d.h
+scene/resources/texture.h","core","I do not know","register_scene_types.cpp
+editor_about.cpp/.h
+editor_help.cpp/.h
+editor_log.cpp/.h
+editor_node.cpp/.h
+asset_library_editor_plugin.cpp/.h
+script_text_editor.cpp/.h
+version_control_editor_plugin.cpp/.h
+visual_shader_editor_plugin.cpp/.h
+project_export.cpp/.h
+script_editor_debugger.h
+test_gui.cpp
+
+
+
+
+","I do not know","5791.4700000000003","","33.719999999999999","772.00999999999999","1016.34","72.760000000000005","1415.6099999999999","359.38999999999999","457.42000000000002","1583.48","80.739999999999995"
+"17","2023-10-02 19:51:28.000","9","en","2023-10-02 19:05:07.000","2023-10-02 19:51:28.000","Provide the ability to play audio from different sources to various devices. The sound can be tuned to the perspective, let it be 2D or 3D. Ability to modify the sound to different pitches and generate some based audio spectrum.","Process the audio frames from a source into a destination based on its size. Provide a silence processing to allow to add silence without the sound in the source, otherwise silence will be ignored.","./godot/scene/2d/audio_stream_player_2d.cpp : provides an API to control the audio being played in the 2D runtime environment that can tune the sound based on parameters such as distance, pitch and volume.
+
+./godot/drivers/coreaudio : a driver implementing the logic to play sound to different OS and devices
+
+./godot/drivers/coremidi : functionality allowing to get MIDI audio from sources connected to the device running the engine","./godot/scene/2d/audio_stream_player_2d.cpp
+drivers\coreaudio\audio_driver_coreaudio.cpp
+drivers\coremidi\midi_driver_coremidi.cpp","None","./godot/modules/webrtc
+./godot/modules/gdnative","Provide the ability to draw 2D particles with varied randomess, speed and that can live for a certain period. The particles can have their appearance change based on texture materials, quantity and repetition. These particles can be rendered in specific locations through masks and with certain frame rate.","godot\scene\gui\rich_text_effect.cpp
+godot\scene\gui\rich_text_effect.h
+godot\scene\gui\rich_text_label.h
+godot\scene\register_scene_types.cpp
+godot\editor\plugins\asset_library_editor_plugin.h
+godot\editor\plugins\version_control_editor_plugin.h
+godot\editor\editor_about.h
+godot\editor\editor_help.h
+godot\editor\editor_log.h
+godot\editor\project_export.h
+godot\editor\property_selector.h
+godot\editor\script_editor_debugger.cpp
+godot\editor\settings_config_dialog.h
+godot\main\tests\test_gui.cpp
+godot\modules\visual_script\visual_script_property_selector.h
+godot\scene\gui\rich_text_label.cpp
+godot\scene\gui\rich_text_label.h
+godot\scene\register_scene_types.cpp","A video playback involves two layers: audio and video. Therefore we need to change the files related to those subsystems which are accessible in these files:
+
+scene\gui\video_player.cpp
+scene\gui\video_player.h
+","2779.4900000000002","","180.34999999999999","165.05000000000001","629.77999999999997","75.019999999999996","106.76000000000001","218.16999999999999","232.91","337.44","834.00999999999999"
+"18","2023-10-05 11:06:55.000","9","en","2023-10-05 09:20:09.000","2023-10-05 11:06:55.000","The Audio subsystem is responsible for managing everything related to audio, such as reading audio files, processing effects, or applying spatial profiles.","This file defines the AudioEffect class, superclass of all audio effects, which is a kind of resource.
+It also defines the AudioEffectInstance class, superclass of all audio effect instances, which is a kind of reference.
+The API of an AudioEffect allows developers to get an instance of an effect, and the API of the latter allows to process the effect.","- effects processing: Godot offers a range of audio effects, such as reverb or pitch shift, that can be applied to audio sources.
+- MIDI processing: the Audio subsystem can process MIDI files.
+- spatial audio: the subsystem can create soundscapes where audio sources are positioned in 3D space. ","- effects processing: /servers/audio/effects/*.cpp
+- MIDI processing: /drivers/alsamidi/midi_driver_alsamidi.cpp, /drivers/coremidi/midi_driver_coremidi.cpp
+- spatial audio: scene/3d/audio_stream_player_3d.cpp","Without transitive dependencies and restricted to the Visual Effects subsystem: scene/2d/node_2d.h","Multiplayer","This file defines the Particles2D class, which is a kind of Node2D, and its API.
+This class holds the attributes of a cluster of particles to be drawn on the screen, such as its lifetime, randomness, coordinates, speed, texture, etc.
+Its API allows to set and get these attributes, as well as making it restart and obtaining its capturing rectangle.","register_scene_types.cpp
+scene_tree.cpp
+dynamic_font.cpp","scene/gui/video_player.cpp and servers/audio_server.cpp","6404.5100000000011","","160.88999999999999","878.0","1795.01","712.78999999999996","350.75999999999999","330.69999999999999","800.76999999999998","729.99000000000001","645.60000000000002"
+

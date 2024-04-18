@@ -1,0 +1,163 @@
+"Response ID","Date submitted","Last page","Start language","Date started","Date last action","[Architecture understanding] Provide a description of the Audio subsystem functionality. Please write three sentences maximum.","[Architecture understanding] Expand the Audio subsystem, expand the “audio” folder and propagate the file servers/audio/audio_effect.h. Provide a description of its functionality.  Please write three sentences maximum.","[Architecture understanding] List a minimum of three functionalities provided by the Audio subsystem and provide a short description of each of them.","[Architecture understanding] For each functionality you named in Audio, please name the file(s) that implement them.","[Architecture understanding] Expand the Visual Effects subsystem and list the dependencies of the file scene/2d/particles_2d.h to other files of its subsystem.","[Architecture understanding] Please name the subsystems(s) of Godot which handle WebRTC functionality.","[Architecture understanding] Expand the Visual Effects subsystem, and propagate the file scene/2d/particles_2d.h. Provide a description of its functionality. Please write three sentences maximum.","[Impact analysis] Suppose the rich text functionality in the Front end subsystem of Godot was removed. Please mention all files which may have to be changed as a result of the removal of these functionalities.","[Impact analysis] The file scene/gui/video_player.cpp in the Front End subsystem provides video player functionality. Suppose a developer wants to implement the following feature: change the video playback speed (e.g. speed x2) for any video stream. Please mention all files which may have to be changed to implement this feature.","Total time","Group time: Questions","Question time: Q1","Question time: Q2","Question time: Q3","Question time: Q4","Question time: Q5","Question time: Q6","Question time: Q7","Question time: Q8","Question time: Q9"
+"3","2023-08-30 16:48:13.000","9","en","2023-08-30 15:11:20.000","2023-08-30 16:48:13.000","The audio subsystem enables multiplatform sound input/output, simulates sound propagation in a 2d/3d setting, and imports audio files. For that, it relies on the open source codec Vorbis and OS-specific audio APIs ","This file implements AudioEffect and its underlying AudioEffectInstance which process an array of AudioFrames (through pointer arithmetic) and can be interrupted by calling ""process_silence""","Sound effects: Support to add filters, equalize, and amplify audio files
+Operating System support: it provides wrapper  of APIs expected by different OSs, such as ALSA and PulseAudio for Linux
+Vorbis codec support: it provides encoding and decoding support for files with the "".ogg"" extension (Vorbis audio files)
+","Effects: audio_effect_amplify.cpp, audio_effect_amplify.h, audio_effect_capture.cpp, audio_effect_capture.h, audio_effect_chorus.cpp, audio_effect_chorus.h, audio_effect_compressor.cpp, audio_effect_compressor.h, audio_effect_delay.cpp, audio_effect_delay.h, audio_effect_distortion.cpp, audio_effect_distortion.h, audio_effect_eq.cpp, audio_effect_eq.h, audio_effect_filter.cpp, audio_effect_filter.h, audio_effect_limiter.cpp, audio_effect_limiter.h, audio_effect_panner.cpp, audio_effect_panner.h, audio_effect_phaser.cpp, audio_effect_phaser.h, audio_effect_pitch_shift.cpp, audio_effect_pitch_shift.h, audio_effect_record.cpp, audio_effect_record.h, audio_effect_reverb.cpp, audio_effect_reverb.h, audio_effect_spectrum_analyzer.cpp, audio_effect_spectrum_analyzer.h, audio_effect_stereo_enhance.cpp, audio_effect_stereo_enhance.h, audio_stream_generator.cpp, audio_stream_generator.h, eq.cpp, eq.h, reverb.cpp, reverb.h
+
+OS Support:  asound-so_wrap.c, asound-so_wrap.h, audio_driver_alsa.cpp, audio_driver_alsa.h, audio_driver_pulseaudio.cpp, audio_driver_pulseaudio.h, pulse-so_wrap.c, pulse-so_wrap.h, audio_driver_coreaudio.cpp, audio_driver_coreaudio.h, midi_driver_alsamidi.cpp, midi_driver_alsamidi.h, midi_driver_coremidi.cpp, midi_driver_coremidi.h
+
+Audio Codec: audio_stream_ogg_vorbis.h, audio_stream_ogg_vorbis.cpp, register_types.h, register_types.cpp, resource_importer_ogg_vorbis.h, resource_importer_ogg_vorbis.cpp","scene/2d/cpu_particles_2d.cpp
+scene/2d/particles_2d.cpp","Core and Multiplayer","This file implements a particles system and provides a set of getters and setters to control some of its features, e.g., lifetime, amount, speed, and repeating times. ","rich_text_label.cpp, rich_text_label.h, rich_text_effect.cpp, rich_text_effect.h, register_scene_types.cpp, test_gui.cpp, settings_config_dialog.h, editor_help.h, editor_help.cpp, editor_about.h, editor_about.cpp, asset_library_editor_plugin.cpp, asset_library_editor_plugin.h, script_editor_debugger.cpp, script_editor_debugger.h, visual_script_property_selector.h, settings_config_dialog.h, version_control_editor_plugin.h, version_control_editor_plugin.cpp, property_selector.h, property_selector.cpp, project_export.h, project_export.cpp, editor_log.h, editor_log.cpp","scene/gui/video_player.cpp, scene/resources/video_stream.h, modules/gdnative/videodecoder/video_stream_gdnative.h, modules/gdnative/videodecoder/video_stream_gdnative.cpp","5813.2700000000004","","307.27999999999997","237.21000000000001","470.93000000000001","432.89999999999998","255.25999999999999","198.19","299.43000000000001","2921.6799999999998","690.38999999999999"
+"7","2023-09-04 21:43:14.000","9","en","2023-09-04 19:56:27.000","2023-09-04 21:43:14.000","É o sistema responsável por reproduzir os sons e seus efeitos","Criar uma instância de um novo som, ""adicionar"" um novo som. 
+
+Aqui a resposta: Audio effect é uma interface que define dois métodos process e process_silence que podem ser implementados por outras classes, aparenta ser utilizado para controlar/padronizar como os efeitos de som devem ser executados","AudioEffectDistortion usada para modificar/distorcer um som, alterando alguns atributos.
+AudioDriverManager permite gerenciar os drivers de audio, sendo possível adcionar novos drivers
+AudioStreamPlayer2D permite controlar os sons do player, dar play, stop, verificar se algum som está tocando...","audio_effect_distortion.h
+audio_server.h
+audio_stream_player_2d.h","particles_2d.cpp
+cpu_particles_2d.cpp","Core
+Multiplayer
+","Interface para definir como as particulas devem se comportar, com uma serie de métodos definidos nela","./godot/scene/gui/rich_text_effect.h
+./godot/scene/gui/rich_text_label.cpp
+./godot/scene/gui/rich_text_label.h
+./godot/scene/gui/rich_text_effect.cpp
+./godot/scene/register_scene_types.cpp
+./godot/main/tests/test_gui.cpp
+./godot/modules/visual_script/visual_script_property_selector.h
+./godot/editor/settings_config_dialog.h
+./godot/editor/plugins
+./godot/editor/editor_help.h
+./godot/editor/editor_log.h
+./godot/editor/property_selector.h
+./godot/editor/project_export.h
+./godot/editor/script_editor_debugger.cpp
+......... muitos mais ","video_player.cpp
+video_player.h
+talvez audio_server.h e audio_server.cpp caso não seja possível controlar a velocidade do som do vídeo diretamente no video_player","6405.1899999999996","","918.75","467.10000000000002","642.25","96.390000000000001","1683.8599999999999","552.90999999999997","420.43000000000001","1035.04","588.46000000000004"
+"8","2023-09-05 12:29:30.000","9","en","2023-09-05 10:43:04.000","2023-09-05 12:29:29.000","The audio subsystem allow to manage audio: mute, pause, start, control volume .... support 2D and 3D audio.
+","in the file, each audio frame is processed or changed depending on the chosen effect","1: audio affect: this can change the audio by amplifying it or chorus...
+2: audio manage: pause, controle volme, autoplay...
+3: 2D and 3D: play maudio depemding on distancs and layers","Effects: each effect is managed by a file in the ""effects"" directory
+Audio Manage: audio_stream_player.cpp and audio_stream_player.h
+2D 3D: audio_stream_player_2d.cpp , audio_stream_player_2d.h , audio_stream_player_3d.cpp, audio_stream_player_3d.h","particles_2d.h does not depend on any file from the visual effects subsystem","the core subsystem","allow the creation of small items in order to have a specific  visual effect. This functionality allow to configurate their speed, amount, lifetime, texture, ect.","Gameplay subsystem:
+gdscript_highlighter.h ; gdscript_highlighter.cpp; 
+
+editor:(many files) 
+editor_plugin_setting.cpp; ......
+
+scene:
+node_2d.cpp ; register_scene_types.cpp;  main/viewport.cpp
+
+core:
+code_completion.cpp ; variant.cpp
+
+ressources:
+editor_scene_exporter_gltf_plugin.cpp ; editor_scene_importer_gltf_plugin.cpp; ressoures/packed_scene.cpp ; ressoures/visual_shader.cpp
+
+
+other:
+recast/navigation_mesh_editor_plugin.h; recast/navigation_mesh_editor_plugin.cpp; test_shader_lang.cpp; tests/test_gui.cpp
+
+","scene/ressources/video_stream.h 
+control.h
+","6380.2700000000004","","995.54999999999995","346.63","675.25999999999999","207.58000000000001","123.33","58.68","314.88999999999999","2092.5","1565.8499999999999"
+"9","2023-09-11 19:21:59.000","9","en","2023-09-11 18:33:05.000","2023-09-11 19:21:59.000","Não consegui reproduzir os audios, mas foi possivel entender a forma como está organizado;","Não consegui determinar","literalEqual: verdadeiro ou falso
+value: valores
+key: chaves","audio_effect.h","Resources, scenes, editor core","Não sei","Pelo que deu a entender é uma especie de banco de dados onde possui chave e valor","não consegui determinar","core, audio","2933.9300000000003","","771.30999999999995","244.56999999999999","412.69999999999999","113.63","354.25999999999999","193.09999999999999","310.62","307.83999999999997","225.90000000000001"
+"10","2023-09-12 15:20:44.000","9","en","2023-09-12 12:53:16.000","2023-09-12 15:20:44.000","To handle all audio processing and interfacing within Godot, such as setting the device of which to send audio to, whether it's stereo audio, to spawn an audio process or even modulate audio.","Serves the process of an audio effect.","1. Driver interfaces
+Handles the specific implementations of audio for certain platforms, such as the `pulseaudio` platform for Linux.
+
+2. 3D emulation
+The emulation of 3D audio, such as binaural audio and conventional multi-speaker solutions such as 7.1.
+
+3. Effects
+Adds the possibility for users to add modulation in-engine to their assets, such as reverb.","For my first bullet point, `audio_driver_pulseaudio.cpp` was used as reference for a driver implementation. Whereas the second bullet point `audio_stream_player_3d.cpp` was my reference, specifically line 88 onwards. In the last bullet point I mentioned reverb as one of the effects, which can be found in `audio_stream_player_3d.cpp` and `audio_effect_reverb.cpp`.","The only dependent in the ""Visual Effects"" subsystem is `cpu_particles_2d.cpp`, aside from it's own implementation (`particles_2d.cpp`).","The ""Multiplayer"" and ""Core"" subsystems handle it, primarily the ""Multiplayer"" subsystem's ""webrtc"" module, where it depends on many functionalities from ""Core"".","Handles 2D particle effects, such as their lifespan, whether they're being emitted as well as their properties.","The file `rich_text_effect.h` seems to be the root of it all, from it's direct dependents only `register_scene_types.cpp` would undergo changes, however within the rich text functionality we also have `rich_text_label.cpp` (and the header) which would break the following files:
+
+- `test_gui.cpp`
+- `register_scene_types.cpp`
+- `project_export.h`
+- `script_editor_debugger.cpp`
+- `visual_script_property_selector.h`
+- `settings_config_dialog.h`
+- `editor_help.h`
+- `editor_log.h`
+- `property_selector.h`
+- `asset_library_editor_plugin.h`
+- `version_control_editor_plugin.h`
+","`audio_server.cpp` (and it's header), `video_player.cpp` (and it's header) as well as `video_stream.h` are the ones which would have to undergo changes to add such functionality.","8842.0900000000001","","577.20000000000005","1443.1400000000001","364.5","506.48000000000002","565.38999999999999","1112.76","500.30000000000001","2099.3200000000002","1673.0"
+"11","2023-09-18 12:10:13.000","9","en","2023-09-18 10:06:35.000","2023-09-18 12:10:13.000","Audio subsystem as its name indicates is responsible for audio used in the game. this includes playing audio, filtering audio, etc. It interacts with other subsystems (debugging, resources, front-end, editor, platform, scene, animation, SDKs, Renderer, and physics).","The file initializes the position where the frame starts, where frame ends (destination) and the number of frames to 0. It further set process_silence to return false. It also calls GDCLASS with reference and resource to be used.","1. Audio server, responsible for audio to be played including the buffer size needed, the starting frame, number of frames, etc.
+2. Audio stream, audio stream functionality is responsible for starting , stopping, playing the audio. It has other methods such as seek(), mix(), or getting the playback position.
+3. Audio driver core audio, responsible for to get core audio and  manage things such as start or stop playing, initialize Error, capturing errors, lock, unlock,etc.","Files are listed in my previous questions. audio_server.h, audio_stream.h, audio_effect.h, audio_filter_sw.h, audio_driver_coreaudio.h","register_scene_types.cpp, visibility_notifier_2d.cpp.","Multiplayer, (module but not sure)","This file initializes some variables to be used and define some core functions. Further it  loads a number of key functions.","rich_text_effect.h, rich_text_effect.cpp, rich_text_label.h,etc.","video_player.h, scene_string_names.h, string_name.h","7416.7899999999991","","262.49000000000001","3075.5799999999999","1089.01","147.66999999999999","557.60000000000002","431.80000000000001","485.11000000000001","325.44999999999999","1042.0799999999999"
+"12","2023-09-19 15:50:37.000","9","en","2023-09-19 13:49:17.000","2023-09-19 15:50:37.000","It provides sound for Animation, Scene, Platform, Physics, Editor, Core, Front-end and could be dubugged by Debugging.
+It is also included in Resources, and Scene.
+It would use SDKs, Renderer, Scene and some of function from Core and Editor
+","defines the instance and function inside to process the audio effect
+defines the AudioEffect as Resource, and related effect function
+it is the head file of audio_effect.cpp
+","audio_driver_coreaudio.cpp to init the audio dirver, and control the audio driver, etc.
+audio_stream_player.cpp to control the stream like pitch scale, auto play, and to get the status of the stream player now.
+audio_effect_stereo_enhance to enhance the audio effect.
+ 
+","audio_driver_coreaudio.cpp
+audio_stream_player.cpp
+audio_effect_stereo_enhance.cpp","particles_2d.cpp
+cpu_particles_2d.cpp","Multiplayer","defines the function of processing the effect. like coordinates, material
+adjust the effect like fps, scale","rich_text_label.h
+  scroll_bar.h
+  scroll_bar.cpp
+  register_scene_types.cpp
+rich_text_label.cpp
+  
+
+rich_text_effect.h
+rich_text_effect.cpp","video_player.cpp
+scene/scene_string_names.h 
+   scene_string_names.cpp   
+   servers/audio_server.h  
+audio_sever.cpp
+
+video_player.h
+scene/gui/control.h
+  base_button.h
+  basebutton.cpp
+  link_button.h
+  button.h
+  tool_button.h
+  toolbutton.cpp
+  label.h
+  tab_container.h
+  tab_container.cpp
+  tabs.cpp
+scene/resources/video_stream.h
+","7278.0499999999993","","1426.1099999999999","725.14999999999998","1086.8900000000001","100.05","293.56999999999999","536.61000000000001","205.66999999999999","529.25","2374.75"
+"13","2023-09-20 11:46:23.000","9","en","2023-09-20 10:50:50.000","2023-09-20 11:46:23.000","The audio subsystem is the engine to handle sound and it's related effects and controls. It provides drivers for different sound types","It provides  instances of different audio effects","handles sounds and provide options including increasing and reducing the volume of sound
+Provides drivers for different audio options
+Handles different sound effects such as stereo, distortion, etc
+","audio_effect_distortion.h, audio_effect_stereo_enhance.cpp, audio_driver_pulseaudio.cpp, audio_driver_coreaudio.cpp, audio_driver_coreaudio.h, audio_effect.cpp, audio_effect.h","core/rid.h
+scene/2d/node_2d.h
+scene/resources/texture.h","Core, and Multiplayer","It provides a 2D plane to move (with specific speed) particles from one point to another by updating relevant coordinate values. It allows shots that have lifetime to be fired by particles.","
+Files in core","scene/resources/video_stream.h
+servers/audio/audio_rb_resampler.h
+scene/gui/video_player.cpp","3332.25","","75.890000000000001","317.66000000000003","273.44999999999999","176.72999999999999","167.22","398.73000000000002","255.19","560.29999999999995","1107.0799999999999"
+"14","2023-09-28 14:26:21.000","9","en","2023-09-28 13:40:31.000","2023-09-28 14:26:21.000","The audio subsystems contains facility pertaining the to the playback and recording of audio files in different format and using different devices.","Not much to go on with this file. It appears to be a thin wrapper (a reference) over an audio effect, which can be used to process individual AudioFrames.","Playing midi files : able to load and play midi files using the alsamidi external library.
+Capturing audio : the audio_server class shows that there are facilities to record audio files.
+Lists all audio devices : the audio server allows choosing which device to use for playback and recording.","Playing midi : midi_driver_coremidi.cpp
+Recording : audio_driver_coreaudio.cpp
+Listing audio devices : audio_server.cpp","particles_2d.h appears to be dependent on :
+- rid.h in Core
+- node2d.h in Scene
+
+The source file indicates a potential dependency on texture.h in Scene also, but I couldn't see this link with the Moose system.","The WebRTC originates in the Multiplayer subsystem and also references Core.","It appears to be a class representing a particle effects instance. It allows configuration of various settings to emit particle effects, which are (usually) short-lived visual effects used within games to represent impact, or other visual special effects. You can configure the intensity, lifetime, number of particles, etc.","There appears to be two main functionalities related to rich text: rich text label and rich text effect.
+
+Rich text label appears to use the following files :
+- rich_text_effect
+- scroll_bar
+- gui
+
+It is also being used by the following files :
+- viewport_container
+- register_scene_types
+- test_gui
+
+If the functionality was to be removed, we should expect to modify the viewport_container and register_scene_types files, as well as update the tests.","You would probably need to modify video_player.cpp and .h, as well as video_stream.h as well as its implementation(s), which I can't seem to find using either Moose or running through the source code. I expect they might be in Front-End somewhere, but Moose stops showing me the links when I expand a subsystem.","2750.2500000000005","","34.359999999999999","153.47","265.25","168.15000000000001","277.54000000000002","304.94999999999999","295.01999999999998","620.16999999999996","631.34000000000003"
+

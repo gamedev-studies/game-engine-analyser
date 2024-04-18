@@ -1,0 +1,7 @@
+Name	Description
+UndTime	Time spent on architectural understanding tasks, in seconds.
+UndCorr	Correctness of architectural understanding tasks (e.g. the number of tasks correctly answered). 
+ModTime	Time spent on impact analysis tasks, in seconds.
+ModComp	Completeness of the impact analysis, obtained by dividing the number of correct files informed by the participant by the actual number of correct files. The maximum value is two because there are two impact analysis tasks.
+ModCorr	Correctness of the impact analysis, obtained by dividing the number of correct files informed by the participant by the number of files informed by the participant. The maximum value is two because there are two impact analysis tasks.
+ModRate	Modification rate, obtained by dividing the number of correct files informed by the participant by ModTime.
