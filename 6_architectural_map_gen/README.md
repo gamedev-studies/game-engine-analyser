@@ -1,10 +1,16 @@
 # Generating a Moose model for game engines
 By Gabriel C. Ullmann, Yann-Gaël Guéhéneuc, Fabio Petrillo, Cristiano Politowski, 2022-2023.
 
-## How to do it
+## Initial setup
 - Download Pharo Laucher: https://pharo.org/download.
 - Open Pharo Laucher, click "new" and create a new Moose 10 image.
 - Launch your Moose 10 image.
+
+**ATTENTION**: the instructions below show how one can manually upload the outputs from step 5 into a Pharo image and visualise it with Moose. Fortunately, over the last few months we have developed an easier way to do that: [Bolée] (https://github.com/gamedev-studies/bolee). Bolée is a package which can be installed in Pharo and provides you a UI for uploading the outputs from step 5 and do model generation and visualisation. 
+
+While Bolée automates most of the operations described below, we will keep the text here because it provides insights on how things used to work before we came up with a UI to accelerate the process. However, we STRONGLY recommend you to install Bolée , read its documentation and use it for executing the entire step 6, since it decreases the possibility of human error when inputing the data (and it looks much cooler!).
+
+## How to use it
 - On the top menu, go to Browse > Iceberg, click Add > Clone from Github.com and input the necessary information for the Famix-Cpp repo: https://github.com/moosetechnology/Famix-Cpp.
 - After adding it, right click it on the Iceberg list, select Metacello > Install Baseline (Default) for Famix-Cpp. This will install the necessary dependencies.
 - Wait for the dependencies to be installed. This may take several minutes. 
@@ -55,4 +61,4 @@ self roassalCanvas pdfExporter noFixedShapes; export.
 # Extra
 You will also find in this folder:
 - The Python code to generate a include heatmap (gen_heatmap.py).
-- JavaScript code you can use to count edges from an SVG architectural map (count_edges.js).
+- Some other non-Moose visualisations we have been experimenting with, such as Chord and Sankey diagrams
